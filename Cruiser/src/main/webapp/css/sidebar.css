@@ -1,0 +1,45 @@
+div.flex-dashboard {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+sidebar {
+    display: block;
+    height: 100%;
+    width: 300px;
+    background-color: #112b35;
+}
+
+main {
+    display: block;
+    height: 100%;
+    background-color: #ccc;
+    width: calc(100% - 300px);
+}
+
+.flex-dashboard header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    background-color: #ffffff;
+    padding: 0 30px;
+    border-bottom: 1px solid #112b35;
+}
+
+sidebar .sidebar-tittle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #1C3D4C;
+}
+
+sidebar .sidebar-tittle img {
+    height: 80px;
+    width: 80px;
+}
