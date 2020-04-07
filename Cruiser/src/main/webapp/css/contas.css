@@ -1,0 +1,30 @@
+#mainContent{
+    background-color: snow;
+}
+
+
+
+form input{ 
+    background-color: #cccccc;
+    height: 30px;
+    margin: 5px;
+    margin-left: 10px;
+    color: #112b35;
+    width: 100%
+}
+
+form select{
+    background-color: #cccccc;
+    height: 30px;
+    margin: 5px;
+    margin-left: 30px;
+    color: #112b35;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%
+}
+
+
+

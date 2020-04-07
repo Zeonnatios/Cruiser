@@ -22,7 +22,7 @@ body {
     display: block;
 }
 
-label {
+.form-label-group {
     margin-top: 2%;
     color: yellow;
 }

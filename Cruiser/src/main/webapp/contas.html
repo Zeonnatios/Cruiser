@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TADES - CONTAS</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome-->
+        <link rel="stylesheet" href="libs/fontawesome-free-5.13.0-web/css/all.min.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="CSS/all.css">
+
+    </head>
+
+    <body>
+
+        <div class="flex-dashboard">
+
+            <!-- SIDEBAR -->
+            <sidebar id="sidebar">
+
+                <div class="sidebar-tittle">
+                    <img src="imagens/LOGO_CRUISER_02.png" alt="TADES_logo">
+                </div>
+
+                <!-- MENU -->
+                <div class="menu">
+
+                    <ul>
+
+                        <li class="foto-user">
+                            <i class="fas fa-user fa-2x "></i>
+                            <h4>Seu jorge</h4>
+                            <p>Departamento de TI</p>
+                            <p>Matriz</p>
+                        </li>
+
+
+                        <li>
+                            <a href="# " class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
+                        </li>
+
+                        <li>
+                            <a href="# "><i class="fas fa-user-friends "></i> CONTAS</a>
+                        </li>
+
+                        <li class="drop-list">
+                            <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
+                            <ul>
+                                <li><a href=""><i class="fas fa-circle"></i> Carrinho</a></li>
+                                <li><a href=""><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
+                                <li><a href=""><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="# "><i class="fas fa-suitcase "></i> PRODUTOS</a>
+                        </li>
+
+                        <li>
+                            <a href="# "><i class="fas fa-user "></i> CLIENTES</a>
+                        </li>
+
+
+                        <li class="drop-list">
+                            <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
+                            <ul>
+                                <li><a href=""><i class="fas fa-circle"></i> Diário</a></li>
+                                <li><a href=""><i class="fas fa-circle"></i> Mensal</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="# "><i class="fas fa-globe-americas "></i> FILIAIS</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </sidebar>
+
+            <main id="mainContent">
+
+                <!-- HEADER -->
+                <header>
+                    <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                    <h2><i class="fas fa-users"></i>  CONTAS</h2>
+                </header>
+
+                <form action=" " method="post">
+
+                    <div>
+                        <label for="idcampo">id usuário:</label>
+                        <input type="number" id="idcampo"/>
+                    </div>
+                    <div>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome"/>
+                    </div>
+                    <div>
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha"/>
+                    </div>
+                    <div>
+                        Loja:
+                        <select name="Loja">
+                            <option>São Paulo</option>
+                            <option>Recife</option>
+                            <option>Curitiba</option>
+                            <option>Belo Horizonte</option>
+                        </select>
+                    </div>
+                    <div>
+                        Departamento:
+                        <select name="departamento">
+                            <option>Marketing/Produtos</option>
+                            <option>Vendas</option>
+                            <option>Tecnologia</option>
+                            <option>Gerência</option>
+                            <option>Diretoria</option>
+                        </select>
+                    </div>
+                    <div class="botao-limpar">
+                        <button type="reset">Limpar</button>
+                    </div>
+                    <div class="botao-salvar">
+                        <button type="submit">Salvar</button>
+                    </div>
+                    </div>
+                    </body>
+                    </html>
+
+
+
