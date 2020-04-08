@@ -5,7 +5,7 @@ div.flex-dashboard {
     width: 100%;
 }
 
-sidebar {
+#sidebar {
     display: block;
     height: 100%;
     width: 300px;
@@ -26,8 +26,8 @@ sidebar .sidebar-tittle {
 }
 
 sidebar .sidebar-tittle img {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 210px;
 }
 
 
@@ -65,7 +65,7 @@ sidebar::-webkit-scrollbar-thumb {
     flex-direction: column;
     align-items: initial;
     justify-content: initial;
-    height: 100px;
+    height: 90px;
     background-color: #ffffff;
     border-bottom: 1px solid #112b35;
 }
@@ -89,40 +89,32 @@ sidebar::-webkit-scrollbar-thumb {
 
 /* Menu css */
 
+
+/* CSS LISTAS e LINKS DA LISTA*/
+
 div.menu ul {
     list-style-type: none;
 }
 
 div.menu ul li {
-    padding: 10px 20px;
+    padding: 12px 20px;
     width: 100%;
 }
 
 div.menu ul li a {
     color: #BCBCB8;
     text-decoration: none;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
 div.menu ul li a:hover {
     color: yellow;
 }
 
-div.menu .foto-user {
-    padding: 10px 0px;
-    width: 100%;
-    text-align: center;
-    color: #BCBCB8;
-}
 
-div.menu .foto-user h4 {
-    font-size: 16px;
-    margin: 0;
-}
-
-div.menu .foto-user p {
-    font-size: 12px;
-    margin: 0;
-}
+/*  Aparecer lista dentro da lista */
 
 div.menu ul ul {
     display: none;
@@ -132,6 +124,35 @@ div.menu ul ul {
 div.menu ul li.tap ul {
     width: 300px;
     display: block;
+}
+
+
+/* FOTO USUARIO CSS*/
+
+div.menu .foto-user {
+    padding: 10px 0px;
+    width: 100%;
+    text-align: center;
+    color: #BCBCB8;
+}
+
+div.menu .foto-user h4 {
+    font-size: 15px;
+    margin: 0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.menu .foto-user p {
+    font-size: 12px;
+    margin: 0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.menu .foto-user img {
+    width: 96px;
+    padding: 5px 0;
 }
 
 
