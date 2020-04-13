@@ -16,9 +16,40 @@ div.campoBotoes {
     text-transform: uppercase;
     font-size: 12px;
     border: 0;
+    margin-bottom: 15px;
 }
 
 .botao:hover {
     color: #fff;
     background-color: #1C3D4C;
+}
+
+.table .thead-dark th {
+    background-color: #112b35;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.tableScrow .table{
+    padding-top: 10px;
+}
+
+.botoesTabela .botaoEditar{
+    background-color: #3366ff;
+    width: 25px;
+    height: 30px;
+    border: 0;
+    color: white;
+    align-self: center;
+    position: relative;
+}
+
+label{
+    font-weight: bold;
+}
+
+.titulotabelas{
+    font-size: 15px;
+    padding-top: 20px;
 }

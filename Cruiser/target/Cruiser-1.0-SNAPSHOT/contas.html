@@ -43,7 +43,7 @@
 
 
                         <li>
-                            <a href="home.html " class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
+                            <a href="home.html" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
                         </li>
 
                         <li>
@@ -60,24 +60,24 @@
                         </li>
 
                         <li>
-                            <a href="# "><i class="fas fa-suitcase "></i> PRODUTOS</a>
+                            <a href="produtos.html"><i class="fas fa-suitcase "></i> PRODUTOS</a>
                         </li>
 
                         <li>
-                            <a href="# "><i class="fas fa-user "></i> CLIENTES</a>
+                            <a href="clientes.html "><i class="fas fa-user "></i> CLIENTES</a>
                         </li>
 
 
                         <li class="drop-list">
                             <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href=""><i class="fas fa-circle"></i> Diário</a></li>
+                                <li><a href="diario.html"><i class="fas fa-circle"></i> Diário</a></li>
                                 <li><a href=""><i class="fas fa-circle"></i> Mensal</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="# "><i class="fas fa-globe-americas "></i> FILIAIS</a>
+                            <a href="filiais.html"><i class="fas fa-globe-americas "></i> FILIAIS</a>
                         </li>
 
                     </ul>
@@ -110,25 +110,33 @@
                             </div>
                         </div>
 
-                        <!-- Nome Completo-->
+                        <!-- NOME COMPLETO -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Nome Completo: </label>
+                            <label class="col-sm-2 col-form-label">NOME: </label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="inputIDUser" placeholder="Nome Completo" autofocus>
+                                <input type="text" class="form-control" id="inputNameUser" placeholder="Nome" autofocus>
                             </div>
                         </div>
 
-                        <!-- Senha-->
+                        <!-- EMAIL DE ACESSO -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Senha: </label>
+                            <label class="col-sm-2 col-form-label">EMAIL: </label>
+                            <div class="col-lg-10">
+                                <input type="email" class="form-control" id="inputEmailUser" placeholder="Email para acesso ao sistema">
+                            </div>
+                        </div>
+
+                        <!-- SENHA -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">SENHA: </label>
                             <div class="col-lg-10">
                                 <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
                             </div>
                         </div>
 
-                        <!-- Loja -->
+                        <!-- LOJA -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Loja: </label>
+                            <label class="col-sm-2 col-form-label">LOJA: </label>
                             <div class="col-lg-10">
                                 <select class="form-control" name="Loja">
                                     <option>Selecione:</option>
@@ -140,11 +148,11 @@
                             </div>
                         </div>
 
-                        <!-- Departamento -->
+                        <!-- DEPARTAMENTO -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Departamento: </label>
+                            <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
                             <div class="col-lg-10">
-                                <select class="form-control" name="Loja" name="departamento">
+                                <select class="form-control" name="Departamento">
                                     <option>Selecione:</option>
                                     <option>Marketing/Produtos</option>
                                     <option>Vendas</option>
@@ -160,13 +168,51 @@
                             <button class="botao" type="button">Limpar</button>
 
                             <!-- Botao Salvar-->
-
                             <button class="botao" type="button">Salvar</button>
                         </div>
 
                     </form>
                     <!-- Fim form-->
-
+                    
+                    <!-- TABELA -->
+                    <div class="tableScrow" style="overflow: auto; height: 150px; width: 1030px"><table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Loja</th>
+                                    <th scope="col">Departamento</th>
+                                    <th scope="col">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">001</th>
+                                    <td>Hanz Zimmerman</td>
+                                    <td>Recife</td>
+                                    <td>Marketing</td>
+                                    <td><div class="botoesTabela">
+                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">002</th>
+                                    <td>Jacob Malman</td>
+                                    <td>São Paulo</td>
+                                    <td>TI</td>
+                                    <td><div class="botoesTabela">
+                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">003</th>
+                                    <td>Larry Sullivan</td>
+                                    <td>Curitiba</td>
+                                    <td>Vendas</td>
+                                    <td><div class="botoesTabela">
+                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <!-- Fim main conteúdo-->
 
