@@ -1,0 +1,33 @@
+.insere-produto  {
+    float: left; 
+    display: inline;
+    clear: left;
+}
+
+.insere-cliente {
+    float: right;
+    display: inline;
+    clear: right;
+}
+
+.insere-produto .col-lg-10 input{
+    width: 300px;
+}
+
+.insere-produto .campoBotoes{
+    float: left;
+    padding-left: 300px;
+}
+
+.insere-cliente .col-lg-10 input{
+    width: 300px;
+}
+
+.insere-cliente .campoBotoes{
+    float: right;
+    padding-right: 100px;
+}
+
+.tabela-carrinho .tableScrow{
+    padding-top: 40px;
+}
