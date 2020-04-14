@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TADES - DIÁRIO</title>
+        <title>TADES - MENSAL</title>
 
         <!-- Icon Logo-->
         <link rel="icon" href="imagens/LOGO_CRUISER.png">
@@ -71,8 +71,8 @@
                         <li class="drop-list">
                             <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="#"><i class="fas fa-circle"></i> Diário</a></li>
-                                <li><a href="mensal.html"><i class="fas fa-circle"></i> Mensal</a></li>
+                                <li><a href="diario.html"><i class="fas fa-circle"></i> Diário</a></li>
+                                <li><a href=""><i class="fas fa-circle"></i> Mensal</a></li>
                             </ul>
                         </li>
 
@@ -94,7 +94,7 @@
                 <!-- HEADER -->
                 <header>
                     <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
-                    <h2><i class="fab fa-sellsy"></i> DIÁRIO</h2>
+                    <h2><i class="fab fa-sellsy"></i> MENSAL</h2>
                 </header>
 
                 <!-- MAIN conteúdo -->
@@ -102,19 +102,16 @@
 
                     <form action="" method="POST">
 
-                        <!-- DATA DA VENDA  -->
+                        <!-- MÊS DA VENDA  -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">DATA: </label>
+                            <label class="col-sm-2 col-form-label">MÊS: </label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="inputDateVenda" placeholder="00/00/0000">
+                                <input type="text" class="form-control" id="inputMesVenda" placeholder="00">
                             </div>
                         </div>
                         
                         <!-- Botao limpar-->
                         <div class="campoBotoes">
-                            <button class="botao" type="button">Limpar</button>
-
-                            <!-- Botao Salvar-->
                             <button class="botao" type="button">Pesquisar</button>
                         </div>
 
@@ -124,7 +121,7 @@
                     <!-- TITULO TABELA -->
                     <label class="titulotabelas">PRODUTOS MAIS VENDIDOS</label>
                     
-                    <!-- TABELA PRODUTOS MAIS VENDIDOS DIARIO -->
+                    <!-- TABELA PRODUTOS MAIS VENDIDOS MENSAL -->
                     <div class="tableScrow" style="overflow: auto; height: 180px; width: 1030px"><table class="table">
                             <thead class="thead-dark">
                                 <tr>
@@ -164,14 +161,14 @@
                     <!-- TITULO TABELA -->
                     <label class="titulotabelas">VENDAS POR FILIAL</label>
                     
-                    <!-- TABELA VENDAS POR FILIAL DIARIO -->
+                    <!-- TABELA VENDAS POR FILIAL MENSAL -->
                     <div class="tableScrow" style="overflow: auto; height: 180px; width: 1030px"><table class="table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Cidade</th>
                                     <th scope="col">Total de Produtos</th>
-                                    <th scope="col">Total Diário</th>
+                                    <th scope="col">Total Mensal</th>
                                 </tr>
                             </thead>
                             <tbody>
