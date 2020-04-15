@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TADES - CONTAS</title>
+    <title>TADES - FILIAIS</title>
 
     <!-- Icon Logo-->
     <link rel="icon" href="../imagens/LOGO_CRUISER.png">
@@ -35,19 +35,19 @@
                 <ul>
 
                     <li class="foto-user">
-                        <img src="imagens/AVATAR_CRUISER01.png" alt="">
-                        <h4>Jorgezada</h4>
+                        <img src="../imagens/AVATAR_CRUISER02.png" alt="">
+                        <h4>Juca</h4>
                         <p>Departamento de TI</p>
                         <p>Matriz</p>
                     </li>
 
 
                     <li>
-                        <a href="home.html" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
+                        <a href="home.html " class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
                     </li>
 
                     <li>
-                        <a href="#"><i class="fas fa-user-friends "></i> CONTAS</a>
+                        <a href="contas.html"><i class="fas fa-user-friends "></i> CONTAS</a>
                     </li>
 
                     <li class="drop-list">
@@ -64,7 +64,7 @@
                     </li>
 
                     <li>
-                        <a href="clientes.html "><i class="fas fa-user "></i> CLIENTES</a>
+                        <a href="clientes.html"><i class="fas fa-user "></i> CLIENTES</a>
                     </li>
 
 
@@ -72,12 +72,12 @@
                         <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
                         <ul>
                             <li><a href="diario.html"><i class="fas fa-circle"></i> Diário</a></li>
-                            <li><a href="mensal.html"><i class="fas fa-circle"></i> Mensal</a></li>
+                            <li><a href="#"><i class="fas fa-circle"></i> Mensal</a></li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="filiais.html"><i class="fas fa-globe-americas "></i> FILIAIS</a>
+                        <a href="# "><i class="fas fa-globe-americas "></i> FILIAIS</a>
                     </li>
 
                 </ul>
@@ -87,14 +87,13 @@
         </sidebar>
         <!-- Fim sidebar-->
 
-
         <!-- MAIN-->
         <main id="mainContent">
 
             <!-- HEADER -->
             <header>
                 <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
-                <h2><i class="fas fa-users"></i> CONTAS</h2>
+                <h2><i class="fas fa-cogs"></i> FILIAIS</h2>
             </header>
 
             <!-- MAIN conteúdo -->
@@ -103,66 +102,36 @@
                 <!-- container-->
                 <div class="container">
 
-                    <!-- FORM CADASTRAR USUÁRIO-->
                     <form action="" method="POST">
-                        <!-- ID USUÁRIO  -->
+                        <!-- ID FILIAL  -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
+                            <label class="col-sm-2 col-form-label">ID FILIAL: </label>
                             <div class="col-lg-10">
-                                <input type="number" class="form-control" id="inputIDUser" placeholder="ID AUTOMÁTICO" disabled>
+                                <input type="number" class="form-control" id="inputIDFilial" placeholder="ID AUTOMÁTICO" disabled>
                             </div>
                         </div>
 
-                        <!-- NOME COMPLETO -->
+                        <!-- CIDADE FILIAL-->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">NOME: </label>
+                            <label class="col-sm-2 col-form-label">CIDADE: </label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="inputNameUser" placeholder="Nome" autofocus>
+                                <input type="text" class="form-control" id="inputCidadeFilial" placeholder="Cidade" autofocus>
                             </div>
                         </div>
 
-                        <!-- EMAIL DE ACESSO -->
+                        <!-- ENDEREÇO FILIAL -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">EMAIL: </label>
+                            <label class="col-sm-2 col-form-label">ENDEREÇO: </label>
                             <div class="col-lg-10">
-                                <input type="email" class="form-control" id="inputEmailUser" placeholder="Email para acesso ao sistema">
+                                <input type="text" class="form-control" id="inputEnderecoFilial" placeholder="Endereço">
                             </div>
                         </div>
 
-                        <!-- SENHA -->
+                        <!-- TELEFONE FILIAL -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">SENHA: </label>
+                            <label class="col-sm-2 col-form-label">TELEFONE: </label>
                             <div class="col-lg-10">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
-                            </div>
-                        </div>
-
-                        <!-- LOJA -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">LOJA: </label>
-                            <div class="col-lg-10">
-                                <select class="form-control" name="Loja">
-                                    <option>Selecione:</option>
-                                    <option>São Paulo</option>
-                                    <option>Recife</option>
-                                    <option>Curitiba</option>
-                                    <option>Belo Horizonte</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- DEPARTAMENTO -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
-                            <div class="col-lg-10">
-                                <select class="form-control" name="Departamento">
-                                    <option>Selecione:</option>
-                                    <option>Marketing/Produtos</option>
-                                    <option>Vendas</option>
-                                    <option>Tecnologia</option>
-                                    <option>Gerência</option>
-                                    <option>Diretoria</option>
-                                </select>
+                                <input type="text" class="form-control" id="inputTelFilial" placeholder="Telefone">
                             </div>
                         </div>
 
@@ -177,10 +146,8 @@
                     </form>
                     <!-- Fim form-->
 
-
                     <!-- TITULO TABELA -->
                     <label class="titulotabelas">TABELA DE FILIAIS</label>
-
 
                     <!-- TABELA -->
                     <div class="tableScrow">
@@ -188,18 +155,18 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Loja</th>
-                                    <th scope="col">Departamento</th>
+                                    <th scope="col">Cidade</th>
+                                    <th scope="col">Endereço</th>
+                                    <th scope="col">Telefone</th>
                                     <th scope="col">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">001</th>
-                                    <td>Hanz Zimmerman</td>
-                                    <td>Recife</td>
-                                    <td>Marketing</td>
+                                    <td>São Paulo</td>
+                                    <td>Rua Morumbi, 232</td>
+                                    <td>30313030</td>
                                     <td>
                                         <div class="botoesTabela">
                                             <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
@@ -208,9 +175,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">002</th>
-                                    <td>Jacob Malman</td>
-                                    <td>São Paulo</td>
-                                    <td>TI</td>
+                                    <td>Salvador</td>
+                                    <td>Rua do Forte, 1010</td>
+                                    <td>42191919</td>
                                     <td>
                                         <div class="botoesTabela">
                                             <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
@@ -219,43 +186,33 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">003</th>
-                                    <td>Larry Sullivan</td>
                                     <td>Curitiba</td>
-                                    <td>Vendas</td>
+                                    <td>Rua do Batel, 114</td>
+                                    <td>32320000</td>
                                     <td>
                                         <div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                    </div>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">003</th>
-                                    <td>Larry Sullivan</td>
-                                    <td>Curitiba</td>
-                                    <td>Vendas</td>
-                                    <td>
-                                        <div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                    </div>
+                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">003</th>
-                                    <td>Larry Sullivan</td>
-                                    <td>Curitiba</td>
-                                    <td>Vendas</td>
+                                    <th scope="row">004</th>
+                                    <td>Belo Horizonte</td>
+                                    <td>Avenida do Contorno, 222</td>
+                                    <td>31210908</td>
                                     <td>
                                         <div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                    </div>
+                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <!-- Fim tableScrow-->
+                    <!-- fim tableScrow-->
 
                 </div>
-                <!-- Fim Container-->
-
+                <!-- fim container-->
             </div>
             <!-- Fim main conteúdo-->
 

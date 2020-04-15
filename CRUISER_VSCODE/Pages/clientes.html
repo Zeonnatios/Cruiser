@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TADES - CONTAS</title>
+    <title>TADES - CLIENTES</title>
 
     <!-- Icon Logo-->
     <link rel="icon" href="../imagens/LOGO_CRUISER.png">
@@ -35,19 +35,19 @@
                 <ul>
 
                     <li class="foto-user">
-                        <img src="imagens/AVATAR_CRUISER01.png" alt="">
-                        <h4>Jorgezada</h4>
-                        <p>Departamento de TI</p>
+                        <img src="../imagens/AVATAR_CRUISER02.png" alt="">
+                        <h4>Joca</h4>
+                        <p>Departamento de vendas</p>
                         <p>Matriz</p>
                     </li>
 
 
                     <li>
-                        <a href="home.html" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
+                        <a href="home.html " class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
                     </li>
 
                     <li>
-                        <a href="#"><i class="fas fa-user-friends "></i> CONTAS</a>
+                        <a href="contas.html"><i class="fas fa-user-friends "></i> CONTAS</a>
                     </li>
 
                     <li class="drop-list">
@@ -64,7 +64,7 @@
                     </li>
 
                     <li>
-                        <a href="clientes.html "><i class="fas fa-user "></i> CLIENTES</a>
+                        <a href="# "><i class="fas fa-user "></i> CLIENTES</a>
                     </li>
 
 
@@ -87,84 +87,65 @@
         </sidebar>
         <!-- Fim sidebar-->
 
-
         <!-- MAIN-->
         <main id="mainContent">
 
             <!-- HEADER -->
             <header>
                 <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
-                <h2><i class="fas fa-users"></i> CONTAS</h2>
+                <h2><i class="fas fa-user"></i> CLIENTES</h2>
             </header>
 
             <!-- MAIN conteúdo -->
             <div class="main-content">
 
-                <!-- container-->
+
+                <!-- container -->
                 <div class="container">
 
-                    <!-- FORM CADASTRAR USUÁRIO-->
+
+                    <!-- Form inserir produtos-->
                     <form action="" method="POST">
-                        <!-- ID USUÁRIO  -->
+                        <!-- ID CLIENTE  -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
+                            <label class="col-sm-2 col-form-label">ID CLIENTE: </label>
                             <div class="col-lg-10">
-                                <input type="number" class="form-control" id="inputIDUser" placeholder="ID AUTOMÁTICO" disabled>
+                                <input type="number" class="form-control" id="inputIDCli" placeholder="ID AUTOMÁTICO" disabled>
                             </div>
                         </div>
 
-                        <!-- NOME COMPLETO -->
+                        <!-- NOME CLIENTE -->
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">NOME: </label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="inputNameUser" placeholder="Nome" autofocus>
+                                <input type="text" class="form-control" id="inputNomeCli" placeholder="Nome" autofocus>
                             </div>
                         </div>
 
-                        <!-- EMAIL DE ACESSO -->
+                        <!-- CPF CLIENTE -->
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">CPF: </label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputCPFCli" placeholder="CPF">
+                            </div>
+                        </div>
+
+                        <!-- EMAIL CLIENTE -->
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">EMAIL: </label>
                             <div class="col-lg-10">
-                                <input type="email" class="form-control" id="inputEmailUser" placeholder="Email para acesso ao sistema">
+                                <input type="email" class="form-control" id="inputEmailCli" placeholder="E-mail">
                             </div>
                         </div>
 
-                        <!-- SENHA -->
+                        <!-- TELEFONE CLIENTE -->
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">SENHA: </label>
+                            <label class="col-sm-2 col-form-label">TELEFONE: </label>
                             <div class="col-lg-10">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                                <input type="text" class="form-control" id="inputTelCli" placeholder="Telefone">
                             </div>
                         </div>
 
-                        <!-- LOJA -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">LOJA: </label>
-                            <div class="col-lg-10">
-                                <select class="form-control" name="Loja">
-                                    <option>Selecione:</option>
-                                    <option>São Paulo</option>
-                                    <option>Recife</option>
-                                    <option>Curitiba</option>
-                                    <option>Belo Horizonte</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- DEPARTAMENTO -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
-                            <div class="col-lg-10">
-                                <select class="form-control" name="Departamento">
-                                    <option>Selecione:</option>
-                                    <option>Marketing/Produtos</option>
-                                    <option>Vendas</option>
-                                    <option>Tecnologia</option>
-                                    <option>Gerência</option>
-                                    <option>Diretoria</option>
-                                </select>
-                            </div>
-                        </div>
 
                         <!-- Botao limpar-->
                         <div class="campoBotoes">
@@ -177,10 +158,8 @@
                     </form>
                     <!-- Fim form-->
 
-
                     <!-- TITULO TABELA -->
-                    <label class="titulotabelas">TABELA DE FILIAIS</label>
-
+                    <label class="titulotabelas">VENDAS POR FILIAL</label>
 
                     <!-- TABELA -->
                     <div class="tableScrow">
@@ -189,17 +168,19 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Nome</th>
-                                    <th scope="col">Loja</th>
-                                    <th scope="col">Departamento</th>
+                                    <th scope="col">CPF</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Telefone</th>
                                     <th scope="col">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">001</th>
-                                    <td>Hanz Zimmerman</td>
-                                    <td>Recife</td>
-                                    <td>Marketing</td>
+                                    <th scope="row">10</th>
+                                    <td>Josenildo</td>
+                                    <td>09034200897</td>
+                                    <td>Josenildo@gmail.com</td>
+                                    <td>988768888</td>
                                     <td>
                                         <div class="botoesTabela">
                                             <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
@@ -207,10 +188,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">002</th>
-                                    <td>Jacob Malman</td>
-                                    <td>São Paulo</td>
-                                    <td>TI</td>
+                                    <th scope="row">11</th>
+                                    <td>Marquito</td>
+                                    <td>2921029888</td>
+                                    <td>Marquito@ratinho.com</td>
+                                    <td>878768058</td>
                                     <td>
                                         <div class="botoesTabela">
                                             <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
@@ -218,43 +200,24 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">003</th>
-                                    <td>Larry Sullivan</td>
-                                    <td>Curitiba</td>
-                                    <td>Vendas</td>
+                                    <th scope="row">12</th>
+                                    <td>Bolanha</td>
+                                    <td>30303011200</td>
+                                    <td>Bolanhas@gmail.com</td>
+                                    <td>884848489</td>
                                     <td>
                                         <div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                    </div>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">003</th>
-                                    <td>Larry Sullivan</td>
-                                    <td>Curitiba</td>
-                                    <td>Vendas</td>
-                                    <td>
-                                        <div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                    </div>
-                                </tr>
-                                <tr>
-                                    <th scope="row">003</th>
-                                    <td>Larry Sullivan</td>
-                                    <td>Curitiba</td>
-                                    <td>Vendas</td>
-                                    <td>
-                                        <div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                    </div>
+                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <!-- Fim tableScrow-->
+                    <!-- fim tableScrow-->
 
                 </div>
-                <!-- Fim Container-->
+                <!-- fim container-->
 
             </div>
             <!-- Fim main conteúdo-->

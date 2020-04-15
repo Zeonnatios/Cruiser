@@ -100,119 +100,162 @@
                 <!-- MAIN conteúdo -->
                 <div class="main-content">
 
-                    <form action="" method="POST">
+                    <!-- container-->
+                    <div class="container">
 
-                        <!-- ID USUÁRIO  -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
-                            <div class="col-lg-10">
-                                <input type="number" class="form-control" id="inputIDUser" placeholder="ID AUTOMÁTICO" disabled>
+                        <!-- FORM CADASTRAR USUÁRIO-->
+                        <form action="" method="POST">
+                            <!-- ID USUÁRIO  -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
+                                <div class="col-lg-10">
+                                    <input type="number" class="form-control" id="inputIDUser" placeholder="ID AUTOMÁTICO" disabled>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- NOME COMPLETO -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">NOME: </label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="inputNameUser" placeholder="Nome" autofocus>
+                            <!-- NOME COMPLETO -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">NOME: </label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="inputNameUser" placeholder="Nome" autofocus>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- EMAIL DE ACESSO -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">EMAIL: </label>
-                            <div class="col-lg-10">
-                                <input type="email" class="form-control" id="inputEmailUser" placeholder="Email para acesso ao sistema">
+                            <!-- EMAIL DE ACESSO -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">EMAIL: </label>
+                                <div class="col-lg-10">
+                                    <input type="email" class="form-control" id="inputEmailUser" placeholder="Email para acesso ao sistema">
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- SENHA -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">SENHA: </label>
-                            <div class="col-lg-10">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                            <!-- SENHA -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">SENHA: </label>
+                                <div class="col-lg-10">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- LOJA -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">LOJA: </label>
-                            <div class="col-lg-10">
-                                <select class="form-control" name="Loja">
-                                    <option>Selecione:</option>
-                                    <option>São Paulo</option>
-                                    <option>Recife</option>
-                                    <option>Curitiba</option>
-                                    <option>Belo Horizonte</option>
-                                </select>
+                            <!-- LOJA -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">LOJA: </label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" name="Loja">
+                                        <option>Selecione:</option>
+                                        <option>São Paulo</option>
+                                        <option>Recife</option>
+                                        <option>Curitiba</option>
+                                        <option>Belo Horizonte</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- DEPARTAMENTO -->
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
-                            <div class="col-lg-10">
-                                <select class="form-control" name="Departamento">
-                                    <option>Selecione:</option>
-                                    <option>Marketing/Produtos</option>
-                                    <option>Vendas</option>
-                                    <option>Tecnologia</option>
-                                    <option>Gerência</option>
-                                    <option>Diretoria</option>
-                                </select>
+                            <!-- DEPARTAMENTO -->
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" name="Departamento">
+                                        <option>Selecione:</option>
+                                        <option>Marketing/Produtos</option>
+                                        <option>Vendas</option>
+                                        <option>Tecnologia</option>
+                                        <option>Gerência</option>
+                                        <option>Diretoria</option>
+                                    </select>
+                                </div>
                             </div>
+
+                            <!-- Botao limpar-->
+                            <div class="campoBotoes">
+                                <button class="botao" type="button">Limpar</button>
+
+                                <!-- Botao Salvar-->
+                                <button class="botao" type="button">Salvar</button>
+                            </div>
+
+                        </form>
+                        <!-- Fim form-->
+
+
+                        <!-- TITULO TABELA -->
+                        <label class="titulotabelas">TABELA DE FILIAIS</label>
+
+
+                        <!-- TABELA -->
+                        <div class="tableScrow">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Loja</th>
+                                        <th scope="col">Departamento</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">001</th>
+                                        <td>Hanz Zimmerman</td>
+                                        <td>Recife</td>
+                                        <td>Marketing</td>
+                                        <td>
+                                            <div class="botoesTabela">
+                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">002</th>
+                                        <td>Jacob Malman</td>
+                                        <td>São Paulo</td>
+                                        <td>TI</td>
+                                        <td>
+                                            <div class="botoesTabela">
+                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">003</th>
+                                        <td>Larry Sullivan</td>
+                                        <td>Curitiba</td>
+                                        <td>Vendas</td>
+                                        <td>
+                                            <div class="botoesTabela">
+                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
+                                        </div>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">003</th>
+                                        <td>Larry Sullivan</td>
+                                        <td>Curitiba</td>
+                                        <td>Vendas</td>
+                                        <td>
+                                            <div class="botoesTabela">
+                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">003</th>
+                                        <td>Larry Sullivan</td>
+                                        <td>Curitiba</td>
+                                        <td>Vendas</td>
+                                        <td>
+                                            <div class="botoesTabela">
+                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
+                                        </div>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
+                        <!-- Fim tableScrow-->
 
-                        <!-- Botao limpar-->
-                        <div class="campoBotoes">
-                            <button class="botao" type="button">Limpar</button>
-
-                            <!-- Botao Salvar-->
-                            <button class="botao" type="button">Salvar</button>
-                        </div>
-
-                    </form>
-                    <!-- Fim form-->
-                    
-                    <!-- TABELA -->
-                    <div class="tableScrow" style="overflow: auto; height: 150px; width: 1030px"><table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Loja</th>
-                                    <th scope="col">Departamento</th>
-                                    <th scope="col">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">001</th>
-                                    <td>Hanz Zimmerman</td>
-                                    <td>Recife</td>
-                                    <td>Marketing</td>
-                                    <td><div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">002</th>
-                                    <td>Jacob Malman</td>
-                                    <td>São Paulo</td>
-                                    <td>TI</td>
-                                    <td><div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">003</th>
-                                    <td>Larry Sullivan</td>
-                                    <td>Curitiba</td>
-                                    <td>Vendas</td>
-                                    <td><div class="botoesTabela">
-                                            <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button></td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
+                    <!-- Fim Container-->
+
                 </div>
                 <!-- Fim main conteúdo-->
 
