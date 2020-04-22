@@ -11,13 +11,10 @@ public class Funcionario {
     private String email;
     private String senha;
     private String departamento;
+    private String status;
 
-    public Funcionario(int idFilial, String nome, String email, String senha, String departamento) {
-        this.idFilial = idFilial;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.departamento = departamento;
+    public Funcionario() {
+        
     }
 
     public int getIdFuncionario() {
@@ -68,6 +65,14 @@ public class Funcionario {
         this.departamento = departamento;
     }
     
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
     public void inserirFuncionario(){
         //IMPLEMENTAR
     }
@@ -80,12 +85,9 @@ public class Funcionario {
         //IMPLEMENTAR
     }
     
-    public void ativarFuncionario(int idFuncionario){
+    public void ativarInativarFuncionario(int idFuncionario){
         //IMPLEMENTAR
-    }
-    
-    public void inativarFuncionario(int idFuncionario){
-        //IMPLEMENTAR
+        //NAO É MELHOR SO USAR O GET E SET STATUS?
     }
     
     public boolean verificarLogin(){
