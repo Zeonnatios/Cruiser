@@ -1,1 +1,11 @@
+br\senac\tads\pi3\dao\FilialDao.class
+br\senac\tads\pi3\model\Filial.class
+br\senac\tads\pi3\model\Cliente.class
+br\senac\tads\pi3\model\Funcionario.class
+br\senac\tads\pi3\model\Itens.class
+br\senac\tads\pi3\model\Venda.class
+br\senac\tads\pi3\model\Produto.class
+br\senac\tads\pi3\dao\FuncionarioDao.class
 br\senac\tads\pi3\cruiser\LoginServlet.class
+br\senac\tads\pi3\dao\ClienteDao.class
+br\senac\tads\pi3\jdbc\ConexaoFactory.class
