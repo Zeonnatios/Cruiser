@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -21,16 +20,16 @@ public class FuncionarioDao {
 
     public void inserirFuncionario(Funcionario funcionario) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "INSERT INTO FUNCIONARIO(IDFILIAL, NOME, EMAIL, SENHA, "
-                + "DEPARTAMENTO, STATUS) VALUES (?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO FUNCIONARIO(NOME, EMAIL, SENHA, "
+                + "CIDADE, DEPARTAMENTO, STATUS) VALUES (?,?,?,?,?,?,?);";
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setInt(2, funcionario.getIdFilial()); //VAMOS DEFINIR MANUALMENTE?
-            stmt.setString(3, funcionario.getNome());
-            stmt.setString(4, funcionario.getEmail());
-            stmt.setString(5, funcionario.getSenha());
-            stmt.setString(6, funcionario.getDepartamento());
-            stmt.setString(7, funcionario.getStatus());
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getEmail());
+            stmt.setString(3, funcionario.getSenha());
+            stmt.setString(4, funcionario.getCidade());
+            stmt.setString(5, funcionario.getDepartamento());
+            stmt.setString(6, funcionario.getStatus());
             stmt.executeUpdate();
             //CONFIGURAR MENSAGEM DE ADICIONADO COM SUCESSO
 
@@ -50,10 +49,10 @@ public class FuncionarioDao {
             while (rs.next()) {
                 Funcionario funcionario = new Funcionario();
                 funcionario.setIdFuncionario(rs.getInt("IDFUNCIONARIO"));
-                funcionario.setIdFilial(rs.getInt("IDFILIAL"));
                 funcionario.setNome(rs.getString("NOME"));
                 funcionario.setEmail(rs.getString("EMAIL"));
                 funcionario.setSenha(rs.getString("SENHA"));
+                funcionario.setCidade(rs.getString("CIDADE"));
                 funcionario.setDepartamento(rs.getString("DEPARTAMENTO"));
                 funcionario.setStatus(rs.getString("STATUS"));
                 lista.add(funcionario);
@@ -73,10 +72,10 @@ public class FuncionarioDao {
                 + "SENHA = ?, DEPARTAMENTO = ?, STATUS = ? WHERE IDFUNCIONARIO = ?;";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, funcionario.getIdFilial());
-            stmt.setString(2, funcionario.getNome());
-            stmt.setString(3, funcionario.getEmail());
-            stmt.setString(4, funcionario.getSenha());
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getEmail());
+            stmt.setString(3, funcionario.getSenha());
+            stmt.setString(4, funcionario.getCidade());
             stmt.setString(5, funcionario.getDepartamento());
             stmt.setString(6, funcionario.getStatus());
             stmt.setInt(7, funcionario.getIdFuncionario());
@@ -101,7 +100,5 @@ public class FuncionarioDao {
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
-    }
-    
-    
+    }    
 }

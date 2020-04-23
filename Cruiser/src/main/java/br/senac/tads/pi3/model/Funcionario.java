@@ -6,12 +6,12 @@ package br.senac.tads.pi3.model;
  */
 public class Funcionario {
     private int idFuncionario;
-    private int idFilial;
     private String nome;
     private String email;
     private String senha;
+    private String cidade;
     private String departamento;
-    private String status;
+    private String status; //ADICIONAR NA TELA
 
     public Funcionario() {
         
@@ -25,12 +25,12 @@ public class Funcionario {
         this.idFuncionario = idFuncionario;
     }
 
-    public int getIdFilial() {
-        return idFilial;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setIdFilial(int idFilial) {
-        this.idFilial = idFilial;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public String getNome() {
@@ -73,25 +73,12 @@ public class Funcionario {
         this.status = status;
     }
     
-    public void inserirFuncionario(){
-        //IMPLEMENTAR
-    }
-    
-    public void editarFuncionario(){
-        //IMPLEMENTAR
-    }
-    
-    public void consultarFuncionario(){
-        //IMPLEMENTAR
-    }
-    
-    public void ativarInativarFuncionario(int idFuncionario){
-        //IMPLEMENTAR
-        //NAO É MELHOR SO USAR O GET E SET STATUS?
-    }
-    
-    public boolean verificarLogin(){
-        //IMPLEMENTAR
-        return true;
+    public void editarFuncionario(String nome, String email, String senha, String cidade, String departamento, String status){
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.cidade = cidade;
+        this.departamento = departamento;
+        this.status = status;
     }
 }

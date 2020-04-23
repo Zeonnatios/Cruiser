@@ -5,19 +5,14 @@ package br.senac.tads.pi3.model;
  * @author Sony
  */
 public class Filial {
+
     private int idFilial;
-    private String nome;
     private String cidade;
     private String telefone;
-    private String estado;
-    private String tipo;
+    private String tipo; //INSERIR TIPO NA TELA E RETIRAR ENDEREÇO
 
-    public Filial(String nome, String cidade, String telefone, String estado, String tipo) {
-        this.nome = nome;
-        this.cidade = cidade;
-        this.telefone = telefone;
-        this.estado = estado;
-        this.tipo = tipo;
+    public Filial() {
+
     }
 
     public int getIdFilial() {
@@ -26,14 +21,6 @@ public class Filial {
 
     public void setIdFilial(int idFilial) {
         this.idFilial = idFilial;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getCidade() {
@@ -52,14 +39,6 @@ public class Filial {
         this.telefone = telefone;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
     public String getTipo() {
         return tipo;
     }
@@ -67,16 +46,10 @@ public class Filial {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-    public void inserirFilial(){
-        //IMPLEMENTAR
-    }
-    
-    public void editarFilial(){
-        //IMPLEMENTAR
-    }
-    
-    public void consultarFilial(){
-        //IMPLEMENTAR
+
+    public void editarFilial(String cidade, String telefone, String tipo) {
+        this.cidade = cidade;
+        this.telefone = telefone;
+        this.tipo = tipo;
     }
 }
