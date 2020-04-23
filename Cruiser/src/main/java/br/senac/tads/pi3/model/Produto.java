@@ -11,11 +11,8 @@ public class Produto {
     private double preco;
     private boolean disponivel;
 
-    public Produto(String nome, int quantidade, double preco, boolean disponivel) {
-        this.nome = nome;
-        this.quantidade = quantidade;
-        this.preco = preco;
-        this.disponivel = disponivel;
+    public Produto() {
+     
     }
 
     public int getIdProduto() {
@@ -50,7 +47,7 @@ public class Produto {
         this.preco = preco;
     }
 
-    public boolean isDisponivel() {
+    public boolean getDisponivel() {
         return disponivel;
     }
 
@@ -58,17 +55,6 @@ public class Produto {
         this.disponivel = disponivel;
     }
     
-    public void inserirProduto(){
-        //IMPLEMENTAR
-    }
-    
-    public void editarProduto(){
-        //IMPLEMENTAR
-    }
-    
-    public void consultarProduto(){
-        //IMPLEMENTAR
-    }
     
     public void desativarProduto(int idProduto){
         //IMPLEMENTAR
@@ -76,5 +62,12 @@ public class Produto {
     
     public void ativarProduto(int idProduto){
         //IMPLEMENTAR
+    }
+    
+    public void editarProduto(String nome, int quantidade, double preco, boolean disponivel) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.preco = preco;
+        this.disponivel = disponivel;
     }
 }
