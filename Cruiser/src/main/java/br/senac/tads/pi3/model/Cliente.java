@@ -10,10 +10,8 @@ public class Cliente {
     private String cpf;
     private String email;
 
-    public Cliente(String nome, String cpf, String email) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
+    public Cliente() {
+     
     }
 
     public int getIdCliente() {
@@ -48,15 +46,9 @@ public class Cliente {
         this.email = email;
     }
     
-    public void inserirCliente(){
-        //IMPLEMENTAR
-    }
-    
-    public void editarCliente(){
-        //IMPLEMENTAR
-    }
-    
-    public void consultarCliente(String cpf){
-        //IMPLEMENTAR
+    public void editarCliente(String nome, String cpf, String email) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
     }
 }
