@@ -11,7 +11,7 @@ public class Funcionario {
     private String senha;
     private String cidade;
     private String departamento;
-    private String status; //ADICIONAR NA TELA
+    private String status; 
 
     public Funcionario() {
         

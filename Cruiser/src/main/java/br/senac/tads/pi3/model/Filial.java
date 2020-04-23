@@ -9,7 +9,7 @@ public class Filial {
     private int idFilial;
     private String cidade;
     private String telefone;
-    private String tipo; //INSERIR TIPO NA TELA E RETIRAR ENDEREÇO
+    private String tipo; 
 
     public Filial() {
 
