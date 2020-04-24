@@ -1,14 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.senac.tads.pi3.dao;
 
-/**
- *
- * @author lukas
- */
+import br.senac.tads.pi3.jdbc.ConexaoFactory;
+import br.senac.tads.pi3.model.Usuario;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class UsuarioDao {
-    
+
+    public void inserirUsuario(Usuario usuario) {
+        Connection conn = ConexaoFactory.Conectar();
+        String sql = "INSERT INTO USUARIO(nome_usuario, senha_usuario, permissao_usuario) VALUES (?,?,?);";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, usuario.getNomeUsuario());
+            stmt.setString(2, usuario.getSenhaUsuario());
+            stmt.setString(3, usuario.getPermissaoUsuario());
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            ConexaoFactory.CloseConnection(conn);
+        }
+    }
+
+    public List<Usuario> listar() {
+        String sql = "SELECT id_usuario, nome_usuario, senha_usuario, permissao_usuario FROM usuario";
+
+        List<Usuario> resultados = new ArrayList<>();
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId_usuario(rs.getInt("id_usuario"));
+                u.setNomeUsuario(rs.getString("nome_usuario"));
+                u.setSenhaUsuario(rs.getString("senha_usuario"));
+                u.setPermissaoUsuario(rs.getString("permissao_usuario"));
+
+                resultados.add(u);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return resultados;
+    }
 }

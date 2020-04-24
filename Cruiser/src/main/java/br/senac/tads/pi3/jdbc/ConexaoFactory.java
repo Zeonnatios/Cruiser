@@ -12,7 +12,7 @@ public class ConexaoFactory {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String LOGIN = "root";
     private static final String SENHA = "";
-    private static final String URL = ""; //DEFINIR URL 
+    private static final String URL = "jdbc:mysql://localhost:3306/cruiserbd?zeroDateTimeBehavior=convertToNull [root em Esquema default]"; //DEFINIR URL 
     
     
     public static Connection Conectar() {

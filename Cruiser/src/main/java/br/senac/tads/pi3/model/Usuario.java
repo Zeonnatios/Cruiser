@@ -5,8 +5,26 @@ public class Usuario {
     private Integer id_usuario;
     private String nomeUsuario;
     private String senhaUsuario;
-    private Integer id_funcionario;
-    private Funcionario funcionario;
+    private String permissaoUsuario;
+
+    public Usuario( String nomeUsuario, String senhaUsuario,String permissaoUsuario) {
+        
+        this.nomeUsuario = nomeUsuario;
+        this.permissaoUsuario = permissaoUsuario;
+        this.senhaUsuario = senhaUsuario;
+    }
+
+    public Usuario() {
+      
+    }
+
+    public String getPermissaoUsuario() {
+        return permissaoUsuario;
+    }
+
+    public void setPermissaoUsuario(String permissaoUsuario) {
+        this.permissaoUsuario = permissaoUsuario;
+    }
     
     
 
@@ -34,19 +52,4 @@ public class Usuario {
         this.senhaUsuario = senhaUsuario;
     }
 
-    public Integer getId_funcionario() {
-        return id_funcionario;
-    }
-
-    public void setId_funcionario(Integer id_funcionario) {
-        this.id_funcionario = id_funcionario;
-    }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
 }

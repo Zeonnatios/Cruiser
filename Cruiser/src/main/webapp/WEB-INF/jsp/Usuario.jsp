@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,40 +26,33 @@
     </head>
 
     <body>
-        <form action="" method="POST">
-            <!-- ID CLIENTE  -->
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">ID USUARIO: </label>
-                <div class="col-lg-10">
-                    <input type="number" class="form-control" id="inputIDCli" placeholder="ID AUTOMÁTICO" disabled>
+
+        <form method="POST" action="Usuario">
+            <input type="hidden" name="sessao" value="CREATE"/>
+            <h1 class="text-center"> CADASTRAR USUÁRIO</h1>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" name="nomeUsuario" value="${usuario.nomeUsuario}">
                 </div>
-            </div>
-
-            <!-- NOME DO FUNCIONARIO -->
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">NOME: </label>
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputNomeCli" placeholder="Nome" autofocus>
+                <div class="form-group col-md-4">
+                    <label >Senha</label>
+                    <input type="password" class="form-control" name="senhaUsuario" value="${usuario.senhaUsuario}">
                 </div>
-            </div>
 
-            <!-- SENHA PARA O FUNCIONARIO -->
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">SENHA DO FUNICIONARIO: </label>
-                <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputCPFCli" placeholder="SENHA">
+
+                <div class="form-group col-md-4">
+                    <label for="inputState">Permissao de acesso</label>
+                    <select id="inputState" class="form-control" name="permissaoUsuario"  value="${usuario.permissaoUsuario}" >
+                        <option selected>SELECIONE</option>
+                        <option>DIRETORIA</option>
+                        <option>GERENTE</option>
+                        <option>PEAO</option>
+                    </select>
                 </div>
-            </div>
 
-
-
-            <!-- Botao limpar-->
-            <div class="campoBotoes">
-                <button class="botao" type="button">Limpar</button>
-
-                <!-- Botao Salvar-->
-                <button class="botao" type="button">Salvar</button>
-            </div>
+                <button type="submit" class="btn btn-primary">SALVAR</button>
 
         </form>
     </body>
