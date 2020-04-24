@@ -3,10 +3,13 @@ C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador l
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\cruiser\HomeServlet.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\cruiser\LoginServlet.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Filial.java
+C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\cruiser\UsuarioServlet.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\dao\ProdutoDao.java
+C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Usuario.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Funcionario.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Cliente.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Itens.java
+C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\dao\UsuarioDao.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\dao\ClienteDao.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\jdbc\ConexaoFactory.java
 C:\Users\lukas\Documents\Projects of Senac\TADS 3° Semestre\Projeto Integrador lll\Porjeto CRUISER\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Venda.java
