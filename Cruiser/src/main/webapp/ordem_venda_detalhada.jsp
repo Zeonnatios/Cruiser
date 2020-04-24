@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TADES - CARRINHO</title>
+        <title>TADES - ORDEM DE VENDAS DETALHADAS</title>
 
         <!-- Icon Logo-->
         <link rel="icon" href="imagens/LOGO_CRUISER.png">
@@ -52,9 +52,9 @@
                         </li>
 
                         <li class="drop-list">
-                            <a href="carrinho.jsp"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
+                            <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="#"><i class="fas fa-circle"></i> Carrinho</a></li>
+                                <li><a href="carrinho.jsp"><i class="fas fa-circle"></i> Carrinho</a></li>
                                 <li><a href="ordem_venda_periodo.jsp"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
                                 <li><a href="#"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
                             </ul>
@@ -107,29 +107,14 @@
                         <!-- Formulario pesquisar por data-->
                         <form action="" method="POST">
 
-                            <div class="form-row">
-
-                                <!-- Data Inicial -->
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">DATA INICIAL: </label>
-                                        <div class="col-lg-8">
-                                            <input type="date" class="form-control" id="inputDataInicial">
-                                        </div>
-                                    </div>
+                            <!-- Data Inicial -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">DIGITE O CÓDIGO DE VENDA: </label>
+                                <div class="col-sm-3">
+                                    <input type="number" class="form-control" id="inputCodigoPesquisa" placeholder="DIGITE O CÓDIGO">
                                 </div>
-
-                                <!-- Data Inicial -->
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label">DATA FINAL: </label>
-                                        <div class="col-lg-8">
-                                            <input type="date" class="form-control" id="inputDataFinal">
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
+
                             <!-- Botao limpar-->
                             <div class="campoBotoes">
                                 <button class="botao" type="button">Limpar</button>
