@@ -5,8 +5,8 @@
  */
 package br.senac.tads.pi3.cruiser;
 
-import br.senac.tads.pi3.dao.UsuarioDao;
-import br.senac.tads.pi3.model.Usuario;
+import br.senac.tads.pi3.dao.ContasDao;
+import br.senac.tads.pi3.model.Contas;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,12 +22,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "UsuarioServlet", urlPatterns = {"/Usuario"})
 public class UsuarioServlet extends HttpServlet {
 
-    private UsuarioDao dao;
+    private ContasDao dao;
     
 
     @Override
     public void init() {
-        dao = new UsuarioDao();
+        dao = new ContasDao();
        
     }
 
@@ -38,7 +38,7 @@ public class UsuarioServlet extends HttpServlet {
         String sessao = request.getParameter("sessao");
         if (sessao != null) {
             if (sessao.equals("CREATE")) {
-                Usuario usuario = CriaUsuario(request);
+                Contas usuario = CriaUsuario(request);
                 dao.inserirUsuario(usuario);
                 request.setAttribute("mensagem", "Usuario salvo com sucesso");
             }
@@ -49,13 +49,13 @@ public class UsuarioServlet extends HttpServlet {
 
     }
 
-    private Usuario CriaUsuario(HttpServletRequest request) {
+    private Contas CriaUsuario(HttpServletRequest request) {
 
         String nomeUsuario = request.getParameter("nomeUsuario");
         String senhaUsuario = request.getParameter("senhaUsuario");
         String permissaoUsuario = request.getParameter("permissaoUsuario");
 
-        Usuario usuario = new Usuario(nomeUsuario, senhaUsuario, permissaoUsuario);
+        Contas usuario = new Contas(nomeUsuario, senhaUsuario, permissaoUsuario);
 
         return usuario;
     }

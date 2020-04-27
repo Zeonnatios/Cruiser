@@ -1,7 +1,7 @@
 package br.senac.tads.pi3.dao;
 
 import br.senac.tads.pi3.jdbc.ConexaoFactory;
-import br.senac.tads.pi3.model.Usuario;
+import br.senac.tads.pi3.model.Contas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDao {
+public class ContasDao {
 
-    public void inserirUsuario(Usuario usuario) {
+    public void inserirUsuario(Contas usuario) {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "INSERT INTO USUARIO(nome_usuario, senha_usuario, permissao_usuario) VALUES (?,?,?);";
 
@@ -28,15 +28,15 @@ public class UsuarioDao {
         }
     }
 
-    public List<Usuario> listar() {
+    public List<Contas> listar() {
         String sql = "SELECT id_usuario, nome_usuario, senha_usuario, permissao_usuario FROM usuario";
 
-        List<Usuario> resultados = new ArrayList<>();
+        List<Contas> resultados = new ArrayList<>();
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                Usuario u = new Usuario();
+                Contas u = new Contas();
                 u.setId_usuario(rs.getInt("id_usuario"));
                 u.setNomeUsuario(rs.getString("nome_usuario"));
                 u.setSenhaUsuario(rs.getString("senha_usuario"));

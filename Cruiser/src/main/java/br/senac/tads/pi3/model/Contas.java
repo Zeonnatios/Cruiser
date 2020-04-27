@@ -1,20 +1,20 @@
 
 package br.senac.tads.pi3.model;
 
-public class Usuario {
+public class Contas {
     private Integer id_usuario;
     private String nomeUsuario;
     private String senhaUsuario;
     private String permissaoUsuario;
 
-    public Usuario( String nomeUsuario, String senhaUsuario,String permissaoUsuario) {
+    public Contas( String nomeUsuario, String senhaUsuario,String permissaoUsuario) {
         
         this.nomeUsuario = nomeUsuario;
         this.permissaoUsuario = permissaoUsuario;
         this.senhaUsuario = senhaUsuario;
     }
 
-    public Usuario() {
+    public Contas() {
       
     }
 
