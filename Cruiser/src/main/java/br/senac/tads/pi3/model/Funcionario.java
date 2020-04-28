@@ -81,4 +81,6 @@ public class Funcionario {
         this.departamento = departamento;
         this.status = status;
     }
+
+    
 }

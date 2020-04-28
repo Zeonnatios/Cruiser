@@ -106,7 +106,7 @@
                     <div class="container">
 
                         <!-- FORM CADASTRAR USUÃRIO-->
-                        <form action="" method="POST">
+                        <form action="<%= request.getContextPath() %>/registrar>" method="post">
                             <!-- ID USUÃRIO  -->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>

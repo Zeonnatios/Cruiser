@@ -19,17 +19,19 @@ public class FuncionarioDao {
     }
 
     public void inserirFuncionario(Funcionario funcionario) throws SQLException {
+        
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "INSERT INTO FUNCIONARIO(NOME, EMAIL, SENHA, "
-                + "CIDADE, DEPARTAMENTO, STATUS) VALUES (?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO FUNCIONARIO(func_id, func_nome, func_email, func_senha, func_cidade,func_departamento, func_status )"
+                + "VALUES (?,?,?,?,?,?,?);";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, funcionario.getNome());
-            stmt.setString(2, funcionario.getEmail());
-            stmt.setString(3, funcionario.getSenha());
-            stmt.setString(4, funcionario.getCidade());
-            stmt.setString(5, funcionario.getDepartamento());
-            stmt.setString(6, funcionario.getStatus());
+            stmt.setInt(1, funcionario.getIdFuncionario());
+            stmt.setString(2, funcionario.getNome());
+            stmt.setString(3, funcionario.getEmail());
+            stmt.setString(4, funcionario.getSenha());
+            stmt.setString(5, funcionario.getCidade());
+            stmt.setString(6, funcionario.getDepartamento());
+            stmt.setString(7, funcionario.getStatus());
             stmt.executeUpdate();
             //CONFIGURAR MENSAGEM DE ADICIONADO COM SUCESSO
 
@@ -100,5 +102,5 @@ public class FuncionarioDao {
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
-    }    
+    }
 }
