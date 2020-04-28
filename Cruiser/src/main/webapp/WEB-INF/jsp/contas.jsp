@@ -106,12 +106,12 @@
                     <div class="container">
 
                         <!-- FORM CADASTRAR USUÃRIO-->
-                        <form action="<%= request.getContextPath() %>/registrar>" method="post">
+                        <form action="<%= request.getContextPath()%>/registrar>" method="post">
                             <!-- ID USUÃRIO  -->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
                                 <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDUser" placeholder="ID AUTOMÁTICO" disabled>
+                                    <input type="number" class="form-control" id="inputIDUser" name="idFuncionario" placeholder="ID AUTOMÁTICO" disabled>
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NOME: </label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputNameUser" placeholder="Nome" autofocus>
+                                    <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus>
                                 </div>
                             </div>
 
@@ -127,7 +127,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">EMAIL: </label>
                                 <div class="col-lg-10">
-                                    <input type="email" class="form-control" id="inputEmailUser" placeholder="Email para acesso ao sistema">
+                                    <input type="email" class="form-control" name="email"  id="inputEmailUser" placeholder="Email para acesso ao sistema">
                                 </div>
                             </div>
 
@@ -135,7 +135,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">SENHA: </label>
                                 <div class="col-lg-10">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                                    <input type="password" class="form-control" name="senha" id="inputPassword" placeholder="Senha">
                                 </div>
                             </div>
 
@@ -143,7 +143,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">CIDADE: </label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" name="Loja">
+                                    <select class="form-control" name="cidade">
                                         <option>Selecione:</option>
                                         <option>São Paulo</option>
                                         <option>Recife</option>
@@ -157,7 +157,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" name="Departamento">
+                                    <select class="form-control" name="departamento">
                                         <option>Selecione:</option>
                                         <option>Marketing/Produtos</option>
                                         <option>Vendas</option>
@@ -172,7 +172,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">STATUS: </label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" name="Status">
+                                    <select class="form-control" name="status">
                                         <option>Selecione:</option>
                                         <option>Ativo</option>
                                         <option>Inativo</option>

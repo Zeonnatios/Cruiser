@@ -1,5 +1,4 @@
-﻿DROP DATABASE CRUISERBD;
-
+﻿
 CREATE DATABASE CRUISERBD;
 USE CRUISERBD;
 
@@ -12,20 +11,13 @@ loja_regiao varchar(2) not null,
 loja_tipo varchar(6) not null,
 PRIMARY KEY (loja_id)
 );
-CREATE TABLE USUARIO(
-id_usuario int not null auto_increment,
-nome_usuario varchar(50) not null,
-senha_usuario varchar(12) not null,
-permissao_usuario varchar(40) not null,
-primary key(id_usuario)
-);
-select * from usuario;
 
 CREATE TABLE FUNCIONARIO(
 func_id int not null auto_increment,
 func_nome varchar(50) not null,
 func_email varchar(50) not null,
 func_senha varchar(10) not null,
+func_cidade varchar(40) not null,
 func_departamento varchar(50) not null,
 func_status boolean not null,
 func_loja_id int not null,
@@ -69,3 +61,4 @@ itens_preco_unit double(10,2) not null,
 FOREIGN KEY (itens_prod_id) REFERENCES PRODUTO(prod_id),
 FOREIGN KEY (itens_venda_id) REFERENCES VENDA(venda_id)
 );
+select * from funcionario;

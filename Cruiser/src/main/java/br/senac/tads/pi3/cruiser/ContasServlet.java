@@ -27,18 +27,16 @@ public class ContasServlet extends HttpServlet {
 
     private FuncionarioDao dao = new FuncionarioDao();
 
-    ;
-
     public ContasServlet() {
         super();
     }
-    
 
- 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.getWriter().append("").append(request.getContextPath());
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/contas.jsp");
         dispatcher.forward(request, response);
     }
@@ -54,9 +52,9 @@ public class ContasServlet extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String departamento = request.getParameter("departamento");
         String status = request.getParameter("status");
-        
+
         Funcionario funcionario = new Funcionario();
-        
+
         funcionario.setIdFuncionario(idFuncionario);
         funcionario.setNome(nome);
         funcionario.setEmail(email);
@@ -64,7 +62,7 @@ public class ContasServlet extends HttpServlet {
         funcionario.setCidade(cidade);
         funcionario.setDepartamento(departamento);
         funcionario.setStatus(status);
-        
+
         try {
             dao.inserirFuncionario(funcionario);
         } catch (SQLException ex) {
@@ -73,6 +71,4 @@ public class ContasServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Menssagem.jsp");
         dispatcher.forward(request, response);
     }
-    
-
 }
