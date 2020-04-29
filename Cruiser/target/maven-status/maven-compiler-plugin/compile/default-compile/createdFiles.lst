@@ -14,6 +14,7 @@ br\senac\tads\pi3\dao\ProdutoDao.class
 br\senac\tads\pi3\model\Filial.class
 br\senac\tads\pi3\model\Cliente.class
 br\senac\tads\pi3\servlet\ClientesServlet.class
+br\senac\tads\pi3\servlet\CarrinhoServlet.class
 br\senac\tads\pi3\model\Produto.class
 br\senac\tads\pi3\dao\FuncionarioDao.class
 br\senac\tads\pi3\servlet\FiliaisServlet.class

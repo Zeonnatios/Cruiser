@@ -51,7 +51,7 @@ public class ContasServlet extends HttpServlet {
         String senha = request.getParameter("senha");
         String cidade = request.getParameter("cidade");
         String departamento = request.getParameter("departamento");
-        String status = request.getParameter("status");
+        boolean status = Boolean.parseBoolean(request.getParameter("status"));
 
         Funcionario funcionario = new Funcionario();
 

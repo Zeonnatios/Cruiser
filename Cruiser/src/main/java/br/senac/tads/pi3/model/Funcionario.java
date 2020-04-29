@@ -11,7 +11,7 @@ public class Funcionario {
     private String senha;
     private String cidade;
     private String departamento;
-    private String status; 
+    private boolean status; 
 
     public Funcionario() {
         
@@ -65,15 +65,15 @@ public class Funcionario {
         this.departamento = departamento;
     }
     
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
     
-    public void editarFuncionario(String nome, String email, String senha, String cidade, String departamento, String status){
+    public void editarFuncionario(String nome, String email, String senha, String cidade, String departamento, boolean status){
         this.nome = nome;
         this.email = email;
         this.senha = senha;
