@@ -45,7 +45,7 @@
 
 
                         <li>
-                            <a href="home.jsp" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
+                            <a href="<%= request.getContextPath()%>/home" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
                         </li>
 
                         <li>
@@ -55,31 +55,31 @@
                         <li class="drop-list">
                             <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="carrinho.jsp"><i class="fas fa-circle"></i> Carrinho</a></li>
-                                <li><a href="ordem_venda_periodo.jsp"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
-                                <li><a href="ordem_venda_detalhada.jsp"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
+                                <li><a href="<%= request.getContextPath()%>/carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
+                                <li><a href="<%= request.getContextPath()%>/vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
+                                <li><a href="<%= request.getContextPath()%>/vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="produtos.jsp"><i class="fas fa-suitcase "></i> PRODUTOS</a>
+                            <a href="<%= request.getContextPath()%>/produtos"><i class="fas fa-suitcase "></i> PRODUTOS</a>
                         </li>
 
                         <li>
-                            <a href="clientes.jsp "><i class="fas fa-user "></i> CLIENTES</a>
+                            <a href="<%= request.getContextPath()%>/clientes"><i class="fas fa-user "></i> CLIENTES</a>
                         </li>
 
 
                         <li class="drop-list">
                             <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="diario.jsp"><i class="fas fa-circle"></i> Diário</a></li>
-                                <li><a href="mensal.jsp"><i class="fas fa-circle"></i> Mensal</a></li>
+                                <li><a href="<%= request.getContextPath()%>/diario"><i class="fas fa-circle"></i> Diário</a></li>
+                                <li><a href="<%= request.getContextPath()%>/mensal"><i class="fas fa-circle"></i> Mensal</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="filiais.jsp"><i class="fas fa-globe-americas "></i> FILIAIS</a>
+                            <a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-globe-americas "></i> FILIAIS</a>
                         </li>
 
                     </ul>
@@ -145,10 +145,10 @@
                                 <div class="col-lg-10">
                                     <select class="form-control" name="cidade">
                                         <option>Selecione:</option>
-                                        <option>São Paulo</option>
-                                        <option>Recife</option>
-                                        <option>Curitiba</option>
-                                        <option>Belo Horizonte</option>
+                                        <option value="São Paulo">São Paulo</option>
+                                        <option value="Campina Grande">Campina Grande</option>
+                                        <option value="Joinville">Joinville</option>
+                                        <option value="Brasília">Brasília</option>
                                     </select>
                                 </div>
                             </div>
@@ -159,11 +159,11 @@
                                 <div class="col-lg-10">
                                     <select class="form-control" name="departamento">
                                         <option>Selecione:</option>
-                                        <option>Marketing/Produtos</option>
-                                        <option>Vendas</option>
-                                        <option>Tecnologia</option>
-                                        <option>Gerência</option>
-                                        <option>Diretoria</option>
+                                        <option value="Marketing/Produtos">Marketing/Produtos</option>
+                                        <option value="Vendas">Vendas</option>
+                                        <option value="Tecnologia">Tecnologia</option>
+                                        <option value="Gerência">Gerência</option>
+                                        <option value="Diretoria">Diretoria</option>
                                     </select>
                                 </div>
                             </div>
@@ -174,8 +174,8 @@
                                 <div class="col-lg-10">
                                     <select class="form-control" name="status">
                                         <option>Selecione:</option>
-                                        <option>Ativo</option>
-                                        <option>Inativo</option>
+                                        <option value="1">Ativo</option>
+                                        <option value="2">Inativo</option>
                                     </select>
                                 </div>
                             </div>

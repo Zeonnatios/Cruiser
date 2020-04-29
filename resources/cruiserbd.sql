@@ -61,4 +61,15 @@ itens_preco_unit double(10,2) not null,
 FOREIGN KEY (itens_prod_id) REFERENCES PRODUTO(prod_id),
 FOREIGN KEY (itens_venda_id) REFERENCES VENDA(venda_id)
 );
-select * from funcionario;
+
+INSERT INTO `loja` (`loja_id`, `loja_nome`, `loja_cidade`, `loja_telefone`, `loja_regiao`, `loja_tipo`) 
+VALUES ('1', 'TADES - SÃO PAULO', 'São Paulo', '11234567890', 'SP', 'Matriz'),
+('2', 'TADES - CAMPINA GRANDE', 'Campina Grande', '83123456789', 'PB', 'Filial'),
+('3', 'TADES - JOINVILLE', 'Joinville', '31135795539', 'SC', 'Filial'), 
+('4', 'TADES - BRASILIA', 'Distrito Federal', '61987654321', 'DF', 'Filial');
+
+INSERT INTO `funcionario` (`func_id`, `func_nome`, `func_email`, `func_senha`, `func_departamento`, `func_status`, `func_loja_id`) 
+VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', 'Tecnologia', '1', '1'),
+('2', 'Raphaela Wagner', 'ellaw@uol.com.br', 'asd', 'Tecnologia', '1', '1'),
+('3', 'Luis Eduardo', 'louroconrado@gmail.com', 'asd', 'Tecnologia', '1', '1'),
+('4', 'Lukas Matias', 'lukaskt6@gmail.com', 'asd', 'Tecnologia', '1', '1');

@@ -38,7 +38,7 @@
 
                             <div class="card-body" id="form-login">
 
-                                <form class="form-signin" action="home.jsp">
+                                <form class="form-signin" action="LoginServlet">
 
                                     <div class="form-label-group">
 
@@ -54,7 +54,7 @@
 
                                     </div>
                                     <hr>
-                                    <button href="LoginServlet" class="btn btn-lg btn-outline-light btn-block" type="submit">Acessar</button>
+                                    <button class="btn btn-lg btn-outline-light btn-block" type="submit">Acessar</button>
                                 </form>
                             </div>
                         </div>
