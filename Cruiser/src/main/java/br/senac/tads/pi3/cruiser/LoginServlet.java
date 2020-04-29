@@ -33,8 +33,7 @@ public class LoginServlet extends HttpServlet {
 
         boolean temErros = false;
 
-        // Senha e email necessário puxar do banco de dados
-        //e validar campos
+        // Senha e email necessário puxar do banco de dados e validar campos
         if (senha != null || senha.length() < 6 && senha.length() > 1) {
             temErros = true;
             request.setAttribute("erroSenha", "Senha inválida!");
@@ -46,13 +45,12 @@ public class LoginServlet extends HttpServlet {
             Matcher matcher = pattern.matcher(email);
             if (matcher.matches()) {
                 temErros = true;
+                request.setAttribute("erroEmail", "Email inválido!");
             }
             if (temErros == false) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
                 dispatcher.forward(request, response);
-                return;
             }
-
         }
     }
 }

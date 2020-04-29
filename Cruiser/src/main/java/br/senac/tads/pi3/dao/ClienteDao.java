@@ -67,6 +67,7 @@ public class ClienteDao {
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getCpf());
             stmt.setString(3, cliente.getEmail());
+            stmt.setInt(4, cliente.getIdCliente());
             stmt.executeUpdate();
         } catch (SQLException e) {
             //CONFIGURAR MENSAGEM DE ERRO
