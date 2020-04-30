@@ -76,13 +76,12 @@ public class LoginServlet extends HttpServlet {
                         if (autenticado.getEmail().equals(email) && autenticado.getSenha().equals(senha) && autenticado.getStatus() == true) {
                             HttpSession sessao = request.getSession();
                             sessao.setAttribute("Usuário Autenticado", autenticado);
-                            //   sessao.setMaxInactiveInterval(10000);
-                            //   request.getRequestDispatcher("home.jsp").forward(request, response);
                             response.sendRedirect(request.getContextPath() + "/home");
                         }
                     } else {
                         msgErro = "Usuário inválido!";
                         request.setAttribute("Usuário inválido", msgErro);
+                        request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
                     }
                 }
             }

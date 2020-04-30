@@ -5,7 +5,7 @@ USE CRUISERBD;
 CREATE TABLE LOJA (
 loja_id int not null auto_increment,
 loja_cidade varchar(50) not null,
-loja_telefone varchar(11) not null,
+loja_telefone varchar(11) not null unique,
 loja_tipo varchar(6) not null,
 PRIMARY KEY (loja_id)
 );
@@ -13,7 +13,7 @@ PRIMARY KEY (loja_id)
 CREATE TABLE FUNCIONARIO(
 func_id int not null auto_increment,
 func_nome varchar(50) not null,
-func_email varchar(50) not null,
+func_email varchar(50) not null unique,
 func_senha varchar(10) not null,
 func_cidade varchar(40) not null,
 func_departamento varchar(50) not null,
@@ -27,13 +27,13 @@ CREATE TABLE CLIENTE(
 cli_id int not null auto_increment,
 cli_nome varchar(50) not null,
 cli_cpf varchar(11) not null unique,
-cli_email varchar(50) not null,
+cli_email varchar(50) not null unique,
 PRIMARY KEY (cli_id)
 );
 
 CREATE TABLE PRODUTO(
 prod_id int not null auto_increment,
-prod_nome varchar(50) not null,
+prod_nome varchar(50) not null unique,
 prod_qtde int not null,
 prod_preco double(10,2) not null,
 prod_status boolean not null,
@@ -66,8 +66,8 @@ VALUES ('1', 'São Paulo', '11234567890', 'Matriz'),
 ('3', 'Joinville', '31135795539', 'Filial'), 
 ('4', 'Distrito Federal', '61987654321', 'Filial');
 
-INSERT INTO `funcionario` (`func_id`, `func_nome`, `func_email`, `func_senha`, `func_departamento`, `func_status`, `func_loja_id`) 
-VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', 'Tecnologia', '1', '1'),
-('2', 'Raphaela Wagner', 'ellaw@uol.com.br', 'asd', 'Tecnologia', '1', '1'),
-('3', 'Luis Eduardo', 'louroconrado@gmail.com', 'asd', 'Tecnologia', '1', '1'),
-('4', 'Lukas Matias', 'lukaskt6@gmail.com', 'asd', 'Tecnologia', '1', '1');
+INSERT INTO `funcionario` (`func_id`, `func_nome`, `func_email`, `func_senha`, `func_cidade`, `func_departamento`, `func_status`, `func_loja_id`) 
+VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', 'São Paulo', 'Tecnologia', '1', '1'), 
+('2', 'Raphaela Wagner', 'ellaw@uol.com.br', 'asd', 'São Paulo', 'Tecnologia', '1', '1'), 
+('3', 'Luis Eduardo', 'louroconrado@gmail.com', 'asd', 'São Paulo', 'Tecnologia', '1', '1'), 
+('4', 'Lukas Matias', 'lukaskt6@gmail.com', 'asd', 'São Paulo', 'Tecnologia', '1', '1');
