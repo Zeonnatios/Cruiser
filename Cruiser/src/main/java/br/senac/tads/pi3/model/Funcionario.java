@@ -2,7 +2,7 @@ package br.senac.tads.pi3.model;
 
 /**
  *
- * @author Sony
+ * @author Cruiser
  */
 public class Funcionario {
 

@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  *
- * @author Sony
+ * @author Cruiser
  */
 public class Venda {
 
@@ -14,11 +14,8 @@ public class Venda {
     private int idCliente;
     private double valorTotal;
 
-    public Venda(int idFuncionario, Date dataVenda, int idCliente, double valorTotal) {
-        this.idFuncionario = idFuncionario;
-        this.dataVenda = dataVenda;
-        this.idCliente = idCliente;
-        this.valorTotal = valorTotal;
+    public Venda() {
+    
     }
 
     public int getIdVenda() {
@@ -61,15 +58,4 @@ public class Venda {
         this.valorTotal = valorTotal;
     }
 
-    public void gerarVenda() {
-        //IMPLEMENTAR
-    }
-
-    public void consultarVenda() {
-        //IMPLEMENTAR
-    }
-
-    public void alterarEstoque() {
-        //IMPLEMENTAR
-    }
 }

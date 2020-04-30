@@ -6,37 +6,45 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
  *
- * @author Sony
+ * @author Cruiser
  */
 public class ClienteDao {
-
-    public ClienteDao() {
-
-    }
 
     public void inserirCliente(Cliente cliente) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "INSERT INTO CLIENTE(CLI_NOME, CLI_CPF, CLI_EMAIL) VALUES (?,?,?);";
+        conn.setAutoCommit(false);
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getCpf());
             stmt.setString(3, cliente.getEmail());
             stmt.executeUpdate();
-            //CONFIGURAR MENSAGEM DE ADICIONADO COM SUCESSO
 
+            //----- RETORNA A ID MAS O MÉTODO AINDA ESTÁ VOID ------
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                while (rs.next()) {
+                    int idCliente = rs.getInt(1);
+                }
+            }
+
+            //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
+            conn.commit();
         } catch (SQLException e) {
-            //CONFIGURAR MENSAGEM DE ERRO
+            // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
+            conn.rollback();
+            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
     }
 
-    public ArrayList<Cliente> consultarCliente() throws SQLException {
+    public ArrayList<Cliente> listarCliente() throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "SELECT * FROM CLIENTE;";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -52,8 +60,7 @@ public class ClienteDao {
             }
             return lista;
         } catch (SQLException e) {
-            //CONFIGURAR MENSAGEM DE ERRO
-            return null;
+            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
@@ -62,6 +69,7 @@ public class ClienteDao {
     public void editarCliente(Cliente cliente) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "UPDATE CLIENTE SET CLI_NOME = ?, CLI_CPF = ?, CLI_EMAIL = ? WHERE CLI_ID = ?;";
+        conn.setAutoCommit(false);
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNome());
@@ -69,8 +77,13 @@ public class ClienteDao {
             stmt.setString(3, cliente.getEmail());
             stmt.setInt(4, cliente.getIdCliente());
             stmt.executeUpdate();
+
+            //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
+            conn.commit();
         } catch (SQLException e) {
-            //CONFIGURAR MENSAGEM DE ERRO
+            // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
+            conn.rollback();
+            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }

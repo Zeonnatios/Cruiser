@@ -6,11 +6,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
  *
- * @author Sony
+ * @author Cruiser
  */
 public class FuncionarioDao {
 
@@ -23,8 +24,9 @@ public class FuncionarioDao {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "INSERT INTO FUNCIONARIO(func_nome, func_email, func_senha, func_cidade,func_departamento, func_status, func_loja_id)"
                 + "VALUES (?,?,?,?,?,?,?);";
+        conn.setAutoCommit(false);
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getEmail());
@@ -34,21 +36,33 @@ public class FuncionarioDao {
             stmt.setBoolean(6, funcionario.getStatus());
             stmt.setInt(7, funcionario.getIdLoja());
             stmt.executeUpdate();
-            //CONFIGURAR MENSAGEM DE ADICIONADO COM SUCESSO
 
+            //----- RETORNA A ID MAS O MÉTODO AINDA ESTÁ VOID ------
+            try (ResultSet rs = stmt.getGeneratedKeys()) {
+                while (rs.next()) {
+                    int idFuncionario = rs.getInt(1);
+                }
+            }
+
+            //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
+            conn.commit();
         } catch (SQLException e) {
-            //CONFIGURAR MENSAGEM DE ERRO
+            // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
+            conn.rollback();
+            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
     }
 
-    public ArrayList<Funcionario> consultarFuncionario() throws SQLException {
+    public ArrayList<Funcionario> listarFuncionario() throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "SELECT * FROM FUNCIONARIO;";
+        
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery();
             ArrayList<Funcionario> lista = new ArrayList();
+            
             while (rs.next()) {
                 Funcionario funcionario = new Funcionario();
 
@@ -63,8 +77,7 @@ public class FuncionarioDao {
             }
             return lista;
         } catch (SQLException e) {
-            //CONFIGURAR MENSAGEM DE ERRO
-            return null;
+            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
@@ -74,6 +87,7 @@ public class FuncionarioDao {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "UPDATE FUNCIONARIO SET FUNC_NOME = ?, FUNC_EMAIL = ?,"
                 + "FUNC_SENHA = ?, FUNC_CIDADE = ?, FUNC_DEPARTAMENTO = ?, FUNC_STATUS = ?, FUNC_LOJA_ID = ? WHERE FUNC_ID = ?;";
+        conn.setAutoCommit(false);
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, funcionario.getNome());
@@ -85,8 +99,13 @@ public class FuncionarioDao {
             stmt.setInt(7, funcionario.getIdLoja());
             stmt.setInt(8, funcionario.getIdFuncionario());
             stmt.executeUpdate();
+            
+            //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
+            conn.commit();
         } catch (SQLException e) {
-            //CONFIGURAR MENSAGEM DE ERRO
+           // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
+            conn.rollback();
+            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
@@ -101,7 +120,7 @@ public class FuncionarioDao {
             stmt.setInt(2, funcionario.getIdFuncionario());
             stmt.executeUpdate();
         } catch (SQLException e) {
-            //CONFIGURAR MENSAGEM DE ERRO
+            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
@@ -130,8 +149,7 @@ public class FuncionarioDao {
                 f.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
             }
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            //CONFIGURAR MENSAGEM DE ERRO
+            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }

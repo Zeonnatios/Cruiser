@@ -2,7 +2,7 @@ package br.senac.tads.pi3.model;
 
 /**
  *
- * @author Sony
+ * @author Cruiser
  */
 public class Itens {
     private int idVenda;
@@ -10,11 +10,8 @@ public class Itens {
     private int quantidade;
     private double precoUnitario;
 
-    public Itens(int idVenda, int idProduto, int quantidade, double precoUnitario) {
-        this.idVenda = idVenda;
-        this.idProduto = idProduto;
-        this.quantidade = quantidade;
-        this.precoUnitario = precoUnitario;
+    public Itens() {
+        
     }
 
     public int getIdVenda() {
@@ -48,17 +45,5 @@ public class Itens {
     public void setPrecoUnitario(double precoUnitario) {
         this.precoUnitario = precoUnitario;
     }
-    
-   public void gerarVenda(){
-        //IMPLEMENTAR
-    }
-   
-   public void consultarVenda(){
-        //IMPLEMENTAR
-    }
-   
-   public void alterarEstoque(){
-        //QUAL A FINALIDADE DESSA CLASSE?????? O ESTOQUE
-        // JÁ FOI ALTERADO NA CLASSE VENDA
-    }
+
 }
