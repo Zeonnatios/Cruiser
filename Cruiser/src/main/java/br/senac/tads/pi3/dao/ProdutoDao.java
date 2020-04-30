@@ -20,7 +20,7 @@ public class ProdutoDao {
 
     public void inserirProduto(Produto produto) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "INSERT INTO PRODUTO(NOME, QUANTIDADE, PRECO, "
+        String sql = "INSERT INTO PRODUTO(PROD_NOME, PROD_QTDE, PROD_PRECO, PROD_STATUS"
                 + "DISPONIVEL) VALUES (?,?,?,?);";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -45,11 +45,11 @@ public class ProdutoDao {
             ArrayList<Produto> lista = new ArrayList();
             while (rs.next()) {
                 Produto produto = new Produto();
-                produto.setIdProduto(rs.getInt("IDPRODUTO"));
-                produto.setNome(rs.getString("NOME"));
-                produto.setQuantidade(rs.getInt("QUANTIDADE"));
-                produto.setPreco(rs.getDouble("PRECO"));
-                produto.setDisponivel(rs.getBoolean("DISPONIVEL"));
+                produto.setIdProduto(rs.getInt("PROD_ID"));
+                produto.setNome(rs.getString("PROD_NOME"));
+                produto.setQuantidade(rs.getInt("PROD_QTDE"));
+                produto.setPreco(rs.getDouble("PROD_PRECO"));
+                produto.setDisponivel(rs.getBoolean("PROD_STATUS"));
                 lista.add(produto);
             }
             return lista;
@@ -63,7 +63,7 @@ public class ProdutoDao {
 
     public void editarProduto(Produto produto) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "UPDATE PRODUTO SET NOME = ?, QUANTIDADE = ?, PRECO = ?, DISPONIVEL = ? WHERE IDPRODUTO = ?;";
+        String sql = "UPDATE PRODUTO SET PROD_NOME = ?, PROD_QTDE = ?, PROD_PRECO = ?, PROD_STATUS = ? WHERE PROD_ID = ?;";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, produto.getNome());

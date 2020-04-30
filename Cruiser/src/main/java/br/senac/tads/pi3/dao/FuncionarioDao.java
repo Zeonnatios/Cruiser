@@ -21,17 +21,18 @@ public class FuncionarioDao {
     public void inserirFuncionario(Funcionario funcionario) throws SQLException {
 
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "INSERT INTO FUNCIONARIO(func_id, func_nome, func_email, func_senha, func_cidade,func_departamento, func_status )"
+        String sql = "INSERT INTO FUNCIONARIO(func_nome, func_email, func_senha, func_cidade,func_departamento, func_status, func_loja_id)"
                 + "VALUES (?,?,?,?,?,?,?);";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, funcionario.getIdFuncionario());
-            stmt.setString(2, funcionario.getNome());
-            stmt.setString(3, funcionario.getEmail());
-            stmt.setString(4, funcionario.getSenha());
-            stmt.setString(5, funcionario.getCidade());
-            stmt.setString(6, funcionario.getDepartamento());
-            stmt.setBoolean(7, funcionario.getStatus());
+
+            stmt.setString(1, funcionario.getNome());
+            stmt.setString(2, funcionario.getEmail());
+            stmt.setString(3, funcionario.getSenha());
+            stmt.setString(4, funcionario.getCidade());
+            stmt.setString(5, funcionario.getDepartamento());
+            stmt.setBoolean(6, funcionario.getStatus());
+            stmt.setInt(7, funcionario.getIdLoja());
             stmt.executeUpdate();
             //CONFIGURAR MENSAGEM DE ADICIONADO COM SUCESSO
 
@@ -50,13 +51,14 @@ public class FuncionarioDao {
             ArrayList<Funcionario> lista = new ArrayList();
             while (rs.next()) {
                 Funcionario funcionario = new Funcionario();
-                funcionario.setIdFuncionario(rs.getInt("IDFUNCIONARIO"));
-                funcionario.setNome(rs.getString("NOME"));
-                funcionario.setEmail(rs.getString("EMAIL"));
-                funcionario.setSenha(rs.getString("SENHA"));
-                funcionario.setCidade(rs.getString("CIDADE"));
-                funcionario.setDepartamento(rs.getString("DEPARTAMENTO"));
-                funcionario.setStatus(rs.getBoolean("STATUS"));
+
+                funcionario.setNome(rs.getString("FUNC_NOME"));
+                funcionario.setEmail(rs.getString("FUNC_EMAIL"));
+                funcionario.setSenha(rs.getString("FUNC_SENHA"));
+                funcionario.setCidade(rs.getString("FUNC_CIDADE"));
+                funcionario.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
+                funcionario.setStatus(rs.getBoolean("FUNC_STATUS"));
+                funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
                 lista.add(funcionario);
             }
             return lista;
@@ -70,8 +72,8 @@ public class FuncionarioDao {
 
     public void editarFuncionario(Funcionario funcionario) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "UPDATE FUNCIONARIO SET IDFILIAL = ?, NOME = ?, EMAIL = ?,"
-                + "SENHA = ?, DEPARTAMENTO = ?, STATUS = ? WHERE IDFUNCIONARIO = ?;";
+        String sql = "UPDATE FUNCIONARIO SET FUNC_NOME = ?, FUNC_EMAIL = ?,"
+                + "FUNC_SENHA = ?, FUNC_CIDADE = ?, FUNC_DEPARTAMENTO = ?, FUNC_STATUS = ?, FUNC_LOJA_ID = ? WHERE FUNC_ID = ?;";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, funcionario.getNome());
@@ -80,7 +82,8 @@ public class FuncionarioDao {
             stmt.setString(4, funcionario.getCidade());
             stmt.setString(5, funcionario.getDepartamento());
             stmt.setBoolean(6, funcionario.getStatus());
-            stmt.setInt(7, funcionario.getIdFuncionario());
+            stmt.setInt(7, funcionario.getIdLoja());
+            stmt.setInt(8, funcionario.getIdFuncionario());
             stmt.executeUpdate();
         } catch (SQLException e) {
             //CONFIGURAR MENSAGEM DE ERRO
@@ -91,7 +94,7 @@ public class FuncionarioDao {
 
     public void ativarInativarFuncionario(Funcionario funcionario) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "UPDATE FUNCIONARIO SET STATUS = ? WHERE IDFUNCIONARIO = ?;";
+        String sql = "UPDATE FUNCIONARIO SET FUNC_STATUS = ? WHERE FUNC_ID = ?;";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setBoolean(1, funcionario.getStatus());
@@ -104,21 +107,30 @@ public class FuncionarioDao {
         }
     }
 
-    public Funcionario autenticar() throws SQLException {
+    public Funcionario autenticar(Funcionario funcionario) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "SELECT * FROM FUNCIONARIO WHERE NOME = ? AND EMAIL = ? AND SENHA = ? AND DEPARTAMENTO = ? AND STATUS = ?;";
+        String sql = "SELECT * FROM FUNCIONARIO WHERE FUNC_EMAIL = ? AND FUNC_SENHA = ? AND FUNC_STATUS = ?;";
         Funcionario f = new Funcionario();
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, funcionario.getEmail());
+            stmt.setString(2, funcionario.getSenha());
+            stmt.setBoolean(3, true);
             ResultSet rs = stmt.executeQuery();
+
             while (rs.next()) {
-                f.setNome(rs.getString("NOME"));
-                f.setEmail(rs.getString("EMAIL"));
-                f.setSenha(rs.getString("SENHA"));
-                f.setDepartamento(rs.getString("DEPARTAMENTO"));
-                f.setStatus(rs.getBoolean("STATUS"));
+                f = new Funcionario();
+                f.setIdFuncionario(rs.getInt("FUNC_ID"));
+                f.setNome(rs.getString("FUNC_NOME"));
+                f.setEmail(rs.getString("FUNC_EMAIL"));
+                f.setSenha(rs.getString("FUNC_SENHA"));
+                f.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
+                f.setDepartamento(rs.getString("FUNC_CIDADE"));
+                f.setStatus(rs.getBoolean("FUNC_STATUS"));
+                f.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
             }
         } catch (SQLException e) {
+            System.err.println(e.getMessage());
             //CONFIGURAR MENSAGEM DE ERRO
         } finally {
             ConexaoFactory.CloseConnection(conn);

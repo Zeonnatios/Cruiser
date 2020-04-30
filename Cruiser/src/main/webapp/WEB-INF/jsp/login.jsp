@@ -38,7 +38,7 @@
 
                             <div class="card-body" id="form-login">
 
-                                <form class="form-signin" action="LoginServlet">
+                                <form class="form-signin" method="post" action="${pageContext.request.contextPath}/Login">
 
                                     <div class="form-label-group">
 

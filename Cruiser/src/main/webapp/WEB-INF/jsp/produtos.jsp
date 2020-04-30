@@ -44,41 +44,41 @@
 
 
                         <li>
-                            <a href="home.jsp " class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
+                            <a href="<%= request.getContextPath()%>/home" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
                         </li>
 
                         <li>
-                            <a href="contas.jsp"><i class="fas fa-user-friends "></i> FUNCIONARIOS</a>
+                            <a href="<%= request.getContextPath()%>/contas"><i class="fas fa-user-friends "></i> FUNCIONARIOS</a>
                         </li>
 
                         <li class="drop-list">
                             <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="carrinho.jsp"><i class="fas fa-circle"></i> Carrinho</a></li>
-                                <li><a href="ordem_venda_periodo.jsp"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
-                                <li><a href="ordem_venda_detalhada.jsp"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
+                                <li><a href="<%= request.getContextPath()%>/carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
+                                <li><a href="<%= request.getContextPath()%>/vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
+                                <li><a href="<%= request.getContextPath()%>/vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="# "><i class="fas fa-suitcase "></i> PRODUTOS</a>
+                            <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS</a>
                         </li>
 
                         <li>
-                            <a href="clientes.jsp"><i class="fas fa-user "></i> CLIENTES</a>
+                            <a href="<%= request.getContextPath()%>/clientes"><i class="fas fa-user "></i> CLIENTES</a>
                         </li>
 
 
                         <li class="drop-list">
                             <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="diario.jsp"><i class="fas fa-circle"></i> Diário</a></li>
-                                <li><a href="mensal.jsp"><i class="fas fa-circle"></i> Mensal</a></li>
+                                <li><a href="<%= request.getContextPath()%>/diario"><i class="fas fa-circle"></i> Diário</a></li>
+                                <li><a href="<%= request.getContextPath()%>/mensal"><i class="fas fa-circle"></i> Mensal</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="filiais.jsp"><i class="fas fa-globe-americas "></i> FILIAIS</a>
+                            <a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-globe-americas "></i> FILIAIS</a>
                         </li>
 
                     </ul>

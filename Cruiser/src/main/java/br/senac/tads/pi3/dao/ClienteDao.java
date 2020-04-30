@@ -20,7 +20,7 @@ public class ClienteDao {
 
     public void inserirCliente(Cliente cliente) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "INSERT INTO CLIENTE(NOME, CPF, EMAIL) VALUES (?,?,?);";
+        String sql = "INSERT INTO CLIENTE(CLI_NOME, CLI_CPF, CLI_EMAIL) VALUES (?,?,?);";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNome());
@@ -44,10 +44,10 @@ public class ClienteDao {
             ArrayList<Cliente> lista = new ArrayList();
             while (rs.next()) {
                 Cliente cliente = new Cliente();
-                cliente.setIdCliente(rs.getInt("IDCLIENTE"));
-                cliente.setNome(rs.getString("NOME"));
-                cliente.setCpf(rs.getString("CPF"));
-                cliente.setEmail(rs.getString("EMAIL"));
+                cliente.setIdCliente(rs.getInt("CLI_ID"));
+                cliente.setNome(rs.getString("CLI_NOME"));
+                cliente.setCpf(rs.getString("CLI_CPF"));
+                cliente.setEmail(rs.getString("CLI_EMAIL"));
                 lista.add(cliente);
             }
             return lista;
@@ -58,11 +58,11 @@ public class ClienteDao {
             ConexaoFactory.CloseConnection(conn);
         }
     }
-    
+
     public void editarCliente(Cliente cliente) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "UPDATE CLIENTE SET NOME = ?, CPF = ?, EMAIL = ? WHERE IDCLIENTE = ?;";
-        
+        String sql = "UPDATE CLIENTE SET CLI_NOME = ?, CLI_CPF = ?, CLI_EMAIL = ? WHERE CLI_ID = ?;";
+
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getCpf());

@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/Login"})
 public class LoginServlet extends HttpServlet {
@@ -24,20 +25,28 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-        dispatcher.forward(request, response);
+        HttpSession sessao = request.getSession();
+        if (sessao.getAttribute("funcionario") != null) {
+            // Usuario ja fez login -> Redireciona para HOME
+            response.sendRedirect(request.getContextPath() + "/home");
+        } else {
+            request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         request.setCharacterEncoding("UTF-8");
         String email = request.getParameter("inputEmail");
         String senha = request.getParameter("inputPassword");
+
+//        if (email.equals("matheusantonio232@gmail.com") && senha.equals("asd")) {
+//            HttpSession sessao = request.getSession();
+//            response.sendRedirect(request.getContextPath() + "/home");
+//        }
         String msgErro;
-        Funcionario autenticado = null;
 
         if (senha == null || senha.length() < 10) {
             msgErro = "Senha inválida!";
@@ -55,21 +64,21 @@ public class LoginServlet extends HttpServlet {
                     funcionario.setEmail(email);
                     funcionario.setSenha(senha);
                     FuncionarioDao funcionarioDao = new FuncionarioDao();
+                    Funcionario autenticado = null;
 
                     try {
-                        autenticado = funcionarioDao.autenticar();
+                        autenticado = funcionarioDao.autenticar(funcionario);
                     } catch (SQLException ex) {
                         Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
+
                     if (autenticado != null) {
                         if (autenticado.getEmail().equals(email) && autenticado.getSenha().equals(senha) && autenticado.getStatus() == true) {
-                            //   HttpSession sessao = request.getSession();
-                            //   sessao.setAttribute("Usuário Autenticado", autenticado);
-                            //   sessao.setMaxInactiveInterval(10000); 
+                            HttpSession sessao = request.getSession();
+                            sessao.setAttribute("Usuário Autenticado", autenticado);
+                            //   sessao.setMaxInactiveInterval(10000);
                             //   request.getRequestDispatcher("home.jsp").forward(request, response);
-                            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-                            dispatcher.forward(request, response);
+                            response.sendRedirect(request.getContextPath() + "/home");
                         }
                     } else {
                         msgErro = "Usuário inválido!";

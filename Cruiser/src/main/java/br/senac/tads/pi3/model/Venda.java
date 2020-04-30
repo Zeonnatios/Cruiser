@@ -7,13 +7,14 @@ import java.util.Date;
  * @author Sony
  */
 public class Venda {
+
     private int idVenda;
     private int idFuncionario;
     private Date dataVenda;
-    private String idCliente;
+    private int idCliente;
     private double valorTotal;
 
-    public Venda(int idFuncionario, Date dataVenda, String idCliente, double valorTotal) {
+    public Venda(int idFuncionario, Date dataVenda, int idCliente, double valorTotal) {
         this.idFuncionario = idFuncionario;
         this.dataVenda = dataVenda;
         this.idCliente = idCliente;
@@ -44,11 +45,11 @@ public class Venda {
         this.dataVenda = dataVenda;
     }
 
-    public String getIdCliente() {
+    public int getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(String idCliente) {
+    public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -59,16 +60,16 @@ public class Venda {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
-    
-    public void gerarVenda(){
+
+    public void gerarVenda() {
         //IMPLEMENTAR
     }
-    
-    public void consultarVenda(){
+
+    public void consultarVenda() {
         //IMPLEMENTAR
     }
-    
-    public void alterarEstoque(){
+
+    public void alterarEstoque() {
         //IMPLEMENTAR
     }
 }

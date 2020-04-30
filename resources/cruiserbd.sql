@@ -1,13 +1,11 @@
-﻿
+﻿DROP DATABASE CRUISERBD;
 CREATE DATABASE CRUISERBD;
 USE CRUISERBD;
 
 CREATE TABLE LOJA (
 loja_id int not null auto_increment,
-loja_nome varchar(50) not null,
 loja_cidade varchar(50) not null,
 loja_telefone varchar(11) not null,
-loja_regiao varchar(2) not null,
 loja_tipo varchar(6) not null,
 PRIMARY KEY (loja_id)
 );
@@ -62,11 +60,11 @@ FOREIGN KEY (itens_prod_id) REFERENCES PRODUTO(prod_id),
 FOREIGN KEY (itens_venda_id) REFERENCES VENDA(venda_id)
 );
 
-INSERT INTO `loja` (`loja_id`, `loja_nome`, `loja_cidade`, `loja_telefone`, `loja_regiao`, `loja_tipo`) 
-VALUES ('1', 'TADES - SÃO PAULO', 'São Paulo', '11234567890', 'SP', 'Matriz'),
-('2', 'TADES - CAMPINA GRANDE', 'Campina Grande', '83123456789', 'PB', 'Filial'),
-('3', 'TADES - JOINVILLE', 'Joinville', '31135795539', 'SC', 'Filial'), 
-('4', 'TADES - BRASILIA', 'Distrito Federal', '61987654321', 'DF', 'Filial');
+INSERT INTO `loja` (`loja_id`, `loja_cidade`, `loja_telefone`, `loja_tipo`) 
+VALUES ('1', 'São Paulo', '11234567890', 'Matriz'),
+('2', 'Campina Grande', '83123456789', 'Filial'),
+('3', 'Joinville', '31135795539', 'Filial'), 
+('4', 'Distrito Federal', '61987654321', 'Filial');
 
 INSERT INTO `funcionario` (`func_id`, `func_nome`, `func_email`, `func_senha`, `func_departamento`, `func_status`, `func_loja_id`) 
 VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', 'Tecnologia', '1', '1'),

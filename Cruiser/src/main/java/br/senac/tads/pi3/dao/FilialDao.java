@@ -20,7 +20,7 @@ public class FilialDao {
 
     public void inserirFilial(Filial filial) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "INSERT INTO FILIAL(CIDADE, TELEFONE, TIPO) VALUES (?,?,?);";
+        String sql = "INSERT INTO LOJA(LOJA_CIDADE, LOJA_TELEFONE, LOJA_TIPO) VALUES (?,?,?);";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, filial.getCidade());
@@ -38,15 +38,16 @@ public class FilialDao {
 
     public ArrayList<Filial> consultarFilial() throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "SELECT * FROM FILIAL;";
+        String sql = "SELECT * FROM LOJA;";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery();
             ArrayList<Filial> lista = new ArrayList();
             while (rs.next()) {
                 Filial filial = new Filial();
-                filial.setCidade(rs.getString("CIDADE"));
-                filial.setTelefone(rs.getString("TELEFONE"));
-                filial.setTipo(rs.getString("TIPO"));
+                filial.setIdFilial(rs.getInt("LOJA_ID"));
+                filial.setCidade(rs.getString("LOJA_CIDADE"));
+                filial.setTelefone(rs.getString("LOJA_TELEFONE"));
+                filial.setTipo(rs.getString("LOJA_TIPO"));
                 lista.add(filial);
             }
             return lista;
@@ -60,8 +61,8 @@ public class FilialDao {
 
     public void editarFilial(Filial filial) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "UPDATE FILIAL SET CIDADE = ?, TELEFONE = ?, TIPO = ? "
-                + " WHERE IDFILIAL = ?;";
+        String sql = "UPDATE LOJA SET LOJA_CIDADE = ?, LOJA_TELEFONE = ?, LOJA_TIPO = ? "
+                + " WHERE LOJA_ID = ?;";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, filial.getCidade());

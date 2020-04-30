@@ -5,16 +5,18 @@ package br.senac.tads.pi3.model;
  * @author Sony
  */
 public class Funcionario {
+
     private int idFuncionario;
     private String nome;
     private String email;
     private String senha;
     private String cidade;
     private String departamento;
-    private boolean status; 
+    private boolean status;
+    private int idLoja;
 
     public Funcionario() {
-        
+
     }
 
     public int getIdFuncionario() {
@@ -64,7 +66,7 @@ public class Funcionario {
     public void setDepartamento(String departamento) {
         this.departamento = departamento;
     }
-    
+
     public boolean getStatus() {
         return status;
     }
@@ -72,8 +74,16 @@ public class Funcionario {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
-    public void editarFuncionario(String nome, String email, String senha, String cidade, String departamento, boolean status){
+
+    public int getIdLoja() {
+        return idLoja;
+    }
+
+    public void setIdLoja(int idLoja) {
+        this.idLoja = idLoja;
+    }
+
+    public void editarFuncionario(String nome, String email, String senha, String cidade, String departamento, boolean status) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -82,5 +92,4 @@ public class Funcionario {
         this.status = status;
     }
 
-    
 }
