@@ -9,37 +9,37 @@ import java.sql.SQLException;
  * @author Cruiser
  */
 public class ConexaoFactory {
-    
+
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String LOGIN = "root";
     private static final String SENHA = "";
-    private static final String URL = "jdbc:mysql://localhost:3306/cruiserbd?zeroDateTimeBehavior=convertToNull";  
-    
-    
-    public static Connection Conectar() throws SQLException {
-        
+    private static final String URL = "jdbc:mysql://localhost:3306/cruiserbd?zeroDateTimeBehavior=convertToNull";
+
+    public static Connection Conectar() {
+
         java.sql.Connection conexao;
-        
-        try{
+
+        try {
             Class.forName(DRIVER);
             conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
             return conexao;
-        } catch (ClassNotFoundException e){
-            throw new SQLException(e);
+        } catch (Exception ErrorSQL) {
+            return null;
         }
     }
-    
-    public static void CloseConnection(Connection conn) throws Exception{
-        
-        try{
-            if(conn != null){
+
+    public static void CloseConnection(Connection conn) {
+
+        try {
+            if (conn != null) {
                 conn.close();
             }
-        } catch (SQLException e){
-            throw new Exception(e);
+
+        } catch (Exception ErrorSQL) {
         }
+//        } catch (SQLException e){
+//            throw new Exception(e);
+//        }
     }
-    
-    
-    
+
 }

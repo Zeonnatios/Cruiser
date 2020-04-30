@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -20,36 +21,35 @@ public class ClienteDao {
         String sql = "INSERT INTO CLIENTE(CLI_NOME, CLI_CPF, CLI_EMAIL) VALUES (?,?,?);";
         conn.setAutoCommit(false);
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getCpf());
             stmt.setString(3, cliente.getEmail());
             stmt.executeUpdate();
 
             //----- RETORNA A ID MAS O MÉTODO AINDA ESTÁ VOID ------
-            try (ResultSet rs = stmt.getGeneratedKeys()) {
-                while (rs.next()) {
-                    int idCliente = rs.getInt(1);
-                }
-            }
-
+            //usar ostatement.getgeneratedkeys caso
+//            try (ResultSet rs = stmt.getGeneratedKeys()) {
+//                while (rs.next()) {
+//                    int idCliente = rs.getInt(1);
+//                }
+//            }
             //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
             conn.commit();
         } catch (SQLException e) {
             // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
             conn.rollback();
-            throw new SQLException(e);
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
     }
 
-    public ArrayList<Cliente> listarCliente() throws SQLException {
+    public List<Cliente> listarCliente() throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "SELECT * FROM CLIENTE;";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             ResultSet rs = stmt.executeQuery();
-            ArrayList<Cliente> lista = new ArrayList();
+            List<Cliente> lista = new ArrayList();
             while (rs.next()) {
                 Cliente cliente = new Cliente();
                 cliente.setIdCliente(rs.getInt("CLI_ID"));
@@ -60,7 +60,7 @@ public class ClienteDao {
             }
             return lista;
         } catch (SQLException e) {
-            throw new SQLException(e);
+            return null;
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }

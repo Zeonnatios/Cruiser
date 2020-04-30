@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -171,47 +173,37 @@
                                         <th scope="col">Nome</th>
                                         <th scope="col">CPF</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Telefone</th>
                                         <th scope="col">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">10</th>
-                                        <td>Josenildo</td>
-                                        <td>09034200897</td>
-                                        <td>Josenildo@gmail.com</td>
-                                        <td>988768888</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">11</th>
-                                        <td>Marquito</td>
-                                        <td>2921029888</td>
-                                        <td>Marquito@ratinho.com</td>
-                                        <td>878768058</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">12</th>
-                                        <td>Bolanha</td>
-                                        <td>30303011200</td>
-                                        <td>Bolanhas@gmail.com</td>
-                                        <td>884848489</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <c:forEach items="${listaClientes}" var="cliente">
+                                        <tr>
+                                            <th scope="row"><c:out value="${cliente.id}" /></th>
+                                            <td><c:out value="${cliente.nome}" /></td>
+                                            <td><c:out value="${cliente.cpf}" /></td>
+                                            <td><c:out value="${cliente.email}" /></td>
+                                            <td>
+                                                <div class="botoesTabela">
+                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                    <!--  <tr>
+                                          <th scope="row">10</th>
+                                          <td>Josenildo</td>
+                                          <td>09034200897</td>
+                                          <td>Josenildo@gmail.com</td>
+                                          <td>988768888</td>
+                                          <td>
+                                              <div class="botoesTabela">
+                                                  <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                    -->
+
                                 </tbody>
                             </table>
                         </div>

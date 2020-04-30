@@ -2,12 +2,14 @@ C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\jav
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\dao\ClienteDao.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\jdbc\ConexaoFactory.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\servlet\ClientesServlet.java
+C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\exception\ClienteException.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Filial.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\servlet\DiarioServlet.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\servlet\OrdemVendaDetalhadaServlet.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Cliente.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\model\Funcionario.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\servlet\CarrinhoServlet.java
+C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\exception\ClienteService.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\servlet\FiliaisServlet.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\servlet\HomeServlet.java
 C:\Users\mathe\OneDrive\Documentos\NetBeansProjects\Cruiser\Cruiser\src\main\java\br\senac\tads\pi3\servlet\OrdemVendaPeriodoServlet.java
