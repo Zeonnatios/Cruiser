@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,51 +22,46 @@ public class FuncionarioDao {
 
     public void inserirFuncionario(Funcionario funcionario) throws SQLException {
 
-        Connection conn = ConexaoFactory.Conectar();
         String sql = "INSERT INTO FUNCIONARIO(func_nome, func_email, func_senha, func_cidade,func_departamento, func_status, func_loja_id)"
                 + "VALUES (?,?,?,?,?,?,?);";
-        conn.setAutoCommit(false);
+        try (Connection conn = ConexaoFactory.Conectar()) {
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            conn.setAutoCommit(false);
 
-            stmt.setString(1, funcionario.getNome());
-            stmt.setString(2, funcionario.getEmail());
-            stmt.setString(3, funcionario.getSenha());
-            stmt.setString(4, funcionario.getCidade());
-            stmt.setString(5, funcionario.getDepartamento());
-            stmt.setBoolean(6, funcionario.getStatus());
-            stmt.setInt(7, funcionario.getIdLoja());
-            stmt.executeUpdate();
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, funcionario.getNome());
+                stmt.setString(2, funcionario.getEmail());
+                stmt.setString(3, funcionario.getSenha());
+                stmt.setString(4, funcionario.getCidade());
+                stmt.setString(5, funcionario.getDepartamento());
+                stmt.setBoolean(6, funcionario.getStatus());
+                stmt.setInt(7, pegarIdLoja(funcionario));
+                stmt.executeUpdate();
 
-            //----- RETORNA A ID MAS O MÉTODO AINDA ESTÁ VOID ------
-            try (ResultSet rs = stmt.getGeneratedKeys()) {
-                while (rs.next()) {
-                    int idFuncionario = rs.getInt(1);
-                }
+                //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
+                conn.commit();
+            } catch (Exception e) {
+                // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
+                conn.rollback();
+                throw new SQLException(e);
             }
-
-            //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
-            conn.commit();
         } catch (SQLException e) {
-            // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
-            conn.rollback();
-            throw new SQLException(e);
-        } finally {
-            ConexaoFactory.CloseConnection(conn);
+            e.printStackTrace();
+            throw e;
         }
+
     }
 
-    public ArrayList<Funcionario> listarFuncionario() throws SQLException {
-        Connection conn = ConexaoFactory.Conectar();
+    public List<Funcionario> listarFuncionario() throws SQLException {
         String sql = "SELECT * FROM FUNCIONARIO;";
-        
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            ResultSet rs = stmt.executeQuery();
-            ArrayList<Funcionario> lista = new ArrayList();
-            
+        List<Funcionario> lista = new ArrayList<>();
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+
             while (rs.next()) {
                 Funcionario funcionario = new Funcionario();
-
+                funcionario.setIdFuncionario(rs.getInt("FUNC_ID"));
                 funcionario.setNome(rs.getString("FUNC_NOME"));
                 funcionario.setEmail(rs.getString("FUNC_EMAIL"));
                 funcionario.setSenha(rs.getString("FUNC_SENHA"));
@@ -75,57 +71,66 @@ public class FuncionarioDao {
                 funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
                 lista.add(funcionario);
             }
-            return lista;
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            ConexaoFactory.CloseConnection(conn);
         }
+        return lista;
     }
 
     public void editarFuncionario(Funcionario funcionario) throws SQLException {
-        Connection conn = ConexaoFactory.Conectar();
+
         String sql = "UPDATE FUNCIONARIO SET FUNC_NOME = ?, FUNC_EMAIL = ?,"
-                + "FUNC_SENHA = ?, FUNC_CIDADE = ?, FUNC_DEPARTAMENTO = ?, FUNC_STATUS = ?, FUNC_LOJA_ID = ? WHERE FUNC_ID = ?;";
-        conn.setAutoCommit(false);
+                + "FUNC_DEPARTAMENTO = ?, FUNC_STATUS = ? WHERE FUNC_ID = ?;";
+        try (Connection conn = ConexaoFactory.Conectar()) {
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, funcionario.getNome());
-            stmt.setString(2, funcionario.getEmail());
-            stmt.setString(3, funcionario.getSenha());
-            stmt.setString(4, funcionario.getCidade());
-            stmt.setString(5, funcionario.getDepartamento());
-            stmt.setBoolean(6, funcionario.getStatus());
-            stmt.setInt(7, funcionario.getIdLoja());
-            stmt.setInt(8, funcionario.getIdFuncionario());
-            stmt.executeUpdate();
-            
-            //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
-            conn.commit();
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, funcionario.getNome());
+                stmt.setString(2, funcionario.getEmail());
+                stmt.setString(3, funcionario.getDepartamento());
+                stmt.setBoolean(4, funcionario.getStatus());
+                stmt.setInt(5, funcionario.getIdFuncionario());
+                stmt.executeUpdate();
+
+                //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
+                conn.commit();
+            } catch (Exception e) {
+                // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
+                conn.rollback();
+                throw new SQLException(e);
+            }
         } catch (SQLException e) {
-           // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
-            conn.rollback();
-            throw new SQLException(e);
-        } finally {
-            ConexaoFactory.CloseConnection(conn);
+            e.printStackTrace();
+            throw e;
         }
     }
 
-    public void ativarInativarFuncionario(Funcionario funcionario) throws SQLException {
-        Connection conn = ConexaoFactory.Conectar();
-        String sql = "UPDATE FUNCIONARIO SET FUNC_STATUS = ? WHERE FUNC_ID = ?;";
+    public int pegarIdLoja(Funcionario funcionario) throws SQLException {
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setBoolean(1, funcionario.getStatus());
-            stmt.setInt(2, funcionario.getIdFuncionario());
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            ConexaoFactory.CloseConnection(conn);
+        String sql = "SELECT loja_id FROM loja WHERE loja_cidade = ?;";
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, funcionario.getCidade());
+            try (ResultSet rs = stmt.executeQuery()) {
+                funcionario.setIdLoja(rs.getInt("loja_id"));
+            }
         }
+        return funcionario.getIdLoja();
     }
 
+//    public void ativarInativarFuncionario(Funcionario funcionario) throws SQLException {
+//        Connection conn = ConexaoFactory.Conectar();
+//        String sql = "UPDATE FUNCIONARIO SET FUNC_STATUS = ? WHERE FUNC_ID = ?;";
+//
+//        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+//            stmt.setBoolean(1, funcionario.getStatus());
+//            stmt.setInt(2, funcionario.getIdFuncionario());
+//            stmt.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new SQLException(e);
+//        } finally {
+//            ConexaoFactory.CloseConnection(conn);
+//        }
+//    }
     public Funcionario autenticar(Funcionario funcionario) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "SELECT * FROM FUNCIONARIO WHERE FUNC_EMAIL = ? AND FUNC_SENHA = ? AND FUNC_STATUS = ?;";

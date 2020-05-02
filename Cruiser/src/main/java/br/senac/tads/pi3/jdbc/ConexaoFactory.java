@@ -13,22 +13,26 @@ public class ConexaoFactory {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String LOGIN = "root";
     private static final String SENHA = "";
-    private static final String URL = "jdbc:mysql://localhost:3306/cruiserbd?zeroDateTimeBehavior=convertToNull";
+    private static final String URL = "jdbc:mysql://localhost:3306/cruiserbd?"
+            + "useUnicode=yes&"
+            + "characterEncoding=UTF-8&"
+            + "useTimezone=true&"
+            + "serverTimezone=UTC";
 
-    public static Connection Conectar() {
+    public static final Connection Conectar() throws SQLException {
 
         java.sql.Connection conexao;
 
         try {
             Class.forName(DRIVER);
-            conexao = DriverManager.getConnection(URL, LOGIN, SENHA);
-            return conexao;
-        } catch (Exception ErrorSQL) {
-            return null;
+        } catch (ClassNotFoundException ex) {
+            throw new SQLException(ex);
         }
+        Connection conn = DriverManager.getConnection(URL, LOGIN, SENHA);
+        return conn;
     }
 
-    public static void CloseConnection(Connection conn) {
+    public static void CloseConnection(Connection conn) throws SQLException {
 
         try {
             if (conn != null) {
@@ -36,10 +40,8 @@ public class ConexaoFactory {
             }
 
         } catch (Exception ErrorSQL) {
+            throw new SQLException(ErrorSQL);
         }
-//        } catch (SQLException e){
-//            throw new Exception(e);
-//        }
     }
 
 }

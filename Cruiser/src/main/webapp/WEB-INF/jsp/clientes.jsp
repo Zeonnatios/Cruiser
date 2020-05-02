@@ -49,8 +49,12 @@
                             <a href="<%= request.getContextPath()%>/home" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
                         </li>
 
-                        <li>
-                            <a href="<%= request.getContextPath()%>/contas"><i class="fas fa-user-friends "></i> FUNCIONARIOS</a>
+                        <li class="drop-list">
+                            <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
+                                <li><a href="<%= request.getContextPath()%>/funcionarios"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                            </ul>
                         </li>
 
                         <li class="drop-list">
@@ -62,12 +66,20 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="<%= request.getContextPath()%>/produtos"><i class="fas fa-suitcase "></i> PRODUTOS</a>
+                        <li class ="drop-list">
+                            <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
+                                <li><a href="<%= request.getContextPath()%>/produtos"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                            </ul>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fas fa-user "></i> CLIENTES</a>
+                        <li class ="drop-list">
+                            <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
+                                <li><a href="<%= request.getContextPath()%>/clientes"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
+                            </ul>
                         </li>
 
 
@@ -79,10 +91,12 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-globe-americas "></i> FILIAIS</a>
+                        <li class ="drop-list">
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
+                                <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
+                            </ul>
                         </li>
-
                     </ul>
 
                 </div>
@@ -141,18 +155,19 @@
                                 </div>
                             </div>
 
-                            <!-- TELEFONE CLIENTE -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">TELEFONE: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputTelCli" placeholder="Telefone">
-                                </div>
-                            </div>
 
+                            <!-- TELEFONE CLIENTE -->
+                            <!--    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">TELEFONE: </label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="inputTelCli" placeholder="Telefone">
+                                    </div>
+                                </div>
+                            -->
 
                             <!-- Botao limpar-->
                             <div class="campoBotoes">
-                                <button class="botao" type="button">Limpar</button>
+                                <button class="botao" type="reset" value="Reset">Limpar</button>
 
                                 <!-- Botao Salvar-->
                                 <button class="botao" type="button">Salvar</button>
@@ -177,12 +192,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${listaClientes}" var="cliente">
+
+                                    <c:forEach items="${listarClientes}" var="cli">
                                         <tr>
-                                            <th scope="row"><c:out value="${cliente.id}" /></th>
-                                            <td><c:out value="${cliente.nome}" /></td>
-                                            <td><c:out value="${cliente.cpf}" /></td>
-                                            <td><c:out value="${cliente.email}" /></td>
+                                            <th scope="row"><c:out value="${cli.getIdCliente()}" /></th>
+                                            <td><c:out value="${cli.getNome()}" /></td>
+                                            <td><c:out value="${cli.getCpf()}" /></td>
+                                            <td><c:out value="${cli.getEmail()}" /></td>
                                             <td>
                                                 <div class="botoesTabela">
                                                     <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
@@ -190,19 +206,6 @@
                                             </td>
                                         </tr>
                                     </c:forEach>
-                                    <!--  <tr>
-                                          <th scope="row">10</th>
-                                          <td>Josenildo</td>
-                                          <td>09034200897</td>
-                                          <td>Josenildo@gmail.com</td>
-                                          <td>988768888</td>
-                                          <td>
-                                              <div class="botoesTabela">
-                                                  <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                              </div>
-                                          </td>
-                                      </tr>
-                                    -->
 
                                 </tbody>
                             </table>

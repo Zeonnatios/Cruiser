@@ -2,7 +2,7 @@ package br.senac.tads.pi3.servlet;
 
 import br.senac.tads.pi3.exception.ClienteException;
 
-import br.senac.tads.pi3.exception.ClienteService;
+import br.senac.tads.pi3.controller.ClienteService;
 import br.senac.tads.pi3.model.Cliente;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ClientesServlet", urlPatterns = {"/clientes"})
 public class ClientesServlet extends HttpServlet {
 
-    ClienteService cliente = new ClienteService();
+    private ClienteService cliente = new ClienteService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,10 +32,11 @@ public class ClientesServlet extends HttpServlet {
 
         try {
             List<Cliente> clientes = cliente.listarCliente();
-            request.setAttribute("listaContatos", clientes);
+            request.setAttribute("listarClientes", clientes);
+            //Os dados contidos nos objetos do método listarClientes
+            //são passados a página jsp através do setAttribute
         } catch (ClienteException e) {
             // Se ocorrer erro, obtem a mensagem da exceção
-
             String msg = e.getMessage();
             request.setAttribute("msgErro", msg);
         }

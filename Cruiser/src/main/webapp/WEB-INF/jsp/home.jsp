@@ -47,8 +47,12 @@
                             <a href="#" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
                         </li>
 
-                        <li>
-                            <a href="<%= request.getContextPath()%>/contas"><i class="fas fa-user-friends "></i> FUNCIONARIOS</a>
+                        <li class="drop-list">
+                            <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
+                                <li><a href="<%= request.getContextPath()%>/funcionarios"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                            </ul>
                         </li>
 
                         <li class="drop-list">
@@ -60,12 +64,20 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="<%= request.getContextPath()%>/produtos"><i class="fas fa-suitcase "></i> PRODUTOS</a>
+                        <li class ="drop-list">
+                            <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
+                                <li><a href="<%= request.getContextPath()%>/produtos"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                            </ul>
                         </li>
 
-                        <li>
-                            <a href="<%= request.getContextPath()%>/clientes"><i class="fas fa-user "></i> CLIENTES</a>
+                        <li class ="drop-list">
+                            <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
+                                <li><a href="<%= request.getContextPath()%>/clientes"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
+                            </ul>
                         </li>
 
 
@@ -77,10 +89,12 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-globe-americas "></i> FILIAIS</a>
+                        <li class ="drop-list">
+                            <ul>
+                                <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
+                                <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
+                            </ul>
                         </li>
-
                     </ul>
 
                 </div>
