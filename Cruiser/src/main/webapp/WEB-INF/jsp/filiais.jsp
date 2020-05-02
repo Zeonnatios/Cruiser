@@ -90,9 +90,10 @@
                         </li>
 
                         <li class ="drop-list">
+                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
-                                <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
+                                <li><a href="#"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -160,71 +161,6 @@
 
                         </form>
                         <!-- Fim form-->
-
-                        <!-- TITULO TABELA -->
-                        <label class="titulotabelas">TABELA DE FILIAIS</label>
-
-                        <!-- TABELA -->
-                        <div class="tableScrow">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Cidade</th>
-                                        <th scope="col">Tipo</th>
-                                        <th scope="col">Telefone</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">001</th>
-                                        <td>São Paulo</td>
-                                        <td>Matriz</td>
-                                        <td>30313030</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">002</th>
-                                        <td>Salvador</td>
-                                        <td>Filial</td>
-                                        <td>42191919</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">003</th>
-                                        <td>Curitiba</td>
-                                        <td>Filial</td>
-                                        <td>32320000</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">004</th>
-                                        <td>Belo Horizonte</td>
-                                        <td>Filial</td>
-                                        <td>31210908</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- fim tableScrow-->
 
                     </div>
                     <!-- fim container-->

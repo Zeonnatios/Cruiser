@@ -68,7 +68,7 @@
                             <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
-                                <li><a href="<%= request.getContextPath()%>/produtos"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                                <li><a href="#"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
                             </ul>
                         </li>
 
@@ -90,6 +90,7 @@
                         </li>
 
                         <li class ="drop-list">
+                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
                                 <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
@@ -176,67 +177,6 @@
 
                         </form>
                         <!-- Fim form -->
-
-                        <!-- TITULO TABELA -->
-                        <label class="titulotabelas">VENDAS POR FILIAL</label>
-
-                        <!-- TABELA -->
-                        <div class="tableScrow">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">Quantidade</th>
-                                        <th scope="col">Preço Final</th>
-                                        <th scope="col">Categoria</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">01</th>
-                                        <td>Skate Cruiser</td>
-                                        <td>50</td>
-                                        <td>540,00</td>
-                                        <td>Skate Completo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">02</th>
-                                        <td>Rolamento T5</td>
-                                        <td>150</td>
-                                        <td>29,90</td>
-                                        <td>Acessórios</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">03</th>
-                                        <td>Skate Street</td>
-                                        <td>300</td>
-                                        <td>450,00</td>
-                                        <td>Skate Completo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- Fim tableScrow-->
 
                     </div>
                     <!-- Fim Container-->

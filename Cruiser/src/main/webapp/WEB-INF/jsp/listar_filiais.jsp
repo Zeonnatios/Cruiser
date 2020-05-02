@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -90,8 +92,9 @@
                         </li>
 
                         <li class ="drop-list">
+                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
+                                <li><a href="#"><i class="fas fa-circle"></i> Listar Filiais</a></li>
                                 <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
                             </ul>
                         </li>
@@ -118,50 +121,6 @@
                     <!-- container-->
                     <div class="container">
 
-                        <form action="" method="POST">
-                            <!-- ID FILIAL  -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID FILIAL: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDFilial" name="txtID" placeholder="ID AUTOMÁTICO" disabled>
-                                </div>
-                            </div>
-
-                            <!-- CIDADE FILIAL-->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">CIDADE: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputCidadeFilial" name="txtCidade" placeholder="Cidade" autofocus>
-                                </div>
-                            </div>
-
-                            <!-- TELEFONE FILIAL -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">TELEFONE: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputTelFilial" name="txtTelefone" placeholder="Telefone">
-                                </div>
-                            </div>
-
-                            <!-- TIPO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">TIPO: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control"  id="inputEnderecoFilial" name="txtTipo" placeholder="Tipo">
-                                </div>
-                            </div>
-
-                            <!-- Botao limpar-->
-                            <div class="campoBotoes">
-                                <button class="botao" type="reset" value="Reset">Limpar</button>
-
-                                <!-- Botao Salvar-->
-                                <button class="botao" type="button">Salvar</button>
-                            </div>
-
-                        </form>
-                        <!-- Fim form-->
-
                         <!-- TITULO TABELA -->
                         <label class="titulotabelas">TABELA DE FILIAIS</label>
 
@@ -178,50 +137,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">001</th>
-                                        <td>São Paulo</td>
-                                        <td>Matriz</td>
-                                        <td>30313030</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">002</th>
-                                        <td>Salvador</td>
-                                        <td>Filial</td>
-                                        <td>42191919</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">003</th>
-                                        <td>Curitiba</td>
-                                        <td>Filial</td>
-                                        <td>32320000</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">004</th>
-                                        <td>Belo Horizonte</td>
-                                        <td>Filial</td>
-                                        <td>31210908</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+
+                                    <c:forEach items="${listarFiliais}" var="filial">
+                                        <tr>
+                                            <th scope="row"><c:out value="${filial.getIdFilial()}" /></th>
+                                            <td><c:out value="${filial.getCidade()}" /></td>
+                                            <td><c:out value="${filial.getTipo()}" /></td>
+                                            <td><c:out value="${filial.getTelefone()}" /></td>
+                                            <td>
+                                                <div class="botoesTabela">
+                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
                                 </tbody>
                             </table>
                         </div>

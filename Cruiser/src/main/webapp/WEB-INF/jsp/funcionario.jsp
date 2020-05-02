@@ -54,7 +54,7 @@
                             <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
-                                <li><a href="<%= request.getContextPath()%>/funcionarios"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                <li><a href="#"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
                             </ul>
                         </li>
 
@@ -93,6 +93,7 @@
                         </li>
 
                         <li class ="drop-list">
+                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
                                 <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
@@ -207,47 +208,6 @@
 
                         </form>
                         <!-- Fim form-->
-
-
-                        <!-- TITULO TABELA -->
-                        <label class="titulotabelas">TABELA DE FILIAIS</label>
-
-
-                        <!-- TABELA -->
-                        <div class="tableScrow">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">Cidade</th>
-                                        <th scope="col">Departamento</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <c:forEach items="${listarFuncionarios}" var="fun">
-                                        <tr>
-                                            <th scope="row"><c:out value="${fun.getIdFuncionario()}" /></th>
-                                            <td><c:out value="${fun.getNome()}" /></td>
-                                            <td><c:out value="${fun.getCidade()}" /></td>
-                                            <td><c:out value="${fun.getDepartamento()}" /></td>
-                                            <td><c:out value="${fun.getStatus()}" /></td>
-                                            <td>
-                                                <div class="botoesTabela">
-                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- Fim tableScrow-->
 
                     </div>
                     <!-- Fim Container-->

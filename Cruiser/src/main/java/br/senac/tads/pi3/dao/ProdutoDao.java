@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -20,43 +21,41 @@ public class ProdutoDao {
     }
 
     public void inserirProduto(Produto produto) throws SQLException {
-        Connection conn = ConexaoFactory.Conectar();
+
         String sql = "INSERT INTO PRODUTO(PROD_NOME, PROD_QTDE, PROD_PRECO, PROD_STATUS"
                 + "DISPONIVEL) VALUES (?,?,?,?);";
-        conn.setAutoCommit(false);
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1, produto.getNome());
-            stmt.setInt(2, produto.getQuantidade());
-            stmt.setDouble(3, produto.getPreco());
-            stmt.setBoolean(4, produto.getDisponivel());
-            stmt.executeUpdate();
+        try (Connection conn = ConexaoFactory.Conectar()) {
 
-            //----- RETORNA A ID MAS O MÉTODO AINDA ESTÁ VOID ------
-            try (ResultSet rs = stmt.getGeneratedKeys()) {
-                while (rs.next()) {
-                    int idProduto = rs.getInt(1);
-                }
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, produto.getNome());
+                stmt.setInt(2, produto.getQuantidade());
+                stmt.setDouble(3, produto.getPreco());
+                stmt.setBoolean(4, produto.getDisponivel());
+                stmt.executeUpdate();
+                //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
+                conn.commit();
+            } catch (Exception e) {
+                // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
+                conn.rollback();
+                throw new SQLException(e);
             }
-
-            //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
-            conn.commit();
         } catch (SQLException e) {
-            // DESFAZ AS OPERAÇÕES REALIZADAS NO BANCO DE DADOS
-            conn.rollback();
-            throw new SQLException(e);
-        } finally {
-            ConexaoFactory.CloseConnection(conn);
+            e.printStackTrace();
+            throw e;
         }
     }
 
-    public ArrayList<Produto> listarProduto() throws SQLException {
-        Connection conn = ConexaoFactory.Conectar();
+    public List<Produto> listarProduto() throws SQLException {
         String sql = "SELECT * FROM PRODUTO;";
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            ResultSet rs = stmt.executeQuery();
-            ArrayList<Produto> lista = new ArrayList();
+        List<Produto> lista = new ArrayList<>();
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+
             while (rs.next()) {
                 Produto produto = new Produto();
                 produto.setIdProduto(rs.getInt("PROD_ID"));
@@ -66,19 +65,15 @@ public class ProdutoDao {
                 produto.setDisponivel(rs.getBoolean("PROD_STATUS"));
                 lista.add(produto);
             }
-            return lista;
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            ConexaoFactory.CloseConnection(conn);
         }
+        return lista;
     }
 
     public void editarProduto(Produto produto) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "UPDATE PRODUTO SET PROD_NOME = ?, PROD_QTDE = ?, PROD_PRECO = ?, PROD_STATUS = ? WHERE PROD_ID = ?;";
         conn.setAutoCommit(false);
-        
+
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, produto.getNome());
             stmt.setInt(2, produto.getQuantidade());

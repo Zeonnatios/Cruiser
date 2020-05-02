@@ -24,13 +24,10 @@ public class ClienteService {
     }
 
     private boolean isValid(Cliente c) {
-        if (c != null && c.getNome() != null && c.getCpf() != null && c.getEmail() != null) {
-            return true;
-        }
-        return false;
+        return c != null && c.getNome() != null && c.getCpf() != null && c.getEmail() != null;
     }
 
-    public void incluir(Cliente c) throws ClienteException {
+    public void inserirFuncionario(Cliente c) throws ClienteException {
         try {
             if (isValid(c)) {
                 cliDAO.inserirCliente(c);

@@ -77,7 +77,7 @@
                         <li class ="drop-list">
                             <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
+                                <li><a href="#"><i class="fas fa-circle"></i> Listar Clientes</a></li>
                                 <li><a href="<%= request.getContextPath()%>/clientes"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
                             </ul>
                         </li>
@@ -92,6 +92,7 @@
                         </li>
 
                         <li class ="drop-list">
+                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
                                 <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
@@ -119,62 +120,6 @@
 
                     <!-- container -->
                     <div class="container">
-
-
-                        <!-- Form inserir produtos-->
-                        <form action="" method="POST">
-                            <!-- ID CLIENTE  -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID CLIENTE: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDCli" placeholder="ID AUTOMÁTICO" disabled>
-                                </div>
-                            </div>
-
-                            <!-- NOME CLIENTE -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">NOME: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputNomeCli" placeholder="Nome" autofocus>
-                                </div>
-                            </div>
-
-                            <!-- CPF CLIENTE -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">CPF: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputCPFCli" placeholder="CPF">
-                                </div>
-                            </div>
-
-                            <!-- EMAIL CLIENTE -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">EMAIL: </label>
-                                <div class="col-lg-10">
-                                    <input type="email" class="form-control" id="inputEmailCli" placeholder="E-mail">
-                                </div>
-                            </div>
-
-
-                            <!-- TELEFONE CLIENTE -->
-                            <!--    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">TELEFONE: </label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="inputTelCli" placeholder="Telefone">
-                                    </div>
-                                </div>
-                            -->
-
-                            <!-- Botao limpar-->
-                            <div class="campoBotoes">
-                                <button class="botao" type="reset" value="Reset">Limpar</button>
-
-                                <!-- Botao Salvar-->
-                                <button class="botao" type="button">Salvar</button>
-                            </div>
-
-                        </form>
-                        <!-- Fim form-->
 
                         <!-- TITULO TABELA -->
                         <label class="titulotabelas">TABELA DE CLIENTES</label>

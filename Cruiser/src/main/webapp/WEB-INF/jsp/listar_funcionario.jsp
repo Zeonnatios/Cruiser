@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -51,7 +53,7 @@
                         <li class="drop-list">
                             <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
+                                <li><a href="#"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
                                 <li><a href="<%= request.getContextPath()%>/funcionarios"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
                             </ul>
                         </li>
@@ -91,6 +93,7 @@
                         </li>
 
                         <li class ="drop-list">
+                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
                                 <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
@@ -120,93 +123,6 @@
                     <!-- container-->
                     <div class="container">
 
-                        <!-- FORM CADASTRAR USUÃRIO-->
-                        <form action="<%= request.getContextPath()%>/registrar>" method="post">
-                            <!-- ID USUÃRIO  -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDUser" name="idFuncionario" placeholder="ID AUTOMÁTICO" disabled>
-                                </div>
-                            </div>
-
-                            <!-- NOME COMPLETO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">NOME: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus>
-                                </div>
-                            </div>
-
-                            <!-- EMAIL DE ACESSO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">EMAIL: </label>
-                                <div class="col-lg-10">
-                                    <input type="email" class="form-control" name="email"  id="inputEmailUser" placeholder="Email para acesso ao sistema">
-                                </div>
-                            </div>
-
-                            <!-- SENHA -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">SENHA: </label>
-                                <div class="col-lg-10">
-                                    <input type="password" class="form-control" name="senha" id="inputPassword" placeholder="Senha">
-                                </div>
-                            </div>
-
-                            <!-- LOJA -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">CIDADE: </label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="cidade">
-                                        <option>Selecione:</option>
-                                        <option value="São Paulo">São Paulo</option>
-                                        <option value="Campina Grande">Campina Grande</option>
-                                        <option value="Joinville">Joinville</option>
-                                        <option value="Brasília">Brasília</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- DEPARTAMENTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="departamento">
-                                        <option>Selecione:</option>
-                                        <option value="Marketing/Produtos">Marketing/Produtos</option>
-                                        <option value="Vendas">Vendas</option>
-                                        <option value="Tecnologia">Tecnologia</option>
-                                        <option value="Gerência">Gerência</option>
-                                        <option value="Diretoria">Diretoria</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- STATUS -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">STATUS: </label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="status">
-                                        <option>Selecione:</option>
-                                        <option value="1">Ativo</option>
-                                        <option value="2">Inativo</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Botao limpar-->
-                            <div class="campoBotoes">
-                                <button class="botao" type="button">Limpar</button>
-
-                                <!-- Botao Salvar-->
-                                <button class="botao" type="button">Salvar</button>
-                            </div>
-
-                        </form>
-                        <!-- Fim form-->
-
-
                         <!-- TITULO TABELA -->
                         <label class="titulotabelas">TABELA DE FILIAIS</label>
 
@@ -225,67 +141,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">001</th>
-                                        <td>Hanz Zimmerman</td>
-                                        <td>Recife</td>
-                                        <td>Marketing</td>
-                                        <td>Ativo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">002</th>
-                                        <td>Jacob Malman</td>
-                                        <td>São Paulo</td>
-                                        <td>TI</td>
-                                        <td>Ativo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">003</th>
-                                        <td>Larry Sullivan</td>
-                                        <td>Curitiba</td>
-                                        <td>Vendas</td>
-                                        <td>Ativo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">003</th>
-                                        <td>Larry Sullivan</td>
-                                        <td>Curitiba</td>
-                                        <td>Vendas</td>
-                                        <td>Ativo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">003</th>
-                                        <td>Larry Sullivan</td>
-                                        <td>Curitiba</td>
-                                        <td>Vendas</td>
-                                        <td>Ativo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <c:forEach items="${listarFuncionarios}" var="fun">
+                                        <tr>
+                                            <th scope="row"><c:out value="${fun.getIdFuncionario()}" /></th>
+                                            <td><c:out value="${fun.getNome()}" /></td>
+                                            <td><c:out value="${fun.getCidade()}" /></td>
+                                            <td><c:out value="${fun.getDepartamento()}" /></td>
+                                            <td><c:out value="${fun.getStatus()}" /></td>
+                                            <td>
+                                                <div class="botoesTabela">
+                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
+
                             </table>
                         </div>
                         <!-- Fim tableScrow-->

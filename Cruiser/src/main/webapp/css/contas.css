@@ -1,6 +1,6 @@
 #mainContent {
     background-color: snow;
-    
+
 }
 
 div.campoBotoes {
@@ -34,7 +34,7 @@ div.campoBotoes {
 
 .tableScrow {
     overflow-y: auto;
-    max-height: 240px;
+    max-height: 500px;
 }
 
 .tableScrow .table {

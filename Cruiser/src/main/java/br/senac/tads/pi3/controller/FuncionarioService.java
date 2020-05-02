@@ -16,22 +16,19 @@ public class FuncionarioService {
 
     public List<Funcionario> listarFuncionarios() throws FuncionarioException {
         try {
-            System.out.println("LSITAGEM DE Funcionarios");
+            System.out.println("LSITAGEM DE FUNCIONARIOS");
             return funDAO.listarFuncionario();
         } catch (SQLException e) {
-            throw new FuncionarioException("ERRO NA LSITAGEM DE CLIENTES", e);
+            throw new FuncionarioException("ERRO NA LSITAGEM DE FUNCIONARIOS", e);
         }
     }
 
     private boolean isValid(Funcionario f) {
-        if (f != null && f.getNome() != null && f.getSenha() != null && f.getEmail() != null
-                && f.getCidade() != null && f.getDepartamento() != null) {
-            return true;
-        }
-        return false;
+        return f != null && f.getNome() != null && f.getSenha() != null && f.getEmail() != null
+                && f.getCidade() != null && f.getDepartamento() != null;
     }
 
-    public void incluir(Funcionario f) throws FuncionarioException {
+    public void inserirFuncionario(Funcionario f) throws FuncionarioException {
         try {
             if (isValid(f)) {
                 funDAO.inserirFuncionario(f);

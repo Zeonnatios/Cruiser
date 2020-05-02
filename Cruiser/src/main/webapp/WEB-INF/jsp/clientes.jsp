@@ -78,7 +78,7 @@
                             <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
-                                <li><a href="<%= request.getContextPath()%>/clientes"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
+                                <li><a href="#"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
                             </ul>
                         </li>
 
@@ -92,6 +92,7 @@
                         </li>
 
                         <li class ="drop-list">
+                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
                                 <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
@@ -155,16 +156,6 @@
                                 </div>
                             </div>
 
-
-                            <!-- TELEFONE CLIENTE -->
-                            <!--    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">TELEFONE: </label>
-                                    <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="inputTelCli" placeholder="Telefone">
-                                    </div>
-                                </div>
-                            -->
-
                             <!-- Botao limpar-->
                             <div class="campoBotoes">
                                 <button class="botao" type="reset" value="Reset">Limpar</button>
@@ -174,43 +165,7 @@
                             </div>
 
                         </form>
-                        <!-- Fim form-->
-
-                        <!-- TITULO TABELA -->
-                        <label class="titulotabelas">TABELA DE CLIENTES</label>
-
-                        <!-- TABELA -->
-                        <div class="tableScrow">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">CPF</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <c:forEach items="${listarClientes}" var="cli">
-                                        <tr>
-                                            <th scope="row"><c:out value="${cli.getIdCliente()}" /></th>
-                                            <td><c:out value="${cli.getNome()}" /></td>
-                                            <td><c:out value="${cli.getCpf()}" /></td>
-                                            <td><c:out value="${cli.getEmail()}" /></td>
-                                            <td>
-                                                <div class="botoesTabela">
-                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- fim tableScrow-->
+                        <!-- Fim form-->                       
 
                     </div>
                     <!-- fim container-->

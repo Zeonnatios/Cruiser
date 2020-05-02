@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -67,7 +69,7 @@
                         <li class ="drop-list">
                             <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
+                                <li><a href="#"><i class="fas fa-circle"></i> Listar Produtos</a></li>
                                 <li><a href="<%= request.getContextPath()%>/produtos"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
                             </ul>
                         </li>
@@ -90,6 +92,7 @@
                         </li>
 
                         <li class ="drop-list">
+                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
                                 <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
@@ -113,69 +116,11 @@
                     <h2><i class="fas fa-suitcase"></i> PRODUTOS</h2>
                 </header>
 
-                <!-- MAIN conteÃºdo -->
+                <!-- MAIN conteúdo -->
                 <div class="main-content">
 
                     <!-- Container-->
                     <div class="container">
-
-                        <form action="" method="POST">
-                            <!-- ID PRODUTO  -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID PRODUTO: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDProd" placeholder="ID AUTOMÁTICO" disabled>
-                                </div>
-                            </div>
-
-                            <!-- NOME PRODUTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">NOME: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputNomeProd" placeholder="Nome" autofocus>
-                                </div>
-                            </div>
-
-                            <!-- QUANTIDADE PRODUTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">QUANTIDADE: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputQuantProd" placeholder="Quantidade">
-                                </div>
-                            </div>
-
-                            <!-- PREÃO FINAL PRODUTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" placeholder="Preço Final">
-                                </div>
-                            </div>
-
-                            <!-- CATEGORIA PRODUTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">CATEGORIA: </label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="Loja">
-                                        <option>Selecione:</option>
-                                        <option>Pranchas</option>
-                                        <option>Skate Completo</option>
-                                        <option>Acessórios</option>
-                                        <option>Customização</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Botao limpar-->
-                            <div class="campoBotoes">
-                                <button class="botao" type="reset" value="Reset">Limpar</button>
-
-                                <!-- Botao Salvar-->
-                                <button class="botao" type="button">Salvar</button>
-                            </div>
-
-                        </form>
-                        <!-- Fim form -->
 
                         <!-- TITULO TABELA -->
                         <label class="titulotabelas">VENDAS POR FILIAL</label>
@@ -189,50 +134,27 @@
                                         <th scope="col">Nome</th>
                                         <th scope="col">Quantidade</th>
                                         <th scope="col">Preço Final</th>
-                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">01</th>
-                                        <td>Skate Cruiser</td>
-                                        <td>50</td>
-                                        <td>540,00</td>
-                                        <td>Skate Completo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">02</th>
-                                        <td>Rolamento T5</td>
-                                        <td>150</td>
-                                        <td>29,90</td>
-                                        <td>Acessórios</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">03</th>
-                                        <td>Skate Street</td>
-                                        <td>300</td>
-                                        <td>450,00</td>
-                                        <td>Skate Completo</td>
-                                        <td>
-                                            <div class="botoesTabela">
-                                                <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <c:forEach items="${listarProdutos}" var="produto">
+                                        <tr>
+                                            <th scope="row"><c:out value="${produto.getIdProduto()}" /></th>
+                                            <td><c:out value="${produto.getNome()}" /></td>
+                                            <td><c:out value="${produto.getQuantidade()}" /></td>
+                                            <td><c:out value="${produto.getPreco()}" /></td>
+                                            <td><c:out value="${produto.getDisponivel()}" /></td>
+                                            <td>
+                                                <div class="botoesTabela">
+                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                                    <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+
                                 </tbody>
                             </table>
                         </div>

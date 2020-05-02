@@ -71,3 +71,11 @@ VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', '
 ('2', 'Raphaela Wagner', 'ellaw@uol.com.br', 'asd', 'São Paulo', 'Tecnologia', '1', '1'), 
 ('3', 'Luis Eduardo', 'louroconrado@gmail.com', 'asd', 'São Paulo', 'Tecnologia', '1', '1'), 
 ('4', 'Lukas Matias', 'lukaskt6@gmail.com', 'asd', 'São Paulo', 'Tecnologia', '1', '1');
+
+INSERT INTO `cliente` (`cli_id`, `cli_nome`, `cli_cpf`, `cli_email`) 
+VALUES ('1', 'Jorge', '12345678910', 'jorge@teste.com');
+
+INSERT INTO `produto` (`prod_id`, `prod_nome`, `prod_qtde`, `prod_preco`, `prod_status`) 
+VALUES ('1', 'Skate Cruiser', '50', '540.00', '1'), 
+('2', 'Rolamento T5', '150', '29.90', '1'), 
+('3', 'Skate Street', '300', '450.00', '1');
