@@ -38,20 +38,30 @@
 
                             <div class="card-body" id="form-login">
 
-                                <form class="form-signin" method="post" action="${pageContext.request.contextPath}/Login">
+                                <form class="form-signin" method="post" action="${pageContext.request.contextPath}/Login" novalidate>
 
                                     <div class="form-label-group">
-
-                                        <label for="inputEmail">Email:</label>
-                                        <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
-
+                                        
+                                         <!VOU MODIFICAR O PLACEHOLDER>
+                                        <label for="inputEmail">Email:</label>                                                                                
+                                        <input type="email" id="inputEmail" name="inputEmail" value="${param.inputEmail}" class="form-control" placeholder="${erroEmail}" required autofocus>      
+                                        <c:if test="${erroSenha != null }">
+                                            <div class="erro-input">
+                                                <c:out value="${erroSenha}"/>
+                                            </div>
+                                        </c:if>
                                     </div>
 
                                     <div class="form-label-group">
-
+                                        
+                                        <!VOU MODIFICAR O PLACEHOLDER>
                                         <label for="inputPassword">Senha:</label>
-                                        <input type="password" id="inputPassword" name="inputPassword" class="form-control input_pass" placeholder="Senha" required>
-
+                                        <input type="password" id="inputPassword" name="inputPassword" class="form-control input_pass" placeholder="${erroSenha}" required>
+                                        <c:if test="${erroSenha != null }">
+                                            <div class="erro-input">
+                                                <c:out value="${erroSenha}"/>
+                                            </div>
+                                        </c:if>
                                     </div>
                                     <hr>
                                     <button class="btn btn-lg btn-outline-light btn-block" type="submit">Acessar</button>
