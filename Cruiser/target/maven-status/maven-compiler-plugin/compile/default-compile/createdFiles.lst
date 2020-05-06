@@ -11,6 +11,7 @@ br\senac\tads\pi3\dao\ProdutoDao.class
 br\senac\tads\pi3\model\Filial.class
 br\senac\tads\pi3\exception\ProdutoException.class
 br\senac\tads\pi3\servlet\CarrinhoServlet.class
+br\senac\tads\pi3\servlet\FuncionarioServlet.class
 br\senac\tads\pi3\dao\FuncionarioDao.class
 br\senac\tads\pi3\servlet\RelatorioMensalServlet.class
 br\senac\tads\pi3\servlet\ListarFuncionarioServlet.class
@@ -20,6 +21,7 @@ br\senac\tads\pi3\model\Venda.class
 br\senac\tads\pi3\servlet\OrdemVendaDetalhadaServlet.class
 br\senac\tads\pi3\exception\FiliaisException.class
 br\senac\tads\pi3\dao\FilialDao.class
+br\senac\tads\pi3\servlet\FuncionarioFormSevlet.class
 br\senac\tads\pi3\servlet\LoginServlet.class
 br\senac\tads\pi3\controller\ProdutoService.class
 br\senac\tads\pi3\controller\ClienteService.class

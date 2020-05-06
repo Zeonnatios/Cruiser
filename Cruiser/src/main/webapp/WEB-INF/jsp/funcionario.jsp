@@ -124,7 +124,7 @@
                     <div class="container">
 
                         <!-- FORM CADASTRAR USUÃRIO-->
-                        <form action="<%= request.getContextPath()%>/registrar>" method="post">
+                        <form  method="post" action="${pageContext.request.contextPath}/funcionario/salvar">
                             <!-- ID USUÃRIO  -->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>

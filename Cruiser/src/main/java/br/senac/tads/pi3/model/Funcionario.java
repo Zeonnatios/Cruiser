@@ -67,13 +67,7 @@ public class Funcionario {
         this.departamento = departamento;
     }
 
-    public boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
+ 
 
     public int getIdLoja() {
         return idLoja;
@@ -89,6 +83,14 @@ public class Funcionario {
         this.senha = senha;
         this.cidade = cidade;
         this.departamento = departamento;
+        this.status = status;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

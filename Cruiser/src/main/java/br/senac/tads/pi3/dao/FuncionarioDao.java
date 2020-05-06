@@ -22,8 +22,8 @@ public class FuncionarioDao {
 
     public void inserirFuncionario(Funcionario funcionario) throws SQLException {
 
-        String sql = "INSERT INTO FUNCIONARIO(func_nome, func_email, func_senha, func_cidade,func_departamento, func_status, func_loja_id)"
-                + "VALUES (?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO FUNCIONARIO(func_nome, func_email, func_senha, func_cidade,func_departamento, func_status)"
+                + "VALUES (?,?,?,?,?,?);";
         try (Connection conn = ConexaoFactory.Conectar()) {
 
             conn.setAutoCommit(false);
@@ -35,7 +35,7 @@ public class FuncionarioDao {
                 stmt.setString(4, funcionario.getCidade());
                 stmt.setString(5, funcionario.getDepartamento());
                 stmt.setBoolean(6, funcionario.getStatus());
-                stmt.setInt(7, pegarIdLoja(funcionario));
+                //stmt.setInt(7, pegarIdLoja(funcionario));
                 stmt.executeUpdate();
 
                 //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS

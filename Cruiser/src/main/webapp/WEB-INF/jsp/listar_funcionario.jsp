@@ -156,8 +156,8 @@
                                         </tr>
                                     </c:forEach>
                                 </tbody>
-
                             </table>
+                            <a href="${pageContext.request.contextPath}/funcionario/novo" class="botao">Incluir novo</a>
                         </div>
                         <!-- Fim tableScrow-->
 
