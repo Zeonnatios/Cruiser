@@ -42,24 +42,22 @@
 
                                     <div class="form-label-group">
                                         
-                                         <!VOU MODIFICAR O PLACEHOLDER>
                                         <label for="inputEmail">Email:</label>                                                                                
-                                        <input type="email" id="inputEmail" name="inputEmail" value="${param.inputEmail}" class="form-control" placeholder="${erroEmail}" required autofocus>      
-                                        <c:if test="${erroSenha != null }">
+                                        <input type="email" id="inputEmail" name="inputEmail" value="${param.inputEmail}" class="form-control" placeholder= required autofocus>      
+                                        <c:if test="${erroEmail != null }">
                                             <div class="erro-input">
-                                                <c:out value="${erroSenha}"/>
+                                                <FONT FACE=Arial COLOR="#ffa500">${erroEmail}</FONT>
                                             </div>
                                         </c:if>
                                     </div>
 
                                     <div class="form-label-group">
                                         
-                                        <!VOU MODIFICAR O PLACEHOLDER>
                                         <label for="inputPassword">Senha:</label>
-                                        <input type="password" id="inputPassword" name="inputPassword" class="form-control input_pass" placeholder="${erroSenha}" required>
+                                        <input type="password" id="inputPassword" name="inputPassword" class="form-control input_pass" placeholder= required>
                                         <c:if test="${erroSenha != null }">
                                             <div class="erro-input">
-                                                <c:out value="${erroSenha}"/>
+                                                <FONT FACE=Arial COLOR="#ffa500">${erroSenha}</FONT>
                                             </div>
                                         </c:if>
                                     </div>

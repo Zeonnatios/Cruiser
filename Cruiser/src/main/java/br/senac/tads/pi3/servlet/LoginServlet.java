@@ -1,4 +1,5 @@
 package br.senac.tads.pi3.servlet;
+
 import br.senac.tads.pi3.dao.FuncionarioDao;
 import br.senac.tads.pi3.model.Funcionario;
 import java.io.IOException;
@@ -49,25 +50,23 @@ public class LoginServlet extends HttpServlet {
             temErros = true;
             request.setAttribute("erroSenha", "Senha inválida!");
         }
-        
+
         // USAR PARA TESTES DE ACESSO À HOME SENHA 123 LOGIN ADMIN@ADMIN.COM
-        if(senhaStr.equals("123") && emailStr.equals("admin@admin.com")) {
+        if (senhaStr.equals("123") && emailStr.equals("admin@admin.com")) {
             response.sendRedirect(request.getContextPath() + "/home");
             return;
-            
         }
 
         if (emailStr == null || emailStr.trim().length() < 1) {
             temErros = true;
             request.setAttribute("erroEmail", "E-mail inválido!");
-        } 
-        else {
-            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        } else {
+            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"; //-----------O ERRO DE AVISO DE EMAIL ESTA AQUI -------
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(emailStr);
-            if (matcher.matches()) {
+            if (matcher.matches() == true) {
                 temErros = true;
-                request.setAttribute("erroEmail", "E-mail inválido!");
+                request.setAttribute("erroEmail", "E-mail inválidoooo!");
             } else {
                 Funcionario funcionario = new Funcionario();
                 funcionario.setEmail(emailStr);
@@ -83,8 +82,8 @@ public class LoginServlet extends HttpServlet {
 
                 if (autenticado == null) {
                     temErros = true;
-                    request.setAttribute("erroEmail", "E-mail inválido!");
-                    request.setAttribute("erroSenha", "Senha inválida!");
+                    request.setAttribute("erroEmail", "E-mail não cadastrado!");
+                    request.setAttribute("erroSenha", "Senha não cadastrada!");
                 } else {
                     if (!autenticado.getEmail().equals(emailStr)) {
                         temErros = true;
@@ -92,12 +91,11 @@ public class LoginServlet extends HttpServlet {
                     }
                     if (!autenticado.getSenha().equals(senhaStr)) {
                         temErros = true;
-                        request.setAttribute("erroEmail", "E-mail inválido!");
+                        request.setAttribute("erroSenha", "Senha inválida!");
                     }
-
                     if (autenticado.getStatus() == false) {
                         temErros = true;
-                        request.setAttribute("erroEmail", "E-mail inválido!");
+                        request.setAttribute("erroEmail", "Usuário desativado!");
                     }
                 }
             }

@@ -11,6 +11,7 @@ public class Produto {
     private double preco;
     private String categoria;
 
+
     public String getCategoria() {
         return categoria;
     }
@@ -18,6 +19,7 @@ public class Produto {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
     private boolean disponivel;
 
     public Produto() {
@@ -63,15 +65,7 @@ public class Produto {
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
-    
-    
-    public void desativarProduto(int idProduto){
-        //IMPLEMENTAR
-    }
-    
-    public void ativarProduto(int idProduto){
-        //IMPLEMENTAR
-    }
+
     
     public void editarProduto(String nome, int quantidade, double preco, boolean disponivel) {
         this.nome = nome;
