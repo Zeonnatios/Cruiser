@@ -22,6 +22,15 @@
     </head>
 
     <body>
+        <c:if test="${sessionScope.msgSucesso != null }">
+            <div class="sucesso"><c:out value="${sessionScope.msgSucesso}" /></div>
+            <c:remove scope="session" var="msgSucesso" />
+        </c:if>
+
+        <c:if test="${sessionScope.Erro != null }">
+            <div class="sucesso"><c:out value="${sessionScope.Erro}" /></div>
+            <c:remove scope="session" var="msgErro" />
+        </c:if>
 
         <div class="flex-dashboard">
 
@@ -137,6 +146,7 @@
                                         <th scope="col">Status</th>
                                         <th scope="col">Ações</th>
                                     </tr>
+
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${listarProdutos}" var="produto">
@@ -150,6 +160,7 @@
                                                 <div class="botoesTabela">
                                                     <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
                                                     <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
+
                                                 </div>
                                             </td>
                                         </tr>

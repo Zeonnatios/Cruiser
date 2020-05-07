@@ -22,8 +22,8 @@ public class ProdutoDao {
 
     public void inserirProduto(Produto produto) throws SQLException {
 
-        String sql = "INSERT INTO PRODUTO(PROD_NOME, PROD_QTDE, PROD_PRECO, PROD_STATUS"
-                + "DISPONIVEL) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO PRODUTO(PROD_NOME, PROD_QTDE, PROD_PRECO, PROD_STATUS, PROD_CATEGORIA"
+                + ") VALUES (?,?,?,?,?);";
 
         try (Connection conn = ConexaoFactory.Conectar()) {
 
@@ -34,6 +34,7 @@ public class ProdutoDao {
                 stmt.setInt(2, produto.getQuantidade());
                 stmt.setDouble(3, produto.getPreco());
                 stmt.setBoolean(4, produto.getDisponivel());
+                stmt.setString(5, produto.getCategoria());
                 stmt.executeUpdate();
                 //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
                 conn.commit();

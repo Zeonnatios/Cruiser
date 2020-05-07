@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,7 +21,7 @@
     </head>
 
     <body>
-
+        
         <div class="flex-dashboard">
 
             <!-- SIDEBAR -->
@@ -120,12 +121,12 @@
                     <!-- Container-->
                     <div class="container">
 
-                        <form action="" method="POST">
+                        <form action="<%= request.getContextPath()%>/produtos/salvar" method="post">
                             <!-- ID PRODUTO  -->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">ID PRODUTO: </label>
                                 <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDProd" placeholder="ID AUTOMÁTICO" disabled>
+                                    <input type="number" class="form-control" id="inputIDProd" name="idProduto" placeholder="ID AUTOMÁTICO" disabled>
                                 </div>
                             </div>
 
@@ -133,7 +134,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NOME: </label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputNomeProd" placeholder="Nome" autofocus>
+                                    <input type="text" class="form-control" name="nome" id="inputNomeProd" placeholder="Nome" autofocus>
                                 </div>
                             </div>
 
@@ -141,7 +142,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">QUANTIDADE: </label>
                                 <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputQuantProd" placeholder="Quantidade">
+                                    <input type="number" class="form-control"nome="quantidade" id="inputQuantProd" placeholder="Quantidade">
                                 </div>
                             </div>
 
@@ -149,7 +150,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
                                 <div class="col-lg-10">
-                                    <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" placeholder="Preço Final">
+                                    <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" nome="preco" placeholder="Preço Final">
                                 </div>
                             </div>
 

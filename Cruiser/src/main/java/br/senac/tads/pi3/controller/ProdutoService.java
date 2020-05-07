@@ -27,7 +27,7 @@ public class ProdutoService extends SQLException {
         return p != null && p.getNome() != null && p.getPreco() != 0;
     }
 
-    public void inserirFilial(Produto p) throws ProdutoException {
+    public void inserirProduto(Produto p) throws ProdutoException {
         try {
             if (isValid(p)) {
                 produtoDAO.inserirProduto(p);
