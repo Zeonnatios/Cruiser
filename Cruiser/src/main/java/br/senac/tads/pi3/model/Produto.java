@@ -9,6 +9,7 @@ public class Produto {
     private String nome;
     private int quantidade;
     private double preco;
+    private String categoria;
     private boolean disponivel;
 
     public Produto() {
@@ -54,14 +55,13 @@ public class Produto {
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
-    
-    
-    public void desativarProduto(int idProduto){
-        //IMPLEMENTAR
+
+    public String getCategoria() {
+        return categoria;
     }
-    
-    public void ativarProduto(int idProduto){
-        //IMPLEMENTAR
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
     
     public void editarProduto(String nome, int quantidade, double preco, boolean disponivel) {

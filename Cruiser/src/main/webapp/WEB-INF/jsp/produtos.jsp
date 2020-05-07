@@ -120,12 +120,12 @@
                     <!-- Container-->
                     <div class="container">
 
-                        <form action="" method="POST">
+                        <form action="${pageContext.request.contextPath}/produto/salvar" method="post">
                             <!-- ID PRODUTO  -->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">ID PRODUTO: </label>
                                 <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDProd" placeholder="ID AUTOMÁTICO" disabled>
+                                    <input type="number" class="form-control" id="inputIDProd" name="idProduto" placeholder="ID AUTOMÁTICO" disabled>
                                 </div>
                             </div>
 
@@ -133,7 +133,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">NOME: </label>
                                 <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputNomeProd" placeholder="Nome" autofocus>
+                                    <input type="text" class="form-control" id="inputNomeProd" name="nome" placeholder="Nome" autofocus>
                                 </div>
                             </div>
 
@@ -141,7 +141,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">QUANTIDADE: </label>
                                 <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputQuantProd" placeholder="Quantidade">
+                                    <input type="number" class="form-control" id="inputQuantProd" name="quantidade" placeholder="Quantidade">
                                 </div>
                             </div>
 
@@ -149,7 +149,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
                                 <div class="col-lg-10">
-                                    <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" placeholder="Preço Final">
+                                    <input type="number" step="0.01" class="form-control" min="0.01" name="preco" id="inputPrecoProd" placeholder="Preço Final">
                                 </div>
                             </div>
 
@@ -157,7 +157,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">CATEGORIA: </label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" name="Loja">
+                                    <select class="form-control" name="categoria">
                                         <option>Selecione:</option>
                                         <option>Pranchas</option>
                                         <option>Skate Completo</option>
