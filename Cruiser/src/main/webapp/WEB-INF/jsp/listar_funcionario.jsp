@@ -54,7 +54,7 @@
                             <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="#"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
-                                <li><a href="<%= request.getContextPath()%>/funcionario"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                <li><a href="<%= request.getContextPath()%>/funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
                             </ul>
                         </li>
 
@@ -150,14 +150,15 @@
                                             <td><c:out value="${fun.getStatus()}" /></td>
                                             <td>
                                                 <div class="botoesTabela">
-                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                                    <a href="${pageContext.request.contextPath}/funcionario_editar?id=${fun.getIdFuncionario()}" class="botaoEditar"><i class="fas fa-edit"></i></a>
+
                                                 </div>
                                             </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/funcionario/novo" class="botao">Incluir novo</a>
+                            <a href="${pageContext.request.contextPath}/funcionario_novo" class="botao">Incluir novo</a>
                         </div>
                         <!-- Fim tableScrow-->
 

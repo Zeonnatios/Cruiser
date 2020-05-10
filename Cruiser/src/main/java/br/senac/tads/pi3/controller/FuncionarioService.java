@@ -41,4 +41,14 @@ public class FuncionarioService {
         }
     }
 
+    public Funcionario select(int id) throws FuncionarioException {
+
+        try {
+            return funDAO.select(id);
+        } catch (SQLException e) {
+            throw new FuncionarioException("ERRO NA INCLUSÃO DOS DADOS", e);
+        }
+
+    }
+
 }

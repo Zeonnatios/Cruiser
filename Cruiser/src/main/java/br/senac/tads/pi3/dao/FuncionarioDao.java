@@ -35,7 +35,7 @@ public class FuncionarioDao {
                 stmt.setString(4, funcionario.getCidade());
                 stmt.setString(5, funcionario.getDepartamento());
                 stmt.setBoolean(6, funcionario.getStatus());
-                //stmt.setInt(7, pegarIdLoja(funcionario));
+                //         stmt.setInt(7, pegarIdLoja(funcionario.getCidade()));
                 stmt.executeUpdate();
 
                 //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
@@ -68,7 +68,7 @@ public class FuncionarioDao {
                 funcionario.setCidade(rs.getString("FUNC_CIDADE"));
                 funcionario.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
                 funcionario.setStatus(rs.getBoolean("FUNC_STATUS"));
-                funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
+                //           funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
                 lista.add(funcionario);
             }
         }
@@ -104,17 +104,19 @@ public class FuncionarioDao {
         }
     }
 
-    public int pegarIdLoja(Funcionario funcionario) throws SQLException {
-
+    public int pegarIdLoja(String cidade) throws SQLException {
+        int idLoja = 0;
         String sql = "SELECT loja_id FROM loja WHERE loja_cidade = ?;";
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, funcionario.getCidade());
+            stmt.setString(1, cidade);
             try (ResultSet rs = stmt.executeQuery()) {
+                Funcionario funcionario = new Funcionario();
                 funcionario.setIdLoja(rs.getInt("loja_id"));
+                idLoja = funcionario.getIdLoja();
             }
         }
-        return funcionario.getIdLoja();
+        return idLoja;
     }
 
 //    public void ativarInativarFuncionario(Funcionario funcionario) throws SQLException {
@@ -131,6 +133,28 @@ public class FuncionarioDao {
 //            ConexaoFactory.CloseConnection(conn);
 //        }
 //    }
+    public Funcionario select(int id) throws SQLException {
+        String sql = "SELECT * FROM FUNCIONARIO WHERE FUNC_ID = ?;";
+        Funcionario funcionario = new Funcionario();
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+
+                funcionario.setIdFuncionario(rs.getInt("FUNC_ID"));
+                funcionario.setNome(rs.getString("FUNC_NOME"));
+                funcionario.setEmail(rs.getString("FUNC_EMAIL"));
+                funcionario.setSenha(rs.getString("FUNC_SENHA"));
+                funcionario.setCidade(rs.getString("FUNC_CIDADE"));
+                funcionario.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
+                funcionario.setStatus(rs.getBoolean("FUNC_STATUS"));
+                //  funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
+            }
+        }
+        return funcionario;
+
+    }
+
     public Funcionario autenticar(Funcionario funcionario) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
         String sql = "SELECT * FROM FUNCIONARIO WHERE FUNC_EMAIL = ? AND FUNC_SENHA = ? AND FUNC_STATUS = ?;";

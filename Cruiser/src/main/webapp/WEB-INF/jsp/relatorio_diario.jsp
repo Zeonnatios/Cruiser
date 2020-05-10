@@ -51,7 +51,7 @@
                             <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
-                                <li><a href="<%= request.getContextPath()%>/funcionarios"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                <li><a href="<%= request.getContextPath()%>/funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
                             </ul>
                         </li>
 

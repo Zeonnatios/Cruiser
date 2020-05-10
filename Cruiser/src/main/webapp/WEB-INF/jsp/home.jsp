@@ -50,13 +50,13 @@
                         <li class="drop-list">
                             <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_funcionario"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
-                                <li><a href="<%= request.getContextPath()%>/funcionario"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
+                                <li><a href="<%= request.getContextPath()%>/funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
                             </ul>
                         </li>
 
                         <li class="drop-list">
-                            <a href=""><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
+                            <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
                                 <li><a href="<%= request.getContextPath()%>/vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>

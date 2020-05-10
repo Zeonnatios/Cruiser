@@ -53,7 +53,7 @@
                         <li class="drop-list">
                             <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_funcionario"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
+                                <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
                                 <li><a href="#"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
                             </ul>
                         </li>
@@ -114,7 +114,15 @@
                 <!-- HEADER -->
                 <header>
                     <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
-                    <h2><i class="fas fa-users"></i> FUNCIONARIOS</h2>
+                        <c:choose>
+                            <c:when test="${acao == 'incluir'}">
+                            <h2><i class="fas fa-users"></i>CADASTRAR NOVO FUNCIONÁRIO</h2>
+                        </c:when>
+                        <c:when test="${acao == 'alterar'}">
+                            <h2><i class="fas fa-users"></i>EDITAR FUNCIONÁRIO</h2>
+                        </c:when>
+                    </c:choose>
+
                 </header>
 
                 <!-- MAIN conteÃºdo -->
@@ -123,91 +131,183 @@
                     <!-- container-->
                     <div class="container">
 
-                        <!-- FORM CADASTRAR USUÃRIO-->
-                        <form  method="post" action="${pageContext.request.contextPath}/funcionario/salvar">
-                            <!-- ID USUÃRIO  -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDUser" name="idFuncionario" placeholder="ID AUTOMÁTICO" disabled>
-                                </div>
-                            </div>
+                        <c:choose>
+                            <c:when test="${acao == 'incluir'}">
+                                <!-- FORM CADASTRAR USUÃRIO-->
+                                <form  method="post" action="${pageContext.request.contextPath}/funcionario_salvar">
+                                    <!-- ID USUÃRIO  -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control" id="inputIDUser" name="id" placeholder="ID AUTOMÁTICO" disabled>
+                                        </div>
+                                    </div>
 
-                            <!-- NOME COMPLETO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">NOME: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus>
-                                </div>
-                            </div>
+                                    <!-- NOME COMPLETO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">NOME: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus>
+                                        </div>
+                                    </div>
 
-                            <!-- EMAIL DE ACESSO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">EMAIL: </label>
-                                <div class="col-lg-10">
-                                    <input type="email" class="form-control" name="email"  id="inputEmailUser" placeholder="Email para acesso ao sistema">
-                                </div>
-                            </div>
+                                    <!-- EMAIL DE ACESSO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">EMAIL: </label>
+                                        <div class="col-lg-10">
+                                            <input type="email" class="form-control" name="email"  id="inputEmailUser" placeholder="Email para acesso ao sistema">
+                                        </div>
+                                    </div>
 
-                            <!-- SENHA -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">SENHA: </label>
-                                <div class="col-lg-10">
-                                    <input type="password" class="form-control" name="senha" id="inputPassword" placeholder="Senha">
-                                </div>
-                            </div>
+                                    <!-- SENHA -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">SENHA: </label>
+                                        <div class="col-lg-10">
+                                            <input type="password" class="form-control" name="senha" id="inputPassword" placeholder="Senha">
+                                        </div>
+                                    </div>
 
-                            <!-- LOJA -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">CIDADE: </label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="cidade">
-                                        <option>Selecione:</option>
-                                        <option value="São Paulo">São Paulo</option>
-                                        <option value="Campina Grande">Campina Grande</option>
-                                        <option value="Joinville">Joinville</option>
-                                        <option value="Brasília">Brasília</option>
-                                    </select>
-                                </div>
-                            </div>
+                                    <!-- LOJA -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">CIDADE: </label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" name="cidade">
+                                                <option>Selecione:</option>
+                                                <option value="Sao Paulo">São Paulo</option>
+                                                <option value="Campina Grande">Campina Grande</option>
+                                                <option value="Joinville">Joinville</option>
+                                                <option value="Brasília">Brasília</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                            <!-- DEPARTAMENTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="departamento">
-                                        <option>Selecione:</option>
-                                        <option value="Marketing/Produtos">Marketing/Produtos</option>
-                                        <option value="Vendas">Vendas</option>
-                                        <option value="Tecnologia">Tecnologia</option>
-                                        <option value="Gerência">Gerência</option>
-                                        <option value="Diretoria">Diretoria</option>
-                                    </select>
-                                </div>
-                            </div>
+                                    <!-- DEPARTAMENTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" name="departamento">
+                                                <option>Selecione:</option>
+                                                <option value="Marketing/Produtos">Marketing/Produtos</option>
+                                                <option value="Vendas">Vendas</option>
+                                                <option value="Tecnologia">Tecnologia</option>
+                                                <option value="Gerência">Gerência</option>
+                                                <option value="Diretoria">Diretoria</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                            <!-- STATUS -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">STATUS: </label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="status">
-                                        <option>Selecione:</option>
-                                        <option value="1">Ativo</option>
-                                        <option value="2">Inativo</option>
-                                    </select>
-                                </div>
-                            </div>
+                                    <!-- STATUS -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">STATUS: </label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" name="status">
+                                                <option>Selecione:</option>
+                                                <option value="1">Ativo</option>
+                                                <option value="2">Inativo</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                            <!-- Botao limpar-->
-                            <div class="campoBotoes">
-                                <button class="botao" type="button">Limpar</button>
+                                    <!-- Botao limpar-->
+                                    <div class="campoBotoes">
+                                        <button class="botao" type="reset" value="Reset">Limpar</button>
 
-                                <!-- Botao Salvar-->
-                                <button class="botao" type="button">Salvar</button>
-                            </div>
+                                        <!-- Botao Salvar-->
+                                        <button class="botao" type="submit">Salvar</button>
+                                    </div>
 
-                        </form>
-                        <!-- Fim form-->
+                                </form>
+                                <!-- Fim form-->
+                            </c:when>
+                            <c:when test="${acao == 'alterar'}">
+                                <!-- FORM CADASTRAR USUÃRIO-->
+                                <form  method="post" action="${pageContext.request.contextPath}/funcionario_salvar">
+                                    <!-- ID USUÃRIO  -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control" id="inputIDUser" name="id" placeholder="ID AUTOMÁTICO" disabled>
+                                        </div>
+                                    </div>
+
+                                    <!-- NOME COMPLETO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">NOME: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus>
+                                        </div>
+                                    </div>
+
+                                    <!-- EMAIL DE ACESSO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">EMAIL: </label>
+                                        <div class="col-lg-10">
+                                            <input type="email" class="form-control" name="email"  id="inputEmailUser" placeholder="Email para acesso ao sistema">
+                                        </div>
+                                    </div>
+
+                                    <!-- SENHA -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">SENHA: </label>
+                                        <div class="col-lg-10">
+                                            <input type="password" class="form-control" name="senha" id="inputPassword" placeholder="Senha">
+                                        </div>
+                                    </div>
+
+                                    <!-- LOJA -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">CIDADE: </label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" name="cidade">
+                                                <option>Selecione:</option>
+                                                <option value="São Paulo">São Paulo</option>
+                                                <option value="Campina Grande">Campina Grande</option>
+                                                <option value="Joinville">Joinville</option>
+                                                <option value="Brasília">Brasília</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- DEPARTAMENTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" name="departamento">
+                                                <option>Selecione:</option>
+                                                <option value="Marketing/Produtos">Marketing/Produtos</option>
+                                                <option value="Vendas">Vendas</option>
+                                                <option value="Tecnologia">Tecnologia</option>
+                                                <option value="Gerência">Gerência</option>
+                                                <option value="Diretoria">Diretoria</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- STATUS -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">STATUS: </label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" name="status">
+                                                <option>Selecione:</option>
+                                                <option value="1">Ativo</option>
+                                                <option value="2">Inativo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botao limpar-->
+                                    <div class="campoBotoes">
+                                        <button class="botao" type="reset" value="Reset">Limpar</button>
+
+                                        <!-- Botao Salvar-->
+                                        <button class="botao" type="submit">Salvar</button>
+                                    </div>
+
+                                </form>
+                                <!-- Fim form-->
+                            </c:when>
+                        </c:choose>
+
 
                     </div>
                     <!-- Fim Container-->

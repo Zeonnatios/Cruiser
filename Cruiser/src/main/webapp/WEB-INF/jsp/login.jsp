@@ -41,9 +41,9 @@
                                 <form class="form-signin" method="post" action="${pageContext.request.contextPath}/Login" novalidate>
 
                                     <div class="form-label-group">
-                                        
-                                        <label for="inputEmail">Email:</label>                                                                                
-                                        <input type="email" id="inputEmail" name="inputEmail" value="${param.inputEmail}" class="form-control" placeholder= required autofocus>      
+
+                                        <label for="inputEmail">Email:</label>
+                                        <input type="email" id="inputEmail" name="inputEmail" value="${param.inputEmail}" class="form-control" placeholder= "Email" autofocus>
                                         <c:if test="${erroEmail != null }">
                                             <div class="erro-input">
                                                 <FONT FACE=Arial COLOR="#ffa500">${erroEmail}</FONT>
@@ -52,9 +52,9 @@
                                     </div>
 
                                     <div class="form-label-group">
-                                        
+
                                         <label for="inputPassword">Senha:</label>
-                                        <input type="password" id="inputPassword" name="inputPassword" class="form-control input_pass" placeholder= required>
+                                        <input type="password" id="inputPassword" name="inputPassword" class="form-control input_pass" placeholder="Senha">
                                         <c:if test="${erroSenha != null }">
                                             <div class="erro-input">
                                                 <FONT FACE=Arial COLOR="#ffa500">${erroSenha}</FONT>
