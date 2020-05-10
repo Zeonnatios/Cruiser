@@ -22,11 +22,14 @@ public class FuncionarioDao {
 
     public void inserirFuncionario(Funcionario funcionario) throws SQLException {
 
-        String sql = "INSERT INTO FUNCIONARIO(func_nome, func_email, func_senha, func_cidade,func_departamento, func_status)"
-                + "VALUES (?,?,?,?,?,?);";
+        String sql = "INSERT INTO FUNCIONARIO(func_nome, func_email, func_senha, func_cidade,func_departamento, func_status, FUNC_LOJA_ID)"
+                + "VALUES (?,?,?,?,?,?,?);";
         try (Connection conn = ConexaoFactory.Conectar()) {
 
             conn.setAutoCommit(false);
+            String pesquisarCidade = funcionario.getCidade();
+            Funcionario f = new Funcionario();
+            f = pegarIdLoja(pesquisarCidade);
 
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, funcionario.getNome());
@@ -35,7 +38,7 @@ public class FuncionarioDao {
                 stmt.setString(4, funcionario.getCidade());
                 stmt.setString(5, funcionario.getDepartamento());
                 stmt.setBoolean(6, funcionario.getStatus());
-                //         stmt.setInt(7, pegarIdLoja(funcionario.getCidade()));
+                stmt.setInt(7, f.getIdLoja());
                 stmt.executeUpdate();
 
                 //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
@@ -104,19 +107,22 @@ public class FuncionarioDao {
         }
     }
 
-    public int pegarIdLoja(String cidade) throws SQLException {
+    public Funcionario pegarIdLoja(String cidade) throws SQLException {
         int idLoja = 0;
-        String sql = "SELECT loja_id FROM loja WHERE loja_cidade = ?;";
+        Funcionario f = new Funcionario();
+        String sql = "SELECT * FROM loja WHERE loja_cidade = ?;";
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cidade);
             try (ResultSet rs = stmt.executeQuery()) {
-                Funcionario funcionario = new Funcionario();
-                funcionario.setIdLoja(rs.getInt("loja_id"));
-                idLoja = funcionario.getIdLoja();
+
+                while (rs.next()) {
+                    f.setIdLoja(rs.getInt("loja_id"));
+                }
+
             }
         }
-        return idLoja;
+        return f;
     }
 
 //    public void ativarInativarFuncionario(Funcionario funcionario) throws SQLException {
@@ -140,15 +146,16 @@ public class FuncionarioDao {
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
-
-                funcionario.setIdFuncionario(rs.getInt("FUNC_ID"));
-                funcionario.setNome(rs.getString("FUNC_NOME"));
-                funcionario.setEmail(rs.getString("FUNC_EMAIL"));
-                funcionario.setSenha(rs.getString("FUNC_SENHA"));
-                funcionario.setCidade(rs.getString("FUNC_CIDADE"));
-                funcionario.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
-                funcionario.setStatus(rs.getBoolean("FUNC_STATUS"));
-                //  funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
+                while (rs.next()) {
+                    funcionario.setIdFuncionario(rs.getInt("FUNC_ID"));
+                    funcionario.setNome(rs.getString("FUNC_NOME"));
+                    funcionario.setEmail(rs.getString("FUNC_EMAIL"));
+                    funcionario.setSenha(rs.getString("FUNC_SENHA"));
+                    funcionario.setCidade(rs.getString("FUNC_CIDADE"));
+                    funcionario.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
+                    funcionario.setStatus(rs.getBoolean("FUNC_STATUS"));
+                    //  funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
+                }
             }
         }
         return funcionario;

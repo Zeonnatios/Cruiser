@@ -18,7 +18,9 @@ func_senha varchar(10) not null,
 func_cidade varchar(40) not null,
 func_departamento varchar(50) not null,
 func_status boolean not null,
-PRIMARY KEY (func_id)
+func_loja_id int not null,
+PRIMARY KEY (func_id),
+FOREIGN KEY (func_loja_id) REFERENCES LOJA(loja_id)
 );
 
 CREATE TABLE CLIENTE(
@@ -64,11 +66,11 @@ VALUES ('1', 'Sao Paulo', '11234567890', 'Matriz'),
 ('3', 'Joinville', '31135795539', 'Filial'), 
 ('4', 'Distrito Federal', '61987654321', 'Filial');
 
-INSERT INTO `funcionario` (`func_id`, `func_nome`, `func_email`, `func_senha`, `func_cidade`, `func_departamento`, `func_status`) 
-VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1'), 
-('2', 'Raphaela Wagner', 'ellaw@uol.com.br', 'asd', 'Sao Paulo', 'Tecnologia', '1'), 
-('3', 'Luis Eduardo', 'louroconrado@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1'), 
-('4', 'Lukas Matias', 'lukaskt6@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1');
+INSERT INTO `funcionario` (`func_id`, `func_nome`, `func_email`, `func_senha`, `func_cidade`, `func_departamento`, `func_status`, `func_loja_id`) 
+VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1', '1'), 
+('2', 'Raphaela Wagner', 'ellaw@uol.com.br', 'asd', 'Sao Paulo', 'Tecnologia', '1', '1'), 
+('3', 'Luis Eduardo', 'louroconrado@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1', '1'), 
+('4', 'Lukas Matias', 'lukaskt6@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1', '1');
 
 INSERT INTO `cliente` (`cli_id`, `cli_nome`, `cli_cpf`, `cli_email`) 
 VALUES ('1', 'Jorge', '12345678910', 'jorge@teste.com');

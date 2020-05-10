@@ -43,9 +43,6 @@ public class FuncionarioSalvarServlet extends HttpServlet {
         if (status.equals("1")) {
             s = true;
         }
-
-        System.out.println("status" + status);
-
         Funcionario f = new Funcionario();
         //f.setIdFuncionario(Integer.parseInt(idFuncionario));
         f.setNome(nome);
