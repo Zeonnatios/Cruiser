@@ -71,7 +71,7 @@ public class FuncionarioDao {
                 funcionario.setCidade(rs.getString("FUNC_CIDADE"));
                 funcionario.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
                 funcionario.setStatus(rs.getBoolean("FUNC_STATUS"));
-                //           funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
+                funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
                 lista.add(funcionario);
             }
         }
@@ -80,7 +80,7 @@ public class FuncionarioDao {
 
     public void editarFuncionario(Funcionario funcionario) throws SQLException {
 
-        String sql = "UPDATE FUNCIONARIO SET FUNC_NOME = ?, FUNC_EMAIL = ?,"
+        String sql = "UPDATE FUNCIONARIO SET FUNC_NOME = ?, FUNC_EMAIL = ?, FUNC_SENHA = ?, FUNC_CIDADE = ?,"
                 + "FUNC_DEPARTAMENTO = ?, FUNC_STATUS = ? WHERE FUNC_ID = ?;";
         try (Connection conn = ConexaoFactory.Conectar()) {
 
@@ -89,9 +89,11 @@ public class FuncionarioDao {
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, funcionario.getNome());
                 stmt.setString(2, funcionario.getEmail());
-                stmt.setString(3, funcionario.getDepartamento());
-                stmt.setBoolean(4, funcionario.getStatus());
-                stmt.setInt(5, funcionario.getIdFuncionario());
+                stmt.setString(3, funcionario.getSenha());
+                stmt.setString(4, funcionario.getCidade());
+                stmt.setString(5, funcionario.getDepartamento());
+                stmt.setBoolean(6, funcionario.getStatus());
+                stmt.setInt(7, funcionario.getIdFuncionario());
                 stmt.executeUpdate();
 
                 //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
@@ -154,7 +156,7 @@ public class FuncionarioDao {
                     funcionario.setCidade(rs.getString("FUNC_CIDADE"));
                     funcionario.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
                     funcionario.setStatus(rs.getBoolean("FUNC_STATUS"));
-                    //  funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
+                    funcionario.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
                 }
             }
         }

@@ -31,6 +31,7 @@ public class FuncionarioService {
     public void inserirFuncionario(Funcionario f) throws FuncionarioException {
         try {
             if (isValid(f)) {
+                System.out.println("CADASTRANDO UM FUNCIONÁRIO");
                 funDAO.inserirFuncionario(f);
             } else {
                 throw new FuncionarioException("DADOS INVALIDOS", null);
@@ -44,9 +45,26 @@ public class FuncionarioService {
     public Funcionario select(int id) throws FuncionarioException {
 
         try {
+            System.out.println("PESQUISANDO FUNCIONÁRIO PELO ID");
             return funDAO.select(id);
         } catch (SQLException e) {
-            throw new FuncionarioException("ERRO NA INCLUSÃO DOS DADOS", e);
+            throw new FuncionarioException("ERRO AO PESQUISAR DADOS DO FUNCIONÁRIO", e);
+        }
+
+    }
+
+    public void editarFuncionario(Funcionario f) throws FuncionarioException {
+
+        try {
+            if (isValid(f)) {
+                System.out.println("ALTERANDO DADOS DE UM FUNCIONÁRIO");
+                funDAO.editarFuncionario(f);
+            } else {
+                throw new FuncionarioException("DADOS INVALIDOS", null);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new FuncionarioException("ERRO NA ATUALIZAÇÃO DOS DADOS", e);
         }
 
     }
