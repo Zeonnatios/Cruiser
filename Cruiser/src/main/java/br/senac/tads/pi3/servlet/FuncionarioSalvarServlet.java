@@ -66,7 +66,7 @@ public class FuncionarioSalvarServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/listar_funcionarios");
 
         } else if (urlInformada.endsWith("_update")) {
-            //ABRE FORM POPUALDO PARA EDITAR, FALTANTE SELECIONAR OS OPTIONS DOS SELECTS NO JSP
+            //ABRE FORM POPULADO PARA EDITAR, FALTANTE SELECIONAR OS OPTIONS DOS SELECTS NO JSP
             request.setCharacterEncoding("UTF-8");
 
             //NO JSP SE USAR O DISABLED NO INPUT DE ID, O JSP MANDA PARA O SERVLET O ID COMO NULL

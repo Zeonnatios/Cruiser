@@ -39,4 +39,18 @@ public class ProdutoService extends SQLException {
             throw new ProdutoException("ERRO NA INCLUSÃO DOS DADOS", e);
         }
     }
+    
+    public void editarProduto(Produto p) throws ProdutoException {
+        try {
+            if (isValid(p)) {
+                System.out.println("ALTERANDO DADOS DE UM PRODUTO");
+                produtoDAO.editarProduto(p);
+            } else {
+                throw new ProdutoException("DADOS INVALIDOS", null);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new ProdutoException("ERRO NA ATUALIZAÇÃO DOS DADOS", e);
+        }
+    }
 }

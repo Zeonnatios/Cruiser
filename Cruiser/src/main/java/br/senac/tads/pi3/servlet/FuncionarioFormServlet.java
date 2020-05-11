@@ -32,7 +32,7 @@ public class FuncionarioFormServlet extends HttpServlet {
         } else {
             // Significa que usuário está abrindo formulário para edição.
             request.setAttribute("acao", "alterar");
-            //Recebemos o id pelo botão clicado e dps convertemso em string
+            //Recebemos o id pelo botão clicado e dps convertemos em String
             int id = Integer.parseInt(request.getParameter("id"));
             //Consultar o contato pelo ID e levar para JSP com o request.setAttribute
             try {
