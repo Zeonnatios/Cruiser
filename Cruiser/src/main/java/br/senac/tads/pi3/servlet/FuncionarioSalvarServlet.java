@@ -31,6 +31,8 @@ public class FuncionarioSalvarServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String urlInformada = request.getRequestURI();
+
+        //ABRE FORM PARA CADASTRAR
         if (urlInformada.endsWith("_salvar")) {
             request.setCharacterEncoding("UTF-8");
             String nome = request.getParameter("nome");
@@ -62,11 +64,14 @@ public class FuncionarioSalvarServlet extends HttpServlet {
                 sessao.setAttribute("msgErro", "Erro ao salvar Funcionário - " + ex.getMessage());
             }
             response.sendRedirect(request.getContextPath() + "/listar_funcionarios");
+
         } else if (urlInformada.endsWith("_update")) {
+            //ABRE FORM POPUALDO PARA EDITAR, FALTANTE SELECIONAR OS OPTIONS DOS SELECTS NO JSP
             request.setCharacterEncoding("UTF-8");
 
             //NO JSP SE USAR O DISABLED NO INPUT DE ID, O JSP MANDA PARA O SERVLET O ID COMO NULL
             //VINDO O ID COMO NULL NÃO É POSSIVEL FAZER UPDATE...
+            //ENTÃO COM UM INPUT HIDDEN É POSSIVEL PEGAR O ID
             String id = request.getParameter("id");
             String nome = request.getParameter("nome");
             String email = request.getParameter("email");

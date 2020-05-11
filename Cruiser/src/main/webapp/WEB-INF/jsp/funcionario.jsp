@@ -234,7 +234,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">ID USUÁRIO: </label>
                                         <div class="col-lg-10">
-                                            <input type="number"  class="form-control" id="inputIDUser" name="id" placeholder="ID AUTOMÁTICO"  value="${funcionario.getIdFuncionario()}">
+                                            <input type="number"  class="form-control" id="inputIDUser" name="codigo" placeholder="ID AUTOMÁTICO" value="${funcionario.getIdFuncionario()}" disabled>
+                                            <input type="hidden"  class="form-control" id="inputIDUser" name="id" value="${funcionario.getIdFuncionario()}">
                                         </div>
                                     </div>
 
