@@ -144,7 +144,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">NOME: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus required>
+                                            <input type="text" class="form-control" name="nome" id="inputNameUser" placeholder="nome" autofocus required>
                                         </div>
                                     </div>
 
@@ -152,7 +152,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">CPF: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputCPFCli" placeholder="Cpf" required>
+                                            <input type="text" class="form-control" name="cpf" id="inputCPFCli"  placeholder="CPF" required>
                                         </div>
                                     </div>
 
@@ -160,7 +160,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">EMAIL: </label>
                                         <div class="col-lg-10">
-                                            <input type="email" class="form-control" id="inputEmailCli" placeholder="Email" required>
+                                            <input type="email" class="form-control" name="email" id="inputEmailCli" placeholder="EMAIL" required>
                                         </div>
                                     </div>
 

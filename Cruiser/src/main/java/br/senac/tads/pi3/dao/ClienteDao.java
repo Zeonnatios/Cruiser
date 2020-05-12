@@ -18,7 +18,7 @@ public class ClienteDao {
 
     public void inserirCliente(Cliente cliente) throws SQLException {
 
-        String sql = "INSERT INTO CLIENTE(cli_nome, cli_cpf, cli_email) VALUES (?,?,?);";
+        String sql = "INSERT INTO CLIENTE(cli_nome,cli_cpf,cli_email) VALUES (?,?,?);";
 
         try (Connection conn = ConexaoFactory.Conectar()) {
 
