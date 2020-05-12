@@ -158,9 +158,9 @@
                                             <td><c:out value="${produto.getDisponivel()}" /></td>
                                             <td>
                                                 <div class="botoesTabela">
-                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
-                                                    <button class="botaoBloquear" type="button"><i class="fas fa-lock"></i></button>
+                                                    <a href="${pageContext.request.contextPath}/produto_editar?id=${produto.getIdProduto()}" class="botaoEditar"><i class="fas fa-edit"></i></a>
 
+                                                    
                                                 </div>
                                             </td>
                                         </tr>
@@ -168,6 +168,7 @@
 
                                 </tbody>
                             </table>
+                            <a href="${pageContext.request.contextPath}/produto_novo" class="botao">Incluir novo</a>
                         </div>
                         <!-- Fim tableScrow-->
 

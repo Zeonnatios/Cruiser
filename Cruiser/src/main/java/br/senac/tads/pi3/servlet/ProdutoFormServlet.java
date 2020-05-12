@@ -5,8 +5,10 @@
  */
 package br.senac.tads.pi3.servlet;
 
+import br.senac.tads.pi3.controller.ProdutoService;
+import br.senac.tads.pi3.exception.ProdutoException;
+import br.senac.tads.pi3.model.Produto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,18 +18,39 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author lukas
+ * @author Cruiser
  */
-@WebServlet(name = "ProdutoForm", urlPatterns = {"/produtos"})
+@WebServlet(name = "ProdutoForm", urlPatterns = {"/produto_novo", "/produto_editar"})
 public class ProdutoFormServlet extends HttpServlet {
 
-   
-        @Override
+    private ProdutoService service = new ProdutoService();
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          request.getRequestDispatcher("/WEB-INF/jsp/produtos.jsp").forward(request, response);
-       
-        
+
+        String urlInformada = request.getRequestURI();
+
+        if (urlInformada.endsWith("_novo")) {
+            request.setAttribute("acao", "incluir");
+        } else {
+            request.setAttribute("acao", "alterar");
+            
+            String inteiro = request.getParameter("idProduto");
+            int id = Integer.parseInt(inteiro);
+
+            try {
+                Produto p = service.select(id);
+                request.setAttribute("produto", p);
+                
+            } catch (ProdutoException e) {
+                // Se ocorrer erro, obtem a mensagem da exceção
+                String msg = e.getMessage();
+                request.setAttribute("msgErro", msg);
+            }
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/produtos.jsp");
+        dispatcher.forward(request, response);
+
     }
-    
 }

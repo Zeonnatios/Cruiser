@@ -112,7 +112,15 @@
                 <!-- HEADER -->
                 <header>
                     <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
-                    <h2><i class="fas fa-suitcase"></i> PRODUTOS</h2>
+                        <c:choose>
+                            <c:when test="${acao == 'incluir'}">
+                            <h2><i class="fas fa-suitcase"></i> CADASTRAR NOVO PRODUTO</h2>
+                        </c:when>
+                        <c:when test="${acao == 'alterar'}">
+                            <h2><i class="fas fa-users"></i>EDITAR PRODUTO</h2>
+                        </c:when>
+                    </c:choose>
+
                 </header>
 
                 <!-- MAIN conteÃºdo -->
@@ -120,64 +128,136 @@
 
                     <!-- Container-->
                     <div class="container">
+                        <c:choose>
+                            <c:when test="${acao == 'incluir'}">
+                                <form method="post" action="${pageContext.request.contextPath}/produto_salvar" >
+                                    <!-- ID PRODUTO  -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">ID PRODUTO: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control" id="inputIDProd" name="idProduto" placeholder="ID AUTOMÁTICO" disabled>
+                                        </div>
+                                    </div>
 
-                        <form action="<%= request.getContextPath()%>/produtos/salvar" method="post">
-                            <!-- ID PRODUTO  -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID PRODUTO: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDProd" name="idProduto" placeholder="ID AUTOMÁTICO" disabled>
-                                </div>
-                            </div>
+                                    <!-- NOME PRODUTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">NOME: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" name="nome" id="inputNomeProd" placeholder="Nome" autofocus>
+                                        </div>
+                                    </div>
 
-                            <!-- NOME PRODUTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">NOME: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" name="nome" id="inputNomeProd" placeholder="Nome" autofocus>
-                                </div>
-                            </div>
+                                    <!-- QUANTIDADE PRODUTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">QUANTIDADE: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control"nome="quantidade" id="inputQuantProd" placeholder="Quantidade">
+                                        </div>
+                                    </div>
 
-                            <!-- QUANTIDADE PRODUTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">QUANTIDADE: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control"nome="quantidade" id="inputQuantProd" placeholder="Quantidade">
-                                </div>
-                            </div>
+                                    <!-- PREÇO PRODUTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" nome="preco" placeholder="Preço Final">
+                                        </div>
+                                    </div>
 
-                            <!-- PREÃO FINAL PRODUTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" nome="preco" placeholder="Preço Final">
-                                </div>
-                            </div>
+                                    <!-- CATEGORIA PRODUTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">CATEGORIA: </label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" name="Loja">
+                                                <option value="">Selecione:</option>
+                                                <option value="Pranchas">Pranchas</option>
+                                                <option value="Skate Completo">Skate Completo</option>
+                                                <option value="Acessorios">Acessórios</option>
+                                                <option value="Customizacao">Customização</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                            <!-- CATEGORIA PRODUTO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">CATEGORIA: </label>
-                                <div class="col-lg-10">
-                                    <select class="form-control" name="Loja">
-                                        <option>Selecione:</option>
-                                        <option>Pranchas</option>
-                                        <option>Skate Completo</option>
-                                        <option>Acessórios</option>
-                                        <option>Customização</option>
-                                    </select>
-                                </div>
-                            </div>
+                                    <!-- Botao limpar-->
+                                    <div class="campoBotoes">
+                                        <button class="botao" type="reset" value="Reset">Limpar</button>
 
-                            <!-- Botao limpar-->
-                            <div class="campoBotoes">
-                                <button class="botao" type="reset" value="Reset">Limpar</button>
+                                        <!-- Botao Salvar-->
+                                        <button class="botao" type="submit">Salvar</button>
+                                    </div>
 
-                                <!-- Botao Salvar-->
-                                <button class="botao" type="button">Salvar</button>
-                            </div>
+                                </form>
+                                <!-- Fim form -->
+                            </c:when>
 
-                        </form>
-                        <!-- Fim form -->
+                            <c:when test="${acao == 'alterar'}">
+                                <c:if test="${sessionScope.msgErro != null}">
+                                    <div class="alert alert-danger" role="alert">
+
+                                        <c:out value="${sessionScope.msgErro}"/>
+                                    </div>
+                                    <c:remove scope="session" var="msgErro"/>
+                                </c:if>
+                                <!-- FORM EDITAR PRODUTO-->
+                                <form method="post" action="${pageContext.request.contextPath}/produto_update" >
+                                    <!-- ID PRODUTO  -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">ID PRODUTO: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control" id="inputIDProd" name="codigo" placeholder="ID AUTOMÁTICO" value="${produto.getIdProduto()}" disabled>
+                                            <input type="hidden"  class="form-control" id="inputIDProd" name="idProduto" value="${produto.getIdproduto()}">
+                                        </div>
+                                    </div>
+
+                                    <!-- NOME PRODUTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">NOME: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" name="nome" id="inputNomeProd" placeholder="Nome" autofocus required value="${produto.getNome()}">
+                                        </div>
+                                    </div>
+
+                                    <!-- QUANTIDADE PRODUTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">QUANTIDADE: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control"nome="quantidade" id="inputQuantProd" placeholder="Quantidade" value="${produto.getQuantidade()}">
+                                        </div>
+                                    </div>
+
+                                    <!-- PREÇO PRODUTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" nome="preco" placeholder="Preço Final" value="${produto.getPreco()}">
+                                        </div>
+                                    </div>
+
+                                    <!-- CATEGORIA PRODUTO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">CATEGORIA: </label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" name="Loja">
+                                                <option value="">Selecione:</option>
+                                                <option value="Pranchas">Pranchas</option>
+                                                <option value="Skate Completo">Skate Completo</option>
+                                                <option value="Acessorios">Acessórios</option>
+                                                <option value="Customizacao">Customização</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botao limpar-->
+                                    <div class="campoBotoes">
+                                        <button class="botao" type="reset" value="Reset">Limpar</button>
+
+                                        <!-- Botao Salvar-->
+                                        <button class="botao" type="submit">Salvar</button>
+                                    </div>
+
+                                </form>
+                                <!-- Fim form -->
+                            </c:when>
+                        </c:choose>
 
                     </div>
                     <!-- Fim Container-->

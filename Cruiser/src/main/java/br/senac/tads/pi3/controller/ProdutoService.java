@@ -40,6 +40,17 @@ public class ProdutoService extends SQLException {
         }
     }
     
+    public Produto select(int id) throws ProdutoException {
+
+        try {
+            System.out.println("PESQUISANDO PRODUTO PELO ID");
+            return produtoDAO.select(id);
+        } catch (SQLException e) {
+            throw new ProdutoException("ERRO AO PESQUISAR DADOS DO PRODUTO", e);
+        }
+
+    }
+    
     public void editarProduto(Produto p) throws ProdutoException {
         try {
             if (isValid(p)) {

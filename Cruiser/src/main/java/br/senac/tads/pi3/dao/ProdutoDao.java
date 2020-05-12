@@ -22,8 +22,8 @@ public class ProdutoDao {
 
     public void inserirProduto(Produto produto) throws SQLException {
 
-        String sql = "INSERT INTO PRODUTO(PROD_NOME, PROD_QTDE, PROD_PRECO, PROD_STATUS, PROD_CATEGORIA"
-                + ") VALUES (?,?,?,?,?);";
+        String sql = "INSERT INTO PRODUTO(PROD_NOME, PROD_QTDE, PROD_PRECO, PROD_STATUS"
+                + ") VALUES (?,?,?,?);";
 
         try (Connection conn = ConexaoFactory.Conectar()) {
 
@@ -34,7 +34,7 @@ public class ProdutoDao {
                 stmt.setInt(2, produto.getQuantidade());
                 stmt.setDouble(3, produto.getPreco());
                 stmt.setBoolean(4, produto.getDisponivel());
-                stmt.setString(5, produto.getCategoria());
+                //stmt.setString(5, produto.getCategoria());
                 stmt.executeUpdate();
                 //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
                 conn.commit();
@@ -92,5 +92,25 @@ public class ProdutoDao {
         } finally {
             ConexaoFactory.CloseConnection(conn);
         }
+    }
+    
+    public Produto select(int id) throws SQLException {
+        String sql = "SELECT * FROM PRODUTO WHERE PROD_ID = ?;";
+        Produto produto = new Produto();
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                produto.setIdProduto(rs.getInt("PROD_ID"));
+                produto.setNome(rs.getString("PROD_NOME"));
+                produto.setQuantidade(rs.getInt("PROD_QTDE"));
+                produto.setPreco(rs.getDouble("PROD_PRECO"));
+                produto.setDisponivel(rs.getBoolean("PROD_STATUS"));
+                }
+            }
+        }
+        return produto;
+
     }
 }

@@ -10,6 +10,7 @@ public class Produto {
     private int quantidade;
     private double preco;
     private String categoria;
+    private boolean disponivel;
 
 
     public String getCategoria() {
@@ -18,12 +19,6 @@ public class Produto {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
-    }
-
-    private boolean disponivel;
-
-    public Produto() {
-     
     }
 
     public int getIdProduto() {
@@ -65,12 +60,6 @@ public class Produto {
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
-
     
-    public void editarProduto(String nome, int quantidade, double preco, boolean disponivel) {
-        this.nome = nome;
-        this.quantidade = quantidade;
-        this.preco = preco;
-        this.disponivel = disponivel;
-    }
+    
 }
