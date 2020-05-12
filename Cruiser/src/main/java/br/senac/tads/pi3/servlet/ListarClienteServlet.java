@@ -40,7 +40,7 @@ public class ListarClienteServlet extends HttpServlet {
             String msg = e.getMessage();
             request.setAttribute("msgErro", msg);
         }
-        request.getRequestDispatcher("/WEB-INF/jsp/listar_clientes.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/jsp/listar_cliente.jsp").forward(request, response);
 
     }
 

@@ -18,7 +18,7 @@ public class ClienteDao {
 
     public void inserirCliente(Cliente cliente) throws SQLException {
 
-        String sql = "INSERT INTO CLIENTE(CLI_NOME, CLI_CPF, CLI_EMAIL) VALUES (?,?,?);";
+        String sql = "INSERT INTO CLIENTE(cli_nome, cli_cpf, cli_email) VALUES (?,?,?);";
 
         try (Connection conn = ConexaoFactory.Conectar()) {
 
@@ -45,23 +45,23 @@ public class ClienteDao {
 
     public List<Cliente> listarCliente() throws SQLException {
         String sql = "SELECT * FROM CLIENTE;";
-        List<Cliente> clientes = new ArrayList<>();
+        List<Cliente> listaCliente = new ArrayList<>();
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                Cliente c = new Cliente();
+                Cliente cliente = new Cliente();
 
-                c.setIdCliente(rs.getInt("cli_id"));
-                c.setNome(rs.getString("cli_nome"));
-                c.setCpf(rs.getString("cli_cpf"));
-                c.setEmail(rs.getString("cli_email"));
+                cliente.setIdCliente(rs.getInt("cli_id"));
+                cliente.setNome(rs.getString("cli_nome"));
+                cliente.setCpf(rs.getString("cli_cpf"));
+                cliente.setEmail(rs.getString("cli_email"));
 
-                clientes.add(c);
+                listaCliente.add(cliente);
             }
         }
-        return clientes;
+        return listaCliente;
     }
 
     public void editarCliente(Cliente cliente) throws SQLException {
@@ -89,6 +89,26 @@ public class ClienteDao {
             e.printStackTrace();
             throw e;
         }
+    }
+
+    public Cliente select(int id) throws SQLException {
+        String sql = "SELECT * FROM CLIENTE WHERE CLI_ID = ?;";
+        Cliente cliente = new Cliente();
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    cliente.setIdCliente(rs.getInt("CLI_ID"));
+                    cliente.setNome(rs.getString("CLI_NOME"));
+                    cliente.setCpf(rs.getString("CLI_CPF"));
+                    cliente.setEmail(rs.getString("CLI_EMAIL"));
+
+                }
+            }
+        }
+        return cliente;
+
     }
 
 }
