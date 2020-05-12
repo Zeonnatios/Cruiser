@@ -151,7 +151,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">QUANTIDADE: </label>
                                         <div class="col-lg-10">
-                                            <input type="number" class="form-control"nome="quantidade" id="inputQuantProd" placeholder="Quantidade">
+                                            <input type="number" class="form-control"name="quantidade" id="inputQuantProd" placeholder="Quantidade">
                                         </div>
                                     </div>
 
@@ -159,7 +159,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
                                         <div class="col-lg-10">
-                                            <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" nome="preco" placeholder="Preço Final">
+                                            <input type="number" step="0.01" class="form-control" min="0.01" name="preco" id="inputPrecoProd"  placeholder="Preço Final">
                                         </div>
                                     </div>
 
@@ -167,7 +167,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">CATEGORIA: </label>
                                         <div class="col-lg-10">
-                                            <select class="form-control" name="Loja">
+                                            <select class="form-control" name="categoria">
                                                 <option value="">Selecione:</option>
                                                 <option value="Pranchas">Pranchas</option>
                                                 <option value="Skate Completo">Skate Completo</option>
@@ -204,7 +204,7 @@
                                         <label class="col-sm-2 col-form-label">ID PRODUTO: </label>
                                         <div class="col-lg-10">
                                             <input type="number" class="form-control" id="inputIDProd" name="codigo" placeholder="ID AUTOMÁTICO" value="${produto.getIdProduto()}" disabled>
-                                            <input type="hidden"  class="form-control" id="inputIDProd" name="idProduto" value="${produto.getIdproduto()}">
+                                            <input type="hidden"  class="form-control" id="inputIDProd" name="id" value="${produto.getIdProduto()}">
                                         </div>
                                     </div>
 
@@ -220,7 +220,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">QUANTIDADE: </label>
                                         <div class="col-lg-10">
-                                            <input type="number" class="form-control"nome="quantidade" id="inputQuantProd" placeholder="Quantidade" value="${produto.getQuantidade()}">
+                                            <input type="number" class="form-control "name="quantidade" id="inputQuantProd" placeholder="Quantidade" value="${produto.getQuantidade()}">
                                         </div>
                                     </div>
 
@@ -228,7 +228,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
                                         <div class="col-lg-10">
-                                            <input type="number" step="0.01" class="form-control" min="0.01" id="inputPrecoProd" nome="preco" placeholder="Preço Final" value="${produto.getPreco()}">
+                                            <input type="number" step="0.01" class="form-control" min="0.01" name="preco" id="inputPrecoProd"  placeholder="Preço Final" value="${produto.getPreco()}">
                                         </div>
                                     </div>
 
@@ -236,7 +236,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">CATEGORIA: </label>
                                         <div class="col-lg-10">
-                                            <select class="form-control" name="Loja">
+                                            <select class="form-control" name="categoria">
                                                 <option value="">Selecione:</option>
                                                 <option value="Pranchas">Pranchas</option>
                                                 <option value="Skate Completo">Skate Completo</option>

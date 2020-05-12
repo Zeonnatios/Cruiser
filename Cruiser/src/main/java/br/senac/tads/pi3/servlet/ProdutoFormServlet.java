@@ -36,7 +36,7 @@ public class ProdutoFormServlet extends HttpServlet {
         } else {
             request.setAttribute("acao", "alterar");
             
-            String inteiro = request.getParameter("idProduto");
+            String inteiro = request.getParameter("id");
             int id = Integer.parseInt(inteiro);
 
             try {

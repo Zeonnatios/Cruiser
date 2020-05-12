@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebServlet(name = "FuncionarioServlet", urlPatterns = {"/produto_salvar", "/produto_update"})
+@WebServlet(name = "ProdutoServlet", urlPatterns = {"/produto_salvar", "/produto_update"})
 public class ProdutoSalvarServlet extends HttpServlet {
 
     private ProdutoService service = new ProdutoService();
@@ -57,7 +57,7 @@ public class ProdutoSalvarServlet extends HttpServlet {
             
         } else if (urlInformada.endsWith("_update")) {
             request.setCharacterEncoding("UTF-8");
-            String idProduto = request.getParameter("idProduto");
+            String idProduto = request.getParameter("id");
             String nome = request.getParameter("nome");
             String quantidade = request.getParameter("quantidade");
             String preco = request.getParameter("preco");
