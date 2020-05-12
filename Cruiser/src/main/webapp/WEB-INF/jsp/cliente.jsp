@@ -144,7 +144,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">NOME: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="nome" id="inputNameUser" placeholder="nome" autofocus required>
+                                            <input type="text" class="form-control" name="nome" id="inputNameUser" maxlength="50" placeholder="nome" autofocus required>
                                         </div>
                                     </div>
 
@@ -152,7 +152,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">CPF: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="cpf" id="inputCPFCli"  placeholder="CPF" required>
+                                            <input type="text" class="form-control" name="cpf" id="inputCPFCli" maxlength="11" placeholder="CPF" required>
                                         </div>
                                     </div>
 
@@ -160,7 +160,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">EMAIL: </label>
                                         <div class="col-lg-10">
-                                            <input type="email" class="form-control" name="email" id="inputEmailCli" placeholder="EMAIL" required>
+                                            <input type="email" class="form-control" name="email" id="inputEmailCli" maxlength="50" placeholder="EMAIL" required>
                                         </div>
                                     </div>
 
@@ -199,7 +199,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">NOME: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus required value="${cliente.getNome()}">
+                                            <input type="text" class="form-control" id="inputNameUser" name="nome" maxlength="50" placeholder="Nome" autofocus required value="${cliente.getNome()}">
                                         </div>
                                     </div>
 
@@ -207,7 +207,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">CPF: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="cpf" id="inputPassword" placeholder="Cpf" required value="${cliente.getCpf()}">
+                                            <input type="text" class="form-control" name="cpf" id="inputPassword" maxlength="11" placeholder="Cpf" required value="${cliente.getCpf()}">
                                         </div>
                                     </div>
 
@@ -215,7 +215,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">EMAIL: </label>
                                         <div class="col-lg-10">
-                                            <input type="email" class="form-control" name="email"  id="inputEmailUser" placeholder="Email Cliente" required value="${cliente.getEmail()}">
+                                            <input type="email" class="form-control" name="email"  id="inputEmailUser" maxlength="50" placeholder="Email Cliente" required value="${cliente.getEmail()}">
                                         </div>
                                     </div>
                                     <!-- Botao limpar-->

@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -70,6 +71,8 @@
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
                                 <li><a href="#"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                                
+                                
                             </ul>
                         </li>
 
@@ -135,7 +138,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">ID PRODUTO: </label>
                                         <div class="col-lg-10">
-                                            <input type="number" class="form-control" id="inputIDProd" name="idProduto" placeholder="ID AUTOMÁTICO" disabled>
+                                            <input type="number" class="form-control" id="inputIDProd" name="id" placeholder="ID AUTOMÁTICO" disabled>
                                         </div>
                                     </div>
 
@@ -143,7 +146,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">NOME: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="nome" id="inputNomeProd" placeholder="Nome" autofocus>
+                                            <input type="text" class="form-control" name="nome" id="inputNomeProd" maxlength="50" placeholder="Nome" autofocus>
                                         </div>
                                     </div>
 
@@ -159,7 +162,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
                                         <div class="col-lg-10">
-                                            <input type="number" step="0.01" class="form-control" min="0.01" name="preco" id="inputPrecoProd"  placeholder="Preço Final">
+                                            <input type="number"  class="form-control" min="0.01" name="preco" id="inputPrecoProd" maxlength="7" step="0.01"  placeholder="Preço Final">
                                         </div>
                                     </div>
 
@@ -212,7 +215,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">NOME: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="nome" id="inputNomeProd" placeholder="Nome" autofocus required value="${produto.getNome()}">
+                                            <input type="text" class="form-control" name="nome" id="inputNomeProd" maxlength="50" placeholder="Nome" autofocus required value="${produto.getNome()}">
                                         </div>
                                     </div>
 
@@ -228,7 +231,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">PREÇO FINAL: </label>
                                         <div class="col-lg-10">
-                                            <input type="number" step="0.01" class="form-control" min="0.01" name="preco" id="inputPrecoProd"  placeholder="Preço Final" value="${produto.getPreco()}">
+                                            <input type="number" class="form-control" min="0.01" name="preco" id="inputPrecoProd" maxlength="7" step="0.01" placeholder="Preço Final" value="${produto.getPreco()}">
                                         </div>
                                     </div>
 

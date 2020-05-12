@@ -147,7 +147,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">NOME: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus required>
+                                            <input type="text" class="form-control" id="inputNameUser" name="nome" maxlength="50" placeholder="Nome" autofocus required>
                                         </div>
                                     </div>
 
@@ -155,7 +155,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">EMAIL: </label>
                                         <div class="col-lg-10">
-                                            <input type="email" class="form-control" name="email"  id="inputEmailUser" placeholder="Email para acesso ao sistema" required>
+                                            <input type="email" class="form-control" name="email"  id="inputEmailUser" maxlength="50" placeholder="Email para acesso ao sistema" required>
                                         </div>
                                     </div>
 
@@ -163,7 +163,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">SENHA: </label>
                                         <div class="col-lg-10">
-                                            <input type="password" class="form-control" name="senha" id="inputPassword" placeholder="Senha" required>
+                                            <input type="password" class="form-control" name="senha" id="inputPassword" maxlength="10" placeholder="Senha" required>
                                         </div>
                                     </div>
 
@@ -243,7 +243,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">NOME: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="inputNameUser" name="nome" placeholder="Nome" autofocus required value="${funcionario.getNome()}">
+                                            <input type="text" class="form-control" id="inputNameUser" name="nome" maxlength="50" placeholder="Nome" autofocus required value="${funcionario.getNome()}">
                                         </div>
                                     </div>
 
@@ -251,7 +251,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">EMAIL: </label>
                                         <div class="col-lg-10">
-                                            <input type="email" class="form-control" name="email"  id="inputEmailUser" placeholder="Email para acesso ao sistema" required value="${funcionario.getEmail()}">
+                                            <input type="email" class="form-control" name="email"  id="inputEmailUser" maxlength="50" placeholder="Email para acesso ao sistema" required value="${funcionario.getEmail()}">
                                         </div>
                                     </div>
 
@@ -259,7 +259,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">SENHA: </label>
                                         <div class="col-lg-10">
-                                            <input type="password" class="form-control" name="senha" id="inputPassword" placeholder="Senha" required value="${funcionario.getSenha()}">
+                                            <input type="password" class="form-control" name="senha" id="inputPassword" maxlength="10" placeholder="Senha" required value="${funcionario.getSenha()}">
                                         </div>
                                     </div>
 
