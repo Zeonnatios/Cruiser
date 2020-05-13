@@ -22,16 +22,6 @@
     </head>
 
     <body>
-        <c:if test="${sessionScope.msgSucesso != null }">
-            <div class="sucesso"><c:out value="${sessionScope.msgSucesso}" /></div>
-            <c:remove scope="session" var="msgSucesso" />
-        </c:if>
-
-        <c:if test="${sessionScope.Erro != null }">
-            <div class="sucesso"><c:out value="${sessionScope.Erro}" /></div>
-            <c:remove scope="session" var="msgErro" />
-        </c:if>
-
         <div class="flex-dashboard">
 
             <!-- SIDEBAR -->
@@ -130,9 +120,21 @@
 
                     <!-- Container-->
                     <div class="container">
+                        <c:if test="${sessionScope.msgSucesso != null}">
+                            <div class="alert alert-success" role="alert">
+                                <c:out value="${sessionScope.msgSucesso}" />
+                            </div>
+                            <c:remove scope="session" var="msgSucesso" />
+                        </c:if>
+                        <c:if test="${sessionScope.msgErro != null}">
+                            <div class="alert alert-danger" role="alert">
+                                <c:out value="${sessionScope.msgErro}" />
+                            </div>
+                            <c:remove scope="session" var="msgErro" />
+                        </c:if>
 
                         <!-- TITULO TABELA -->
-                        <label class="titulotabelas">VENDAS POR FILIAL</label>
+                        <label class="titulotabelas">TABELA DE PRODUTOS</label>
 
                         <!-- TABELA -->
                         <div class="tableScrow">
@@ -160,7 +162,7 @@
                                                 <div class="botoesTabela">
                                                     <a href="${pageContext.request.contextPath}/produto_editar?id=${produto.getIdProduto()}" class="botaoEditar"><i class="fas fa-edit"></i></a>
 
-                                                    
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -168,10 +170,10 @@
 
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/produto_novo" class="botao">Incluir novo</a>
+
                         </div>
                         <!-- Fim tableScrow-->
-
+                        <a href="${pageContext.request.contextPath}/produto_novo" class="botao">Incluir novo</a>
                     </div>
                     <!-- Fim Container-->
 

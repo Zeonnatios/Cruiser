@@ -120,7 +120,7 @@
 
                     <!-- container -->
                     <div class="container">
-                        
+
                         <c:if test="${sessionScope.msgSucesso != null}">
                             <div class="alert alert-success" role="alert">
                                 <c:out value="${sessionScope.msgSucesso}" />
@@ -159,7 +159,7 @@
                                             <td>
                                                 <div class="botoesTabela">
                                                     <a href="${pageContext.request.contextPath}/cliente_editar?id=${cli.getIdCliente()}" class="botaoEditar"><i class="fas fa-edit"></i></a>
-                                         
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -167,10 +167,9 @@
 
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/cliente_novo" class="botao">Incluir novo</a>
                         </div>
                         <!-- fim tableScrow-->
-
+                        <a href="${pageContext.request.contextPath}/cliente_novo" class="botao">Incluir novo</a>
                     </div>
                     <!-- fim container-->
 

@@ -146,7 +146,7 @@
                                             <td><c:out value="${filial.getTelefone()}" /></td>
                                             <td>
                                                 <div class="botoesTabela">
-                                                    <button class="botaoEditar" type="button"><i class="fas fa-edit"></i></button>
+                                                    <a href="${pageContext.request.contextPath}/filial_editar?id=${filial.getIdFilial()}" class="botaoEditar"><i class="fas fa-edit"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -156,7 +156,7 @@
                             </table>
                         </div>
                         <!-- fim tableScrow-->
-
+                        <a href="${pageContext.request.contextPath}/filial_novo" class="botao">Incluir novo</a>
                     </div>
                     <!-- fim container-->
                 </div>

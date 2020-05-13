@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -109,7 +111,15 @@
                 <!-- HEADER -->
                 <header>
                     <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
-                    <h2><i class="fas fa-cogs"></i> FILIAIS</h2>
+
+                    <c:choose>
+                        <c:when test="${acao == 'incluir'}">
+                            <h2><i class="fas fa-cogs"></i>CADASTRAR NOVA FILIAL</h2>
+                        </c:when>
+                        <c:when test="${acao == 'alterar'}">
+                            <h2><i class="fas fa-cogs"></i>EDITAR DADOS DA FILIAL</h2>
+                        </c:when>
+                    </c:choose>
                 </header>
 
                 <!-- MAIN conteÃºdo -->
@@ -118,49 +128,100 @@
                     <!-- container-->
                     <div class="container">
 
-                        <form action="" method="POST">
-                            <!-- ID FILIAL  -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ID FILIAL: </label>
-                                <div class="col-lg-10">
-                                    <input type="number" class="form-control" id="inputIDFilial" name="txtID" placeholder="ID AUTOMÁTICO" disabled>
-                                </div>
-                            </div>
+                        <c:choose>
+                            <c:when test="${acao == 'incluir'}">
+                                <form method="post" action="${pageContext.request.contextPath}/filial_salvar">
+                                    <!-- ID FILIAL  -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">ID FILIAL: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control" id="inputIDFilial" name="txtID"  placeholder="ID AUTOMÁTICO" disabled>
+                                        </div>
+                                    </div>
 
-                            <!-- CIDADE FILIAL-->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">CIDADE: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputCidadeFilial" name="txtCidade" placeholder="Cidade" autofocus>
-                                </div>
-                            </div>
+                                    <!-- CIDADE FILIAL-->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">CIDADE: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="inputCidadeFilial" name="txtCidade" maxlength="50" placeholder="Cidade" required autofocus>
+                                        </div>
+                                    </div>
 
-                            <!-- TELEFONE FILIAL -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">TELEFONE: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control" id="inputTelFilial" name="txtTelefone" placeholder="Telefone">
-                                </div>
-                            </div>
+                                    <!-- TELEFONE FILIAL -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">TELEFONE: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="inputTelFilial" name="txtTelefone" maxlength="11" placeholder="Telefone" required>
+                                        </div>
+                                    </div>
 
-                            <!-- TIPO -->
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">TIPO: </label>
-                                <div class="col-lg-10">
-                                    <input type="text" class="form-control"  id="inputEnderecoFilial" name="txtTipo" placeholder="Tipo">
-                                </div>
-                            </div>
+                                    <!-- TIPO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">TIPO: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control"  id="inputEnderecoFilial" name="txtTipo" maxlength="6" placeholder="Tipo" required>
+                                        </div>
+                                    </div>
 
-                            <!-- Botao limpar-->
-                            <div class="campoBotoes">
-                                <button class="botao" type="reset" value="Reset">Limpar</button>
+                                    <!-- Botao limpar-->
+                                    <div class="campoBotoes">
+                                        <button class="botao" type="reset" value="Reset">Limpar</button>
 
-                                <!-- Botao Salvar-->
-                                <button class="botao" type="button">Salvar</button>
-                            </div>
+                                        <!-- Botao Salvar-->
+                                        <button class="botao" type="submit">Salvar</button>
+                                    </div>
 
-                        </form>
-                        <!-- Fim form-->
+                                </form>
+                                <!-- Fim form-->
+                            </c:when>
+
+                            <c:when test="${acao == 'alterar'}">
+                                <form method="post" action="${pageContext.request.contextPath}/filial_update">
+                                    <!-- ID FILIAL  -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">ID FILIAL: </label>
+                                        <div class="col-lg-10">
+                                            <input type="number" class="form-control" id="inputIDFilial" name="codigo" value="${filial.getIdFilial()}"  placeholder="ID AUTOMÁTICO" disabled>
+                                            <input type="hidden"  class="form-control" id="inputIDUser" name="txtID" value="${filial.getIdFilial()}">
+                                        </div>
+                                    </div>
+
+                                    <!-- CIDADE FILIAL-->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">CIDADE: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="inputCidadeFilial" name="txtCidade" value="${filial.getCidade()}" maxlength="50" placeholder="Cidade"  required autofocus>
+                                        </div>
+                                    </div>
+
+                                    <!-- TELEFONE FILIAL -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">TELEFONE: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="inputTelFilial" name="txtTelefone" value="${filial.getTelefone()}" maxlength="11" placeholder="Telefone" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- TIPO -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">TIPO: </label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control"  id="inputEnderecoFilial" name="txtTipo" value="${filial.getTipo()}" maxlength="6" placeholder="Tipo" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botao limpar-->
+                                    <div class="campoBotoes">
+                                        <button class="botao" type="reset" value="Reset">Limpar</button>
+
+                                        <!-- Botao Salvar-->
+                                        <button class="botao" type="submit">Salvar</button>
+                                    </div>
+
+                                </form>
+                                <!-- Fim form-->
+                            </c:when>
+                        </c:choose>
 
                     </div>
                     <!-- fim container-->

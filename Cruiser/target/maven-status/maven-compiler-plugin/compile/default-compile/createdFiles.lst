@@ -18,6 +18,7 @@ br\senac\tads\pi3\servlet\CarrinhoServlet.class
 br\senac\tads\pi3\servlet\FuncionarioFormServlet.class
 br\senac\tads\pi3\dao\FuncionarioDao.class
 br\senac\tads\pi3\servlet\RelatorioMensalServlet.class
+br\senac\tads\pi3\servlet\FilialFormServlet.class
 br\senac\tads\pi3\servlet\ListarFuncionarioServlet.class
 br\senac\tads\pi3\servlet\HomeServlet.class
 br\senac\tads\pi3\model\Itens.class
@@ -34,3 +35,4 @@ br\senac\tads\pi3\exception\FuncionarioException.class
 br\senac\tads\pi3\model\Produto.class
 br\senac\tads\pi3\dao\ClienteDao.class
 br\senac\tads\pi3\jdbc\ConexaoFactory.class
+br\senac\tads\pi3\servlet\FilialSalvarServlet.class

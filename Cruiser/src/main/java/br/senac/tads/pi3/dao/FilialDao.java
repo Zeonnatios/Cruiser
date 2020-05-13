@@ -89,4 +89,25 @@ public class FilialDao {
             ConexaoFactory.CloseConnection(conn);
         }
     }
+
+    public Filial select(int id) throws SQLException {
+        String sql = "SELECT * FROM LOJA WHERE LOJA_ID = ?;";
+        Filial filial = new Filial();
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    filial.setIdFilial(rs.getInt("LOJA_ID"));
+                    filial.setCidade(rs.getString("LOJA_CIDADE"));
+                    filial.setTelefone(rs.getString("LOJA_TELEFONE"));
+                    filial.setTipo(rs.getString("LOJA_TIPO"));
+
+                }
+            }
+        }
+        return filial;
+
+    }
+
 }

@@ -137,7 +137,7 @@
                         </c:if>
 
                         <!-- TITULO TABELA -->
-                        <label class="titulotabelas">TABELA DE FILIAIS</label>
+                        <label class="titulotabelas">TABELA DE FUNCIONÁRIOS</label>
 
 
                         <!-- TABELA -->
@@ -171,10 +171,9 @@
                                     </c:forEach>
                                 </tbody>
                             </table>
-                            <a href="${pageContext.request.contextPath}/funcionario_novo" class="botao">Incluir novo</a>
                         </div>
                         <!-- Fim tableScrow-->
-
+                        <a href="${pageContext.request.contextPath}/funcionario_novo" class="botao">Incluir novo</a>
                     </div>
                     <!-- Fim Container-->
 
