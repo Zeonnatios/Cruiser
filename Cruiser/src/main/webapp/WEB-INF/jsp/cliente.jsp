@@ -70,7 +70,7 @@
                             <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
-                                <li><a href="<%= request.getContextPath()%>/produtos"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                                <li><a href="<%= request.getContextPath()%>/produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
                             </ul>
                         </li>
 
@@ -95,7 +95,7 @@
                             <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                             <ul>
                                 <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
-                                <li><a href="<%= request.getContextPath()%>/filiais"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
+                                <li><a href="<%= request.getContextPath()%>/filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -144,7 +144,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">NOME: </label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="nome" id="inputNameUser" maxlength="50" placeholder="nome" autofocus required>
+                                            <input type="text" class="form-control" name="nome" id="inputNameUser" maxlength="50" placeholder="Nome" autofocus required>
                                         </div>
                                     </div>
 
@@ -160,7 +160,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">EMAIL: </label>
                                         <div class="col-lg-10">
-                                            <input type="email" class="form-control" name="email" id="inputEmailCli" maxlength="50" placeholder="EMAIL" required>
+                                            <input type="email" class="form-control" name="email" id="inputEmailCli" maxlength="50" placeholder="Email" required>
                                         </div>
                                     </div>
 
