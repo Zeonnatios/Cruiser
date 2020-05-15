@@ -126,13 +126,13 @@
                             <!-- Coluna esquerda-->
                             <div class="col">
                                 <!-- FORM PARA INSERIR PRODUTOS NO CARRINHO -->
-                                <form action="" method="POST">
+                                <form action="CarrinhoServlet" method="post">
 
                                     <!-- ID PRODUTO  -->
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">ID PRODUTO: </label>
                                         <div class="col-lg-8">
-                                            <input type="number" class="form-control" id="inputIDProd" placeholder="ID AUTOMÁTICO" disabled>
+                                            <input type="number" class="form-control" id="inputIDProd" name="idProduto" placeholder="ID AUTOMÁTICO" disabled>
                                         </div>
                                     </div>
 
@@ -140,7 +140,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">NOME: </label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="inputNomeProd" placeholder="Nome" autofocus>
+                                            <input type="text" class="form-control" id="inputNomeProd"name="nome" placeholder="Nome" autofocus>
                                         </div>
                                     </div>
 
@@ -148,7 +148,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">QUANTIDADE: </label>
                                         <div class="col-lg-8">
-                                            <input type="number" class="form-control" id="inputQuantProd" placeholder="Quantidade">
+                                            <input type="number" class="form-control" id="inputQuantProd"name="quantidade" placeholder="Quantidade">
                                         </div>
                                     </div>
 
@@ -169,13 +169,13 @@
                             <div class="col">
 
                                 <!-- FORM PARA SELECIONAR CLIENTE NA COMPRA -->
-                                <form action="" method="POST">
+                                <form action="CarrinhoServlet" method="POST">
 
                                     <!-- ID CLIENTE  -->
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">ID CLIENTE: </label>
                                         <div class="col-lg-8">
-                                            <input type="number" class="form-control" id="inputIDCli" placeholder="ID AUTOMÁTICO" disabled>
+                                            <input type="number" class="form-control" id="inputIDCli"name="idCliente" placeholder="ID AUTOMÁTICO" disabled>
                                         </div>
                                     </div>
 
@@ -183,7 +183,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">NOME: </label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="inputNomeCli" placeholder="Nome" autofocus>
+                                            <input type="text" class="form-control" id="inputNomeCli"name="nomeCli" placeholder="Nome" autofocus>
                                         </div>
                                     </div>
 
@@ -191,7 +191,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">CPF: </label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="inputCPFCli" placeholder="CPF">
+                                            <input type="text" class="form-control" id="inputCPFCli"name="cpfCli" placeholder="CPF">
                                         </div>
                                     </div>
 

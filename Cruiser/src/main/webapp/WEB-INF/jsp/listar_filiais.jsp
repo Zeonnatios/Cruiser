@@ -141,9 +141,9 @@
                                     <c:forEach items="${listarFiliais}" var="filial">
                                         <tr>
                                             <th scope="row"><c:out value="${filial.getIdFilial()}" /></th>
-                                            <td><c:out value="${filial.getCidade()}" /></td>
-                                            <td><c:out value="${filial.getTipo()}" /></td>
-                                            <td><c:out value="${filial.getTelefone()}" /></td>
+                                            <td>${filial.cidade}</td>
+                                            <td>${filial.tipo}</td>
+                                            <td>${filial.telefone}</td>
                                             <td>
                                                 <div class="botoesTabela">
                                                     <a href="${pageContext.request.contextPath}/filial_editar?id=${filial.getIdFilial()}" class="botaoEditar"><i class="fas fa-edit"></i></a>

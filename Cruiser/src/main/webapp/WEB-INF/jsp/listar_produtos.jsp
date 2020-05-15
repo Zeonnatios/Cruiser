@@ -154,9 +154,9 @@
                                     <c:forEach items="${listarProdutos}" var="produto">
                                         <tr>
                                             <th scope="row"><c:out value="${produto.getIdProduto()}" /></th>
-                                            <td><c:out value="${produto.getNome()}" /></td>
-                                            <td><c:out value="${produto.getQuantidade()}" /></td>
-                                            <td><c:out value="${produto.getPreco()}" /></td>
+                                            <td>${produto.nome}</td>
+                                            <td>${produto.quantidade}</td>
+                                            <td>${produto.preco}</td>
                                             <td><c:out value="${produto.getDisponivel()}" /></td>
                                             <td>
                                                 <div class="botoesTabela">

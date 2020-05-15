@@ -157,10 +157,10 @@
                                     <c:forEach items="${listarFuncionarios}" var="fun">
                                         <tr>
                                             <th scope="row"><c:out value="${fun.getIdFuncionario()}" /></th>
-                                            <td><c:out value="${fun.getNome()}" /></td>
-                                            <td><c:out value="${fun.getCidade()}" /></td>
-                                            <td><c:out value="${fun.getDepartamento()}" /></td>
-                                            <td><c:out value="${fun.getStatus()}" /></td>
+                                            <td>${fun.nome}</td>
+                                            <td>${fun.cidade}</td>
+                                            <td>${fun.departamento}</td>
+                                            <td>${fun.status}</td>
                                             <td>
                                                 <div class="botoesTabela">
                                                     <a href="${pageContext.request.contextPath}/funcionario_editar?id=${fun.getIdFuncionario()}" class="botaoEditar"><i class="fas fa-edit"></i></a>

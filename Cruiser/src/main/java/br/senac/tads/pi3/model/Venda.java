@@ -13,6 +13,7 @@ public class Venda {
     private Date dataVenda;
     private int idCliente;
     private double valorTotal;
+    
 
     public Venda() {
     

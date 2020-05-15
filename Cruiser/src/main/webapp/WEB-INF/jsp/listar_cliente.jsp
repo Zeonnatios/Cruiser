@@ -152,10 +152,10 @@
 
                                     <c:forEach items="${listarClientes}" var="cli">
                                         <tr>
-                                            <th scope="row"><c:out value="${cli.getIdCliente()}" /></th>
-                                            <td><c:out value="${cli.getNome()}" /></td>
-                                            <td><c:out value="${cli.getCpf()}" /></td>
-                                            <td><c:out value="${cli.getEmail()}" /></td>
+                                            <th scope="row">${cli.getIdCliente()}</th>
+                                            <td>${cli.nome}</td>
+                                            <td>${cli.cpf}</td>
+                                            <td>${cli.email}"</td>
                                             <td>
                                                 <div class="botoesTabela">
                                                     <a href="${pageContext.request.contextPath}/cliente_editar?id=${cli.getIdCliente()}" class="botaoEditar"><i class="fas fa-edit"></i></a>

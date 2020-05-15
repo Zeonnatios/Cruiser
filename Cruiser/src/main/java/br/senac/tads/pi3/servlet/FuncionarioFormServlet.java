@@ -2,7 +2,6 @@ package br.senac.tads.pi3.servlet;
 
 import br.senac.tads.pi3.controller.FuncionarioService;
 import br.senac.tads.pi3.exception.FuncionarioException;
-import br.senac.tads.pi3.model.Filial;
 import br.senac.tads.pi3.model.Funcionario;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
