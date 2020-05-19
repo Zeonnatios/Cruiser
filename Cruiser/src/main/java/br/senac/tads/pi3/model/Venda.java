@@ -13,6 +13,24 @@ public class Venda {
     private Date dataVenda;
     private int idCliente;
     private double valorTotal;
+    private Produto produto;
+    private Cliente cliente;
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
     
 
     public Venda() {

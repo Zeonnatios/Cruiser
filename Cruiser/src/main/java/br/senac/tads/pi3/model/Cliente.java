@@ -1,5 +1,7 @@
 package br.senac.tads.pi3.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Cruiser
@@ -50,5 +52,23 @@ public class Cliente {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
+    }
+
+       @Override
+    public boolean equals(Object obj) {
+        if( obj instanceof Cliente) {
+            Cliente c = (Cliente) obj;
+            if(this.cpf.equals(c.cpf)) {
+                return true;
+            }
+           
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        
+        return cpf.hashCode();
     }
 }

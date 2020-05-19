@@ -1,5 +1,7 @@
 package br.senac.tads.pi3.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Cruiser
@@ -12,6 +14,7 @@ public class Produto {
     private String categoria;
     private boolean disponivel;
 
+  
 
     public String getCategoria() {
         return categoria;
@@ -59,6 +62,24 @@ public class Produto {
 
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
+    }
+
+      @Override
+    public boolean equals(Object obj) {
+        if( obj instanceof Produto) {
+            Produto p = (Produto) obj;
+            if(this.nome.equals(p.nome)) {
+                return true;
+            }
+           
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        
+        return nome.hashCode();
     }
     
     
