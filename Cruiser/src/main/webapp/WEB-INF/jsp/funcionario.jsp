@@ -173,10 +173,13 @@
                                         <div class="col-lg-10">
                                             <select class="form-control" name="cidade">
                                                 <option value="">Selecione:</option>
-                                                <option value="Sao Paulo">São Paulo</option>
-                                                <option value="Campina Grande">Campina Grande</option>
-                                                <option value="Joinville">Joinville</option>
-                                                <option value="Brasília">Brasília</option>
+                                                <c:forEach items="${listaCidades}" var="filial">
+                                                    <option value="${filial.cidade}">${filial.cidade}</option>
+                                                </c:forEach>
+                                                <!--    <option value="Sao Paulo">São Paulo</option>
+                                                    <option value="Campina Grande">Campina Grande</option>
+                                                    <option value="Joinville">Joinville</option>
+                                                    <option value="Brasília">Brasília</option>-->
                                             </select>
                                         </div>
                                     </div>
@@ -269,14 +272,16 @@
                                         <div class="col-lg-10">
                                             <select class="form-control" name="cidade">
                                                 <option value="">Selecione:</option>
-                                                <option value="Sao Paulo">São Paulo</option>
-                                                <option value="Campina Grande">Campina Grande</option>
-                                                <option value="Joinville">Joinville</option>
-                                                <option value="Brasília">Brasília</option>
+                                                <c:forEach items="${listaCidades}" var="filial">
+                                                    <option value="${filial.cidade}">${filial.cidade}</option>
+                                                </c:forEach>
+                                                <!--    <option value="Sao Paulo">São Paulo</option>
+                                                    <option value="Campina Grande">Campina Grande</option>
+                                                    <option value="Joinville">Joinville</option>
+                                                    <option value="Brasília">Brasília</option>-->
                                             </select>
                                         </div>
                                     </div>
-
                                     <!-- DEPARTAMENTO -->
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">DEPARTAMENTO: </label>

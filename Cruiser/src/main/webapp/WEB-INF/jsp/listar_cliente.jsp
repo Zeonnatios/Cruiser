@@ -155,7 +155,7 @@
                                             <th scope="row">${cli.getIdCliente()}</th>
                                             <td>${cli.nome}</td>
                                             <td>${cli.cpf}</td>
-                                            <td>${cli.email}"</td>
+                                            <td>${cli.email}</td>
                                             <td>
                                                 <div class="botoesTabela">
                                                     <a href="${pageContext.request.contextPath}/cliente_editar?id=${cli.getIdCliente()}" class="botaoEditar"><i class="fas fa-edit"></i></a>

@@ -28,7 +28,7 @@ public class FilialSalvarServlet extends HttpServlet {
         String urlInformada = request.getRequestURI();
 
         //ABRE FORM PARA CADASTRAR
-        if (urlInformada.endsWith("_salvarfilial")) {
+        if (urlInformada.endsWith("_salvar")) {
             request.setCharacterEncoding("UTF-8");
             String cidade = request.getParameter("txtCidade");
             String telefone = request.getParameter("txtTelefone");

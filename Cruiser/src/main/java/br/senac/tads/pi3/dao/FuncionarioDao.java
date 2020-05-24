@@ -22,7 +22,7 @@ public class FuncionarioDao {
 
     public void inserirFuncionario(Funcionario funcionario) throws SQLException {
 
-        String sql = "INSERT INTO FUNCIONARIO(func_nome, func_email, func_senha, func_cidade,func_departamento, func_status, FUNC_LOJA_ID)"
+        String sql = "INSERT INTO FUNCIONARIO(FUNC_NOME, FUNC_EMAIL, FUNC_SENHA, FUNC_CIDADE, FUNC_DEPARTAMENTO, FUNC_STATUS, FUNC_LOJA_ID)"
                 + "VALUES (?,?,?,?,?,?,?);";
         try (Connection conn = ConexaoFactory.Conectar()) {
 
@@ -81,10 +81,13 @@ public class FuncionarioDao {
     public void editarFuncionario(Funcionario funcionario) throws SQLException {
 
         String sql = "UPDATE FUNCIONARIO SET FUNC_NOME = ?, FUNC_EMAIL = ?, FUNC_SENHA = ?, FUNC_CIDADE = ?,"
-                + "FUNC_DEPARTAMENTO = ?, FUNC_STATUS = ? WHERE FUNC_ID = ?;";
+                + "FUNC_DEPARTAMENTO = ?, FUNC_STATUS = ?, FUNC_LOJA_ID = ? WHERE FUNC_ID = ?;";
         try (Connection conn = ConexaoFactory.Conectar()) {
 
             conn.setAutoCommit(false);
+            String pesquisarCidade = funcionario.getCidade();
+            Funcionario f = new Funcionario();
+            f = pegarIdLoja(pesquisarCidade);
 
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, funcionario.getNome());
@@ -93,7 +96,8 @@ public class FuncionarioDao {
                 stmt.setString(4, funcionario.getCidade());
                 stmt.setString(5, funcionario.getDepartamento());
                 stmt.setBoolean(6, funcionario.getStatus());
-                stmt.setInt(7, funcionario.getIdFuncionario());
+                stmt.setInt(7, f.getIdLoja());
+                stmt.setInt(8, funcionario.getIdFuncionario());
                 stmt.executeUpdate();
 
                 //EXECUTA TODAS AS OPERAÇÕES NO BANCO DE DADOS
@@ -112,7 +116,7 @@ public class FuncionarioDao {
     public Funcionario pegarIdLoja(String cidade) throws SQLException {
         int idLoja = 0;
         Funcionario f = new Funcionario();
-        String sql = "SELECT * FROM loja WHERE loja_cidade = ?;";
+        String sql = "SELECT * FROM LOJA WHERE LOJA_CIDADE = ?;";
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, cidade);

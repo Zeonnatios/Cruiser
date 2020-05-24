@@ -110,4 +110,21 @@ public class FilialDao {
 
     }
 
+    public List<Filial> listarCidades() throws SQLException {
+
+        String sql = "SELECT LOJA_CIDADE FROM LOJA";
+        List<Filial> lista = new ArrayList<>();
+        try (Connection conn = ConexaoFactory.Conectar();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Filial filial = new Filial();
+                filial.setCidade(rs.getString("LOJA_CIDADE"));
+                lista.add(filial);
+            }
+        }
+        return lista;
+    }
+
 }

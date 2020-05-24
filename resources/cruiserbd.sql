@@ -60,22 +60,22 @@ FOREIGN KEY (itens_prod_id) REFERENCES PRODUTO(prod_id),
 FOREIGN KEY (itens_venda_id) REFERENCES VENDA(venda_id)
 );
 
-INSERT INTO `loja` (`loja_id`, `loja_cidade`, `loja_telefone`, `loja_tipo`) 
+INSERT INTO `LOJA` (`loja_id`, `loja_cidade`, `loja_telefone`, `loja_tipo`) 
 VALUES ('1', 'Sao Paulo', '11234567890', 'Matriz'),
 ('2', 'Campina Grande', '83123456789', 'Filial'),
 ('3', 'Joinville', '31135795539', 'Filial'), 
 ('4', 'Distrito Federal', '61987654321', 'Filial');
 
-INSERT INTO `funcionario` (`func_id`, `func_nome`, `func_email`, `func_senha`, `func_cidade`, `func_departamento`, `func_status`, `func_loja_id`) 
+INSERT INTO `FUNCIONARIO` (`func_id`, `func_nome`, `func_email`, `func_senha`, `func_cidade`, `func_departamento`, `func_status`, `func_loja_id`) 
 VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1', '1'), 
 ('2', 'Raphaela Wagner', 'ellaw@uol.com.br', 'asd', 'Sao Paulo', 'Tecnologia', '1', '1'), 
 ('3', 'Luis Eduardo', 'louroconrado@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1', '1'), 
 ('4', 'Lukas Matias', 'lukaskt6@gmail.com', 'asd', 'Sao Paulo', 'Tecnologia', '1', '1');
 
-INSERT INTO `cliente` (`cli_id`, `cli_nome`, `cli_cpf`, `cli_email`) 
+INSERT INTO `CLIENTE` (`cli_id`, `cli_nome`, `cli_cpf`, `cli_email`) 
 VALUES ('1', 'Jorge', '12345678910', 'jorge@teste.com');
 
-INSERT INTO `produto` (`prod_id`, `prod_nome`, `prod_qtde`, `prod_preco`, `prod_status`) 
+INSERT INTO `PRODUTO` (`prod_id`, `prod_nome`, `prod_qtde`, `prod_preco`, `prod_status`) 
 VALUES ('1', 'Skate Cruiser', '50', '540.00', '1'), 
 ('2', 'Rolamento T5', '150', '29.90', '1'), 
 ('3', 'Skate Street', '300', '450.00', '1');

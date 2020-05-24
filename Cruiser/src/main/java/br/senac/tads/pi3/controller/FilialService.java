@@ -23,6 +23,17 @@ public class FilialService {
         }
     }
 
+    public List<Filial> lsitarCidades() throws FiliaisException {
+
+        try {
+            System.out.println("LISTAGEM DE CIDADES");
+            return filialDAO.listarCidades();
+        } catch (SQLException e) {
+            throw new FiliaisException(("ERRO NA LISTAGEM DE CIDADES"), e);
+        }
+
+    }
+
     private boolean isValid(Filial f) {
         return f != null && f.getCidade() != null && f.getTelefone() != null && f.getTipo() != null;
     }
