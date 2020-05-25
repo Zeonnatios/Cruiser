@@ -27,12 +27,12 @@ public class CarrinhoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession sessao = request.getSession();
-        
+
         Vector carrinho = (Vector) sessao.getAttribute("carrinho");
-        
-        if(carrinho == null){
+
+        if (carrinho == null) {
             carrinho = new Vector();
             sessao.setAttribute("carrinho", carrinho);
         }
@@ -42,7 +42,7 @@ public class CarrinhoServlet extends HttpServlet {
         String idCliente = request.getParameter("idCliente");
         String nomeCli = request.getParameter("nomeCli");
         String cpfCli = request.getParameter("cpfCli");
-        
+
         Venda v = new Venda();
         Produto p = new Produto();
         Cliente c = new Cliente();
@@ -53,8 +53,8 @@ public class CarrinhoServlet extends HttpServlet {
         c.setNome(nomeCli);
         c.setCpf(cpfCli);
         v.setCliente(c);
-            
-        if(p.equals(p) && c.equals(c)){
+
+        if (p.equals(p) && c.equals(c)) {
             VendasDao dao = new VendasDao();
             try {
                 dao.inserirItem(v);
@@ -62,10 +62,9 @@ public class CarrinhoServlet extends HttpServlet {
                 Logger.getLogger(CarrinhoServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
-        
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/carrinho.jsp");
         dispatcher.forward(request, response);
-     }
+    }
 
 }

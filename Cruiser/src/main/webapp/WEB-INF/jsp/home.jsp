@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -129,8 +131,8 @@
                                     <div class="card-body">
                                         <h5 class="card-tittle text-uppercase">Contas Ativas</h5>
                                         <hr>
-                                        <p class="card-text py-1">08/12</p>
-                                        <p class="card-text py-1 text-uppercase">Usuários</p>
+                                        <p class="card-text py-1">${sessionScope.funcionariosAtivos}/${sessionScope.funcionariosTotal}</p>
+                                        <p class="card-text py-1 text-uppercase">Usuários Ativos</p>
                                     </div>
                                 </div>
                             </div>
@@ -153,8 +155,8 @@
                                     <div class="card-body">
                                         <h5 class="card-tittle text-uppercase">Produtos</h5>
                                         <hr>
-                                        <p class="card-text py-1">35/50 tipos disponíveis</p>
-                                        <p class="card-text py-1 text-uppercase">tipos disponíveis</p>
+                                        <p class="card-text py-1">${sessionScope.produtoTotal} tipos disponíveis</p>
+                                        <p class="card-text py-1 text-uppercase">Tipos disponivel a compra</p>
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +173,7 @@
                                     <div class="card-body">
                                         <h5 class="card-tittle text-uppercase">Clientes ativos</h5>
                                         <hr>
-                                        <p class="card-text py-1 text-uppercase">102/102</p>
+                                        <p class="card-text py-1 text-uppercase">${sessionScope.listarClientes}/${sessionScope.listarClientes}</p>
                                         <p class="card-text py-1 text-uppercase">Total clientes</p>
                                     </div>
                                 </div>
@@ -196,8 +198,8 @@
                                     <div class="card-body">
                                         <h5 class="card-tittle text-uppercase">Estoque disponível</h5>
                                         <hr>
-                                        <p class="card-text py-1 text-uppercase">205</p>
-                                        <p class="card-text py-1 text-uppercase">Total disponível</p>
+                                        <p class="card-text py-1 text-uppercase">${sessionScope.totalEstoque} itens disponíveis</p>
+                                        <p class="card-text py-1 text-uppercase">Quantidade em estoque</p>
                                     </div>
                                 </div>
                             </div>

@@ -126,6 +126,14 @@ div.menu ul li.tap ul {
     display: block;
 }
 
+/*Desativando links dentro da lista*/
+
+.not-active{
+    color: #373938 !important;
+    cursor: default !important;
+    pointer-events: none !important;;
+}
+
 
 /* FOTO USUARIO CSS*/
 
@@ -156,7 +164,7 @@ div.menu .foto-user img {
 }
 
 
-/* 
+/*
 
 div.menu ul li:hover ul {
     width: 300px;
