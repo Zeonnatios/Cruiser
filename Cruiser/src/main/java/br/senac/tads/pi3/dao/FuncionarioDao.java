@@ -170,13 +170,11 @@ public class FuncionarioDao {
 
     public Funcionario autenticar(Funcionario funcionario) throws SQLException {
         Connection conn = ConexaoFactory.Conectar();
-        String sql = "SELECT * FROM FUNCIONARIO WHERE FUNC_EMAIL = ? AND FUNC_SENHA = ? AND FUNC_STATUS = ?;";
+        String sql = "SELECT * FROM FUNCIONARIO WHERE FUNC_EMAIL = ?;";
         Funcionario f = new Funcionario();
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, funcionario.getEmail());
-            stmt.setString(2, funcionario.getSenha());
-            stmt.setBoolean(3, true);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -186,7 +184,7 @@ public class FuncionarioDao {
                 f.setEmail(rs.getString("FUNC_EMAIL"));
                 f.setSenha(rs.getString("FUNC_SENHA"));
                 f.setDepartamento(rs.getString("FUNC_DEPARTAMENTO"));
-                f.setDepartamento(rs.getString("FUNC_CIDADE"));
+                f.setCidade(rs.getString("FUNC_CIDADE"));
                 f.setStatus(rs.getBoolean("FUNC_STATUS"));
                 f.setIdLoja(rs.getInt("FUNC_LOJA_ID"));
             }

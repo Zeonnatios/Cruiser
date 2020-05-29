@@ -41,82 +41,72 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
+        
+        //RECUPERANDO DADOS DO JSP
         String emailStr = request.getParameter("inputEmail");
         String senhaStr = request.getParameter("inputPassword");
 
+        //VALIDANDO OS DADOS
         boolean temErros = false;
+        boolean estaVazio = false;
 
         if (senhaStr == null || senhaStr.trim().length() < 1 || senhaStr.length() > 10) {
-            temErros = true;
+            estaVazio = true;
             request.setAttribute("erroSenha", "Senha inválida!");
         }
 
-        // USAR PARA TESTES DE ACESSO À HOME SENHA 123 LOGIN ADMIN@ADMIN.COM
-        if (senhaStr.equals("123") && emailStr.equals("admin@admin.com")) {
-
-            HttpSession sessao = request.getSession();
-            Funcionario f = new Funcionario();
-            f.setNome("teste");
-            f.setIdLoja(1);
-            f.setDepartamento("Tecnologia");
-            f.setCidade("São Paulo");
-            sessao.setAttribute("f", f);
-
-            response.sendRedirect(request.getContextPath() + "/home");
-            return;
+        if (emailStr == null || emailStr.trim().length() < 1) {
+            estaVazio = true;
+            request.setAttribute("erroEmail", "E-mail inválido!");
         }
 
-        if (emailStr == null || emailStr.trim().length() < 1) {
-            temErros = true;
-            request.setAttribute("erroEmail", "E-mail inválido!");
-        } else {
-            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"; //-----------O ERRO DE AVISO DE EMAIL ESTA AQUI -------
+        if (estaVazio) {
+            request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+        }
+
+        if (emailStr != null && emailStr.trim().length() > 1) {
+            String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(emailStr);
-            if (matcher.matches() == true) {
+            if (matcher.matches() == false) {
                 temErros = true;
-                request.setAttribute("erroEmail", "E-mail inválidoooo!");
+                request.setAttribute("erroEmail", "Não é um e-mail válido!");
             } else {
                 Funcionario funcionario = new Funcionario();
                 funcionario.setEmail(emailStr);
-                funcionario.setSenha(senhaStr);
                 FuncionarioDao funcionarioDao = new FuncionarioDao();
-                Funcionario autenticado = null;
 
                 try {
-                    autenticado = funcionarioDao.autenticar(funcionario);
+                    Funcionario autenticado = funcionarioDao.autenticar(funcionario);
+
+                    if (autenticado.getEmail() == null) {
+                        temErros = true;
+                        request.setAttribute("erroEmail", "Usuário não cadastrado!");
+                    } else {
+                        if (!autenticado.getSenha().equals(senhaStr)) {
+                            temErros = true;
+                            request.setAttribute("erroSenha", "Senha incorreta!");
+                        }
+                        if (autenticado.getStatus() == false) {
+                            temErros = true;
+                            request.setAttribute("erroEmail", "Usuário desativado!");
+                        }
+                        if (autenticado.getSenha().equals(senhaStr) && autenticado.getStatus() == true) {
+                            HttpSession sessao = request.getSession();
+                            request.setAttribute("f", autenticado);                            
+                            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+                            dispatcher.forward(request, response);
+                            return;
+                        }
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-                if (autenticado == null) {
-                    temErros = true;
-                    request.setAttribute("erroEmail", "E-mail não cadastrado!");
-                    request.setAttribute("erroSenha", "Senha não cadastrada!");
-                } else {
-                    if (!autenticado.getEmail().equals(emailStr)) {
-                        temErros = true;
-                        request.setAttribute("erroEmail", "E-mail inválido!");
-                    }
-                    if (!autenticado.getSenha().equals(senhaStr)) {
-                        temErros = true;
-                        request.setAttribute("erroSenha", "Senha inválida!");
-                    }
-                    if (autenticado.getStatus() == false) {
-                        temErros = true;
-                        request.setAttribute("erroEmail", "Usuário desativado!");
-                    }
                 }
             }
         }
         if (temErros) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
-            return;
-
-        } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-            dispatcher.forward(request, response);
-        }
+        } 
     }
 }

@@ -16,10 +16,10 @@ public class FuncionarioService {
 
     public List<Funcionario> listarFuncionarios() throws FuncionarioException {
         try {
-            System.out.println("LSITAGEM DE FUNCIONARIOS");
+            System.out.println("LISTAGEM DE FUNCIONARIOS");
             return funDAO.listarFuncionario();
         } catch (SQLException e) {
-            throw new FuncionarioException("ERRO NA LSITAGEM DE FUNCIONARIOS", e);
+            throw new FuncionarioException("ERRO NA LISTAGEM DE FUNCIONARIOS", e);
         }
     }
 
