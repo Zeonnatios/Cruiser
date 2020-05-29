@@ -70,6 +70,21 @@ sidebar::-webkit-scrollbar-thumb {
     border-bottom: 1px solid #112b35;
 }
 
+.menu-Cima{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    background-color: #ffffff;
+}
+
+.menu-Cima h2{
+
+    border-top: 0px !important;
+
+}
+
 .flex-dashboard header h2 {
     font-size: 24px;
     padding: 7px 20px;
@@ -82,7 +97,8 @@ sidebar::-webkit-scrollbar-thumb {
     color: #112b35;
 }
 
-.flex-dashboard .fa-bars {
+.flex-dashboard .fa-bars,
+.fa-sign-out-alt{
     cursor: pointer;
 }
 

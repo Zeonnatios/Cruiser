@@ -35,70 +35,77 @@
                 <!-- MENU -->
                 <div class="menu">
 
-                    <ul>
+                    <c:choose>
+                        <c:when test="${sessionScope.f != null}">
 
-                        <li class="foto-user">
-                            <img src="imagens/AVATAR_CRUISER01.png" alt="">
-                            <h4>Jorgezada</h4>
-                            <p>Departamento de TI</p>
-                            <p>Matriz</p>
-                        </li>
-
-
-                        <li>
-                            <a href="#" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
-                        </li>
-
-                        <li class="drop-list">
-                            <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                             <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
-                                <li><a href="<%= request.getContextPath()%>/funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
-                            </ul>
-                        </li>
 
-                        <li class="drop-list">
-                            <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
-                                <li><a href="<%= request.getContextPath()%>/vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
-                                <li><a href="<%= request.getContextPath()%>/vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
-                            </ul>
-                        </li>
+                                <li class="foto-user">
+                                    <img src="imagens/AVATAR_CRUISER01.png" alt="">
+                                    <h4>${sessionScope.f.getNome()}</h4>
+                                    <p>${sessionScope.f.getDepartamento()}</p>
+                                    <p>${sessionScope.f.getCidade()}</p>
+                                </li>
 
-                        <li class ="drop-list">
-                            <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
-                                <li><a href="<%= request.getContextPath()%>/produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
-                            </ul>
-                        </li>
+                                <c:if test="${sessionScope.f.getDepartamento() == 'Tecnologia'}">
 
-                        <li class ="drop-list">
-                            <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
-                                <li><a href="<%= request.getContextPath()%>/cliente_novo"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
-                            </ul>
-                        </li>
+                                    <li>
+                                        <a href="#" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
+                                    </li>
+
+                                    <li class="drop-list">
+                                        <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
+                                        <ul>
+                                            <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
+                                            <li><a href="<%= request.getContextPath()%>/funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="drop-list">
+                                        <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
+                                        <ul>
+                                            <li><a href="<%= request.getContextPath()%>/carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
+                                            <li><a href="<%= request.getContextPath()%>/vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
+                                            <li><a href="<%= request.getContextPath()%>/vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class ="drop-list">
+                                        <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
+                                        <ul>
+                                            <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
+                                            <li><a href="<%= request.getContextPath()%>/produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class ="drop-list">
+                                        <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
+                                        <ul>
+                                            <li><a href="<%= request.getContextPath()%>/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
+                                            <li><a href="<%= request.getContextPath()%>/cliente_novo"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
+                                        </ul>
+                                    </li>
 
 
-                        <li class="drop-list">
-                            <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/diario"><i class="fas fa-circle"></i> Diário</a></li>
-                                <li><a href="<%= request.getContextPath()%>/mensal"><i class="fas fa-circle"></i> Mensal</a></li>
-                            </ul>
-                        </li>
+                                    <li class="drop-list">
+                                        <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
+                                        <ul>
+                                            <li><a href="<%= request.getContextPath()%>/diario"><i class="fas fa-circle"></i> Diário</a></li>
+                                            <li><a href="<%= request.getContextPath()%>/mensal"><i class="fas fa-circle"></i> Mensal</a></li>
+                                        </ul>
+                                    </li>
 
-                        <li class ="drop-list">
-                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
-                                <li><a href="<%= request.getContextPath()%>/filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                                    <li class ="drop-list">
+                                        <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
+                                        <ul>
+                                            <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
+                                            <li><a href="<%= request.getContextPath()%>/filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </c:if>
+                        </c:when>
+                    </c:choose>
 
                 </div>
 
@@ -111,7 +118,12 @@
 
                 <!-- HEADER -->
                 <header>
-                    <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                    <div class="menu-Cima">
+                        <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                        <h2><i class="fas fa-sign-out-alt" alt="logout"></i></h2>
+                    </div>
+
+
                     <h2><i class="fas fa-home "></i>PRINCIPAL</h2>
                 </header>
                 <!-- Fim Header-->

@@ -53,6 +53,15 @@ public class LoginServlet extends HttpServlet {
 
         // USAR PARA TESTES DE ACESSO À HOME SENHA 123 LOGIN ADMIN@ADMIN.COM
         if (senhaStr.equals("123") && emailStr.equals("admin@admin.com")) {
+
+            HttpSession sessao = request.getSession();
+            Funcionario f = new Funcionario();
+            f.setNome("teste");
+            f.setIdLoja(1);
+            f.setDepartamento("Tecnologia");
+            f.setCidade("São Paulo");
+            sessao.setAttribute("f", f);
+
             response.sendRedirect(request.getContextPath() + "/home");
             return;
         }

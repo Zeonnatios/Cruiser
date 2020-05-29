@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class HomeDao {
 
     public int numeroRegistroClientes() throws SQLException {
-        String sql = "SELECT COUNT(*) FROM cliente;";
+        String sql = "SELECT COUNT(*) FROM CLIENTE;";
         int numeroLinhas = 0;
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql);
@@ -22,13 +22,13 @@ public class HomeDao {
             while (rs.next()) {
                 numeroLinhas = rs.getInt("COUNT(*)");
             }
-            //  System.out.println("linhas " + numeroLinhas);
+            System.out.println("linhas " + numeroLinhas);
         }
         return numeroLinhas;
     }
 
     public int numeroRegistroFucnionariosAtivos() throws SQLException {
-        String sql = "SELECT COUNT(*) FROM funcionario where func_status = true;";
+        String sql = "SELECT COUNT(*) FROM FUNCIONARIO where func_status = true;";
         int numeroLinhas = 0;
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class HomeDao {
     }
 
     public int numeroRegistroFucnionariosTotal() throws SQLException {
-        String sql = "SELECT COUNT(*) FROM funcionario;";
+        String sql = "SELECT COUNT(*) FROM FUNCIONARIO;";
         int numeroLinhas = 0;
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class HomeDao {
     }
 
     public int numeroRegistroProdutos() throws SQLException {
-        String sql = "SELECT COUNT(*) FROM produto where prod_qtde > 0;";
+        String sql = "SELECT COUNT(*) FROM PRODUTO where prod_qtde > 0;";
         int numeroLinhas = 0;
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class HomeDao {
     }
 
     public int numeroProdutoEstoque() throws SQLException {
-        String sql = "SELECT SUM(prod_qtde) FROM produto where prod_qtde > 0;";
+        String sql = "SELECT SUM(prod_qtde) FROM PRODUTO where prod_qtde > 0;";
         int numeroLinhas = 0;
         try (Connection conn = ConexaoFactory.Conectar();
                 PreparedStatement stmt = conn.prepareStatement(sql);

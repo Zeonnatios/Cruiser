@@ -78,7 +78,7 @@ div.campoBotoes {
     background-color: #3366ff;
     width: 25px;
     height: 30px;
-    border: 0;
+    border: 1px solid #112b35;
     color: white;
     align-self: center;
     position: relative;

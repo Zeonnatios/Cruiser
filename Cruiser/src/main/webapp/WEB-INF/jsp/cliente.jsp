@@ -111,14 +111,14 @@
                 <!-- HEADER -->
                 <header>
                     <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
-                    <c:choose>
-                        <c:when test="${acao == 'incluir'}">
+                        <c:choose>
+                            <c:when test="${acao == 'incluir'}">
                             <h2><i class="fas fa-users"></i>CADASTRAR NOVO CLIENTE</h2>
                         </c:when>
                         <c:when test="${acao == 'alterar'}">
                             <h2><i class="fas fa-users"></i>EDITAR CLIENTE</h2>
                         </c:when>
-                    </c:choose>    
+                    </c:choose>
                 </header>
 
                 <!-- MAIN conteÃºdo -->
