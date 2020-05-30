@@ -94,8 +94,7 @@ public class LoginServlet extends HttpServlet {
                         if (autenticado.getSenha().equals(senhaStr) && autenticado.getStatus() == true) {
                             HttpSession sessao = request.getSession();
                             sessao.setAttribute("f", autenticado);                            
-                            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-                            dispatcher.forward(request, response);
+                            response.sendRedirect(request.getContextPath() + "/home");
                             return;
                         }
                     }
