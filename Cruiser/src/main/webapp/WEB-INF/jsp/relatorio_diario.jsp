@@ -33,73 +33,95 @@
                 <!-- MENU -->
                 <div class="menu">
 
-                    <ul>
 
-                        <li class="foto-user">
-                            <img src="imagens/AVATAR_CRUISER02.png" alt="">
-                            <h4>Joca</h4>
-                            <p>Departamento de vendas</p>
-                            <p>Matriz</p>
-                        </li>
+                    <c:if test="${sessionScope.f != null}">
+
+                        <ul>
+
+                            <li class="foto-user">
+                                <img src="imagens/AVATAR_CRUISER01.png" alt="">
+                                <h4>${sessionScope.f.getNome()}</h4>
+                                <p>${sessionScope.f.getDepartamento()}</p>
+                                <p>${sessionScope.f.getCidade()}</p>
+                            </li>
+
+                            <li>
+                                <a href="<%= request.getContextPath()%>/home" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
+                            </li>
 
 
-                        <li>
-                            <a href="<%= request.getContextPath()%>/home" class="active"> <i class="fas fa-home "></i> PRINCIPAL</a>
-                        </li>
+                            <c:if test="${sessionScope.f.getDepartamento() == 'Tecnologia'}">
 
-                        <li class="drop-list">
-                            <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
-                                <li><a href="<%= request.getContextPath()%>/funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                <li class="drop-list">
+                                    <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
+                                    <ul>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                    </ul>
+                                </li>
+
+                            </c:if>
+                            <c:if test="${sessionScope.f.getDepartamento() == 'Tecnologia' or sessionScope.f.getDepartamento() == 'Vendas' or sessionScope.f.getDepartamento() == 'Gerencia' or sessionScope.f.getDepartamento() == 'Diretoria'}" >
+
+                                <li class="drop-list">
+                                    <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
+                                    <ul>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
+                                    </ul>
+                                </li>
+
+                            </c:if>
+                            <c:if test="${sessionScope.f.getDepartamento() == 'Tecnologia' or sessionScope.f.getDepartamento() == 'Marketing/Produtos'}">
+
+                                <li class ="drop-list">
+                                    <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
+                                    <ul>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                                    </ul>
+                                </li>
+
+                            </c:if>
+                            <c:if test="${sessionScope.f.getDepartamento() == 'Tecnologia' or sessionScope.f.getDepartamento() == 'Vendas'}" >
+
+                                <li class ="drop-list">
+                                    <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
+                                    <ul>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_cliente_novo"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
+                                    </ul>
+                                </li>
+
+                            </c:if>
+                            <c:if test="${sessionScope.f.getDepartamento() == 'Tecnologia' or sessionScope.f.getDepartamento() == 'Gerencia' or sessionScope.f.getDepartamento() == 'Diretoria'}" >
+
+                                <li class="drop-list">
+                                    <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-circle"></i> Diário</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_mensal"><i class="fas fa-circle"></i> Mensal</a></li>
+                                    </ul>
+                                </li>
+
+                            </c:if>
+                            <c:if test="${sessionScope.f.getDepartamento() == 'Tecnologia'}" >
+
+                                <li class ="drop-list">
+                                    <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
+                                    <ul>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido_filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
+                        </c:if>
 
-                        <li class="drop-list">
-                            <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
-                                <li><a href="<%= request.getContextPath()%>/vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
-                                <li><a href="<%= request.getContextPath()%>/vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
-                            </ul>
-                        </li>
-
-                        <li class ="drop-list">
-                            <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
-                                <li><a href="<%= request.getContextPath()%>/produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
-                            </ul>
-                        </li>
-
-                        <li class ="drop-list">
-                            <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
-                                <li><a href="<%= request.getContextPath()%>/cliente_novo"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
-                            </ul>
-                        </li>
-
-
-                        <li class="drop-list">
-                            <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="#"><i class="fas fa-circle"></i> Diário</a></li>
-                                <li><a href="<%= request.getContextPath()%>/mensal"><i class="fas fa-circle"></i> Mensal</a></li>
-                            </ul>
-                        </li>
-
-                        <li class ="drop-list">
-                            <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
-                            <ul>
-                                <li><a href="<%= request.getContextPath()%>/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
-                                <li><a href="<%= request.getContextPath()%>/filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    </c:if>
 
                 </div>
-
+                                    
             </sidebar>
             <!-- Fim sidebar-->
 

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lukas
  */
-@WebServlet(name = "MensalServlet", urlPatterns = {"/mensal"})
+@WebServlet(name = "MensalServlet", urlPatterns = {"/protegido_mensal"})
 public class RelatorioMensalServlet extends HttpServlet {
 
     @Override

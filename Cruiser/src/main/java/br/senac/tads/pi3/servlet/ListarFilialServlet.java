@@ -5,7 +5,6 @@ import br.senac.tads.pi3.controller.FilialService;
 import br.senac.tads.pi3.exception.FiliaisException;
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ListarFiliaisServlet", urlPatterns = {"/listar_filiais"})
+@WebServlet(name = "ListarFiliaisServlet", urlPatterns = {"/protegido_listar_filiais"})
 public class ListarFilialServlet extends HttpServlet {
 
     private FilialService filial = new FilialService();

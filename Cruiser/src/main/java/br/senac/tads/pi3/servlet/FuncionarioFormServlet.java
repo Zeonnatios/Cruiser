@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "FuncionarioServlet", urlPatterns = {"/funcionario_novo", "/funcionario_editar"})
+@WebServlet(name = "FuncionarioServlet", urlPatterns = {"/protegido_funcionario_novo", "/protegido_funcionario_editar"})
 public class FuncionarioFormServlet extends HttpServlet {
 
     private FuncionarioService service = new FuncionarioService();

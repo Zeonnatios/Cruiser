@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author mathe
  */
-@WebServlet(name = "FuncionarioSalvarServlet", urlPatterns = {"/funcionario_salvar", "/funcionario_update"})
+@WebServlet(name = "FuncionarioSalvarServlet", urlPatterns = {"/protegido_funcionario_salvar", "/protegido_funcionario_update"})
 public class FuncionarioSalvarServlet extends HttpServlet {
 
     private FuncionarioService service = new FuncionarioService();

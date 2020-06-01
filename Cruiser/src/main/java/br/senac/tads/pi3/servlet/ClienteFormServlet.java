@@ -9,7 +9,6 @@ import br.senac.tads.pi3.controller.ClienteService;
 import br.senac.tads.pi3.exception.ClienteException;
 import br.senac.tads.pi3.model.Cliente;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ClienteServlet", urlPatterns = {"/cliente_novo", "/cliente_editar"})
+@WebServlet(name = "ClienteServlet", urlPatterns = {"/protegido_cliente_novo", "/protegido_cliente_editar"})
 public class ClienteFormServlet extends HttpServlet {
 
     private ClienteService service = new ClienteService();

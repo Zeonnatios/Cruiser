@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebServlet(name = "FilialSalvarServlet", urlPatterns = {"/filial_salvar", "/filial_update"})
+@WebServlet(name = "FilialSalvarServlet", urlPatterns = {"/protegido_filial_salvar", "/protegido_filial_update"})
 public class FilialSalvarServlet extends HttpServlet {
 
     private FilialService service = new FilialService();

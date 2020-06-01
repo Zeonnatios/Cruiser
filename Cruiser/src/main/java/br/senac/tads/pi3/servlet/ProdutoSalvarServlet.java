@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ProdutoSalvarServlet", urlPatterns = {"/produto_salvar", "/produto_update"})
+@WebServlet(name = "ProdutoSalvarServlet", urlPatterns = {"/protegido_produto_salvar", "/protegido_produto_update"})
 public class ProdutoSalvarServlet extends HttpServlet {
 
     private ProdutoService service = new ProdutoService();

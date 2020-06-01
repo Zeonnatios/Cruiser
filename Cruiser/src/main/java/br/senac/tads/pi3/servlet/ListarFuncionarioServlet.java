@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lukas
  */
-@WebServlet(name = "ListarFuncionariosServlet", urlPatterns = {"/listar_funcionarios"})
+@WebServlet(name = "ListarFuncionariosServlet", urlPatterns = {"/protegido_listar_funcionarios"})
 public class ListarFuncionarioServlet extends HttpServlet {
 
     private FuncionarioService funcionario = new FuncionarioService();

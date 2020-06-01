@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "FilialFormServlet", urlPatterns = {"/filial_novo", "/filial_editar"})
+@WebServlet(name = "FilialFormServlet", urlPatterns = {"/protegido_filial_novo", "/protegido_filial_editar"})
 public class FilialFormServlet extends HttpServlet {
 
     private FilialService service = new FilialService();
