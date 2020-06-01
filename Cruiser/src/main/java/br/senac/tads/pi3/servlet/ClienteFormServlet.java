@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author EdUaRdO
+ * @author Cruiser
  */
 @WebServlet(name = "ClienteServlet", urlPatterns = {"/cliente_novo", "/cliente_editar"})
 public class ClienteFormServlet extends HttpServlet {

@@ -9,7 +9,6 @@ import br.senac.tads.pi3.controller.FuncionarioService;
 import br.senac.tads.pi3.exception.FuncionarioException;
 import br.senac.tads.pi3.model.Funcionario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

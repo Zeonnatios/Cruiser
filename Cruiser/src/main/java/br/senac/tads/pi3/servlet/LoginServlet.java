@@ -27,9 +27,9 @@ public class LoginServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
 
         // USUÁRIO JÁ ESTÁ LOGADO E ACESSA DIRETAMENTE A HOME
-        if (sessao.getAttribute("funcionario") != null) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-            dispatcher.forward(request, response);
+        if (sessao.getAttribute("f") != null) {
+            response.sendRedirect(request.getContextPath() + "/home");
+            return;
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-        
+
         //RECUPERANDO DADOS DO JSP
         String emailStr = request.getParameter("inputEmail");
         String senhaStr = request.getParameter("inputPassword");
@@ -93,7 +93,7 @@ public class LoginServlet extends HttpServlet {
                         }
                         if (autenticado.getSenha().equals(senhaStr) && autenticado.getStatus() == true) {
                             HttpSession sessao = request.getSession();
-                            sessao.setAttribute("f", autenticado);                            
+                            sessao.setAttribute("f", autenticado);
                             response.sendRedirect(request.getContextPath() + "/home");
                             return;
                         }
@@ -106,6 +106,6 @@ public class LoginServlet extends HttpServlet {
         if (temErros) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
             dispatcher.forward(request, response);
-        } 
+        }
     }
 }

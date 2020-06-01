@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author EdUaRdO
+ * @author Cruiser
  */
 @WebServlet(name = "ClienteSalvarSevlet", urlPatterns = {"/cliente_salvar", "/cliente_update"})
 public class ClienteSalvarSevlet extends HttpServlet {
