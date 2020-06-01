@@ -1,3 +1,4 @@
+br\senac\tads\pi3\filter\Filtro.class
 br\senac\tads\pi3\servlet\ListarFilialServlet.class
 br\senac\tads\pi3\servlet\ClienteFormServlet.class
 br\senac\tads\pi3\servlet\RelatorioDiarioServlet.class
@@ -37,6 +38,7 @@ br\senac\tads\pi3\model\Cliente.class
 br\senac\tads\pi3\exception\FuncionarioException.class
 br\senac\tads\pi3\dao\HomeDao.class
 br\senac\tads\pi3\model\Produto.class
+br\senac\tads\pi3\servlet\LogoutServlet.class
 br\senac\tads\pi3\dao\ClienteDao.class
 br\senac\tads\pi3\jdbc\ConexaoFactory.class
 br\senac\tads\pi3\servlet\FilialSalvarServlet.class

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebFilter(filterName = "Filtro", urlPatterns = {"/protegido/*"}, servletNames = {"HomeServlet"})
+@WebFilter(filterName = "Filtro", urlPatterns = {"/protegido_*"}, servletNames = {"HomeServlet"})
 public class Filtro implements Filter {
 
     @Override
@@ -49,31 +49,31 @@ public class Filtro implements Filter {
         String departamento = funcionario.getDepartamento();
         if (urlAcessada.endsWith("/home")) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/listar_funcionarios") && departamento.equals("Tecnologia")) {
+        } else if (urlAcessada.endsWith("/protegido_listar_funcionarios") && departamento.equals("Tecnologia")) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/funcionario_novo") && departamento.equals("Tecnologia")) {
+        } else if (urlAcessada.endsWith("/protegido_funcionario_novo") && departamento.equals("Tecnologia")) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/listar_filiais") && departamento.equals("Tecnologia")) {
+        } else if (urlAcessada.endsWith("/protegido_listar_filiais") && departamento.equals("Tecnologia")) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/filial_novo") && departamento.equals("Tecnologia")) {
+        } else if (urlAcessada.endsWith("/protegido_filial_novo") && departamento.equals("Tecnologia")) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/carrinho") && (departamento.equals("Tecnologia") || departamento.equals("Vendas") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
+        } else if (urlAcessada.endsWith("/protegido_carrinho") && (departamento.equals("Tecnologia") || departamento.equals("Vendas") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/vendaPeriodo") && (departamento.equals("Tecnologia") || departamento.equals("Vendas") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
+        } else if (urlAcessada.endsWith("/protegido_vendaPeriodo") && (departamento.equals("Tecnologia") || departamento.equals("Vendas") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/vendaDetalhada") && (departamento.equals("Tecnologia") || departamento.equals("Vendas") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
+        } else if (urlAcessada.endsWith("/protegido_vendaDetalhada") && (departamento.equals("Tecnologia") || departamento.equals("Vendas") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/listar_produtos") && (departamento.equals("Tecnologia") || departamento.equals("Marketing/Produtos"))) {
+        } else if (urlAcessada.endsWith("/protegido_listar_produtos") && (departamento.equals("Tecnologia") || departamento.equals("Marketing/Produtos"))) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/produto_novo") && (departamento.equals("Tecnologia") || departamento.equals("Marketing/Produtos"))) {
+        } else if (urlAcessada.endsWith("/protegido_produto_novo") && (departamento.equals("Tecnologia") || departamento.equals("Marketing/Produtos"))) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/listar_clientes") && (departamento.equals("Tecnologia") || departamento.equals("Vendas"))) {
+        } else if (urlAcessada.endsWith("/protegido_listar_clientes") && (departamento.equals("Tecnologia") || departamento.equals("Vendas"))) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/cliente_novo") && (departamento.equals("Tecnologia") || departamento.equals("Vendas"))) {
+        } else if (urlAcessada.endsWith("/protegido_cliente_novo") && (departamento.equals("Tecnologia") || departamento.equals("Vendas"))) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/diario") && (departamento.equals("Tecnologia") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
+        } else if (urlAcessada.endsWith("/protegido_diario") && (departamento.equals("Tecnologia") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
             return true;
-        } else if (urlAcessada.endsWith("/protegido/mensal") && (departamento.equals("Tecnologia") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
+        } else if (urlAcessada.endsWith("/protegido_mensal") && (departamento.equals("Tecnologia") || departamento.equals("Diretoria") || departamento.equals("Gerencia"))) {
             return true;
         } else {
             return false;

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ProdutoForm", urlPatterns = {"/produto_novo", "/produto_editar"})
+@WebServlet(name = "ProdutoForm", urlPatterns = {"/protegido_produto_novo", "/protegido_produto_editar"})
 public class ProdutoFormServlet extends HttpServlet {
 
     private ProdutoService service = new ProdutoService();
@@ -35,14 +35,14 @@ public class ProdutoFormServlet extends HttpServlet {
             request.setAttribute("acao", "incluir");
         } else {
             request.setAttribute("acao", "alterar");
-            
+
             String inteiro = request.getParameter("id");
             int id = Integer.parseInt(inteiro);
 
             try {
                 Produto p = service.select(id);
                 request.setAttribute("produto", p);
-                
+
             } catch (ProdutoException e) {
                 // Se ocorrer erro, obtem a mensagem da exceção
                 String msg = e.getMessage();

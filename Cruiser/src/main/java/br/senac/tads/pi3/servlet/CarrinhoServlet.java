@@ -26,7 +26,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebServlet(name = "CarrinhoServlet", urlPatterns = {"/carrinho"})
+@WebServlet(name = "CarrinhoServlet", urlPatterns = {"/protegido_carrinho"})
 public class CarrinhoServlet extends HttpServlet {
 
     private ProdutoService produto = new ProdutoService();
