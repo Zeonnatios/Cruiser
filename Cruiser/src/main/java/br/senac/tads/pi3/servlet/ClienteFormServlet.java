@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ClienteServlet", urlPatterns = {"/protegido_cliente_novo", "/protegido_cliente_editar"})
+@WebServlet(name = "ClienteServlet", urlPatterns = {"/protegido/cliente_novo", "/protegido/cliente_editar"})
 public class ClienteFormServlet extends HttpServlet {
 
     private ClienteService service = new ClienteService();
@@ -40,9 +40,9 @@ public class ClienteFormServlet extends HttpServlet {
             //Consultar o contato pelo ID e levar para JSP com o request.setAttribute
             try {
                 Cliente c = service.select(id);
-                
+
                 request.setAttribute("cliente", c);
-                
+
             } catch (ClienteException e) {
                 // Se ocorrer erro, obtem a mensagem da exceção
                 String msg = e.getMessage();
@@ -53,5 +53,5 @@ public class ClienteFormServlet extends HttpServlet {
 
         request.getRequestDispatcher("/WEB-INF/jsp/cliente.jsp").forward(request, response);
     }
- 
+
 }

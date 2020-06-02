@@ -84,7 +84,8 @@ function selectedRowProdutoToInput() {
 
             document.getElementById("codigoProduto").value = this.cells[0].innerHTML;
             document.getElementById("inputIDProd").value = this.cells[0].innerHTML;
-            document.getElementById("inputNomeProd").value = this.cells[1].innerHTML;
+            document.getElementById("inputNomeProd1").value = this.cells[1].innerHTML;
+            document.getElementById("inputNomeProd2").value = this.cells[1].innerHTML;
             /*ocument.getElementById("inputQuantProd").value = this.cells[2].innerHTML;*/
             document.getElementById("inputPrecoProd").value = this.cells[3].innerHTML;
             /* alert('Digite a quantidade a ser vendida!');*/
@@ -104,8 +105,10 @@ function selectedRowClienteToInput() {
             rIndex = this.rowIndex;
             document.getElementById("codigoCliente").value = this.cells[0].innerHTML;
             document.getElementById("inputIDCli").value = this.cells[0].innerHTML;
-            document.getElementById("inputNomeCli").value = this.cells[1].innerHTML;
-            document.getElementById("inputCPFCli").value = this.cells[2].innerHTML;
+            document.getElementById("inputNomeCli1").value = this.cells[1].innerHTML;
+            document.getElementById("inputNomeCli2").value = this.cells[1].innerHTML;
+            document.getElementById("inputCPFCli1").value = this.cells[2].innerHTML;
+            document.getElementById("inputCPFCli2").value = this.cells[2].innerHTML;
 
         };
     }
@@ -129,15 +132,21 @@ function addHtmlTableRow() {
             cell4 = newRow.insertCell(3),
             inputIDProd = document.getElementById('inputIDProd').value,
             inputNomeProd = document.getElementById('inputNomeProd').value,
+            inputQuantProd = document.getElementById('inputQuantProd').value,
             inputPrecoProd = document.getElementById('inputPrecoProd').value;
 
 
 
     cell1.innerHTML = inputIDProd;
     cell2.innerHTML = inputNomeProd;
+    cell3.innerHTML = inputQuantProd;
     cell4.innerHTML = inputPrecoProd;
     // call the function to set the event to the new row
     selectedRowToInput();
     alert("Hello! I am an alert box!!");
 
 }
+
+//function replaceString(){
+//   document.getElementById("label").innerHTML = document.getElementById("label").value.replace(",",".");
+//}

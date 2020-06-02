@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "FuncionarioServlet", urlPatterns = {"/protegido_funcionario_novo", "/protegido_funcionario_editar"})
+@WebServlet(name = "FuncionarioServlet", urlPatterns = {"/protegido/funcionario_novo", "/protegido/funcionario_editar"})
 public class FuncionarioFormServlet extends HttpServlet {
 
     private FuncionarioService service = new FuncionarioService();
@@ -32,7 +32,8 @@ public class FuncionarioFormServlet extends HttpServlet {
         if (urlInformada.endsWith("_novo")) {
             // Significa que usuário está abrindo formulário para inclusão.
             request.setAttribute("acao", "incluir");
-        } else {
+
+        } else if (urlInformada.endsWith("_editar")) {
             // Significa que usuário está abrindo formulário para edição.
             request.setAttribute("acao", "alterar");
             //Recebemos o id pelo botão clicado e dps convertemos em String

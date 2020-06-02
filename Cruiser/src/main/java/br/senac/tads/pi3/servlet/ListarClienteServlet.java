@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ListarClientesServlet", urlPatterns = {"/protegido_listar_clientes"})
+@WebServlet(name = "ListarClientesServlet", urlPatterns = {"/protegido/listar_clientes"})
 public class ListarClienteServlet extends HttpServlet {
 
     private ClienteService cliente = new ClienteService();

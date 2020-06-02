@@ -7,14 +7,15 @@ import java.util.Objects;
  * @author Cruiser
  */
 public class Produto {
+
     private int idProduto;
     private String nome;
     private int quantidade;
     private double preco;
     private String categoria;
     private boolean disponivel;
-
-  
+    private double total;
+    private int idLoja;
 
     public String getCategoria() {
         return categoria;
@@ -64,23 +65,38 @@ public class Produto {
         this.disponivel = disponivel;
     }
 
-      @Override
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public int getIdLoja() {
+        return idLoja;
+    }
+
+    public void setIdLoja(int idLoja) {
+        this.idLoja = idLoja;
+    }
+
+    @Override
     public boolean equals(Object obj) {
-        if( obj instanceof Produto) {
+        if (obj instanceof Produto) {
             Produto p = (Produto) obj;
-            if(this.nome.equals(p.nome)) {
+            if (this.nome.equals(p.nome)) {
                 return true;
             }
-           
+
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        
+
         return nome.hashCode();
     }
-    
-    
+
 }

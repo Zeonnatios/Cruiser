@@ -1,4 +1,3 @@
-
 package br.senac.tads.pi3.servlet;
 
 import br.senac.tads.pi3.controller.FuncionarioService;
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lukas
  */
-@WebServlet(name = "ListarFuncionariosServlet", urlPatterns = {"/protegido_listar_funcionarios"})
+@WebServlet(name = "ListarFuncionariosServlet", urlPatterns = {"/protegido/listar_funcionarios"})
 public class ListarFuncionarioServlet extends HttpServlet {
 
     private FuncionarioService funcionario = new FuncionarioService();

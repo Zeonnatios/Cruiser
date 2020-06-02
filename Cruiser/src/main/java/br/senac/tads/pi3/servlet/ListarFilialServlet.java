@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ListarFiliaisServlet", urlPatterns = {"/protegido_listar_filiais"})
+@WebServlet(name = "ListarFiliaisServlet", urlPatterns = {"/protegido/listar_filiais"})
 public class ListarFilialServlet extends HttpServlet {
 
     private FilialService filial = new FilialService();

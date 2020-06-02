@@ -2,18 +2,15 @@ package br.senac.tads.pi3.servlet;
 
 import br.senac.tads.pi3.controller.ClienteService;
 import br.senac.tads.pi3.controller.ProdutoService;
-import br.senac.tads.pi3.dao.VendasDao;
 import br.senac.tads.pi3.exception.ClienteException;
 import br.senac.tads.pi3.exception.ProdutoException;
 import br.senac.tads.pi3.model.Cliente;
+import br.senac.tads.pi3.model.Funcionario;
 import br.senac.tads.pi3.model.Produto;
 import br.senac.tads.pi3.model.Venda;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebServlet(name = "CarrinhoServlet", urlPatterns = {"/protegido_carrinho"})
+@WebServlet(name = "CarrinhoServlet", urlPatterns = {"/protegido/carrinho"})
 public class CarrinhoServlet extends HttpServlet {
 
     private ProdutoService produto = new ProdutoService();
@@ -36,41 +33,11 @@ public class CarrinhoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-//        HttpSession sessao = request.getSession();
-//        Vector carrinho = (Vector) sessao.getAttribute("carrinho");
-//
-//        if (carrinho == null) {
-//            carrinho = new Vector();
-//            sessao.setAttribute("carrinho", carrinho);
-//        }
-//        String idProduto = request.getParameter("idProduto");
-//        String nome = request.getParameter("nome");
-//        String quantidade = request.getParameter("quantidade");
-//        String idCliente = request.getParameter("idCliente");
-//        String nomeCli = request.getParameter("nomeCli");
-//        String cpfCli = request.getParameter("cpfCli");
-//
-//        Venda v = new Venda();
-//        Produto p = new Produto();
-//        Cliente c = new Cliente();
-//        p.setIdProduto(Integer.parseInt(idProduto));
-//        p.setNome(nome);
-//        v.setProduto(p);
-//        c.setIdCliente(Integer.parseInt(idCliente));
-//        c.setNome(nomeCli);
-//        c.setCpf(cpfCli);
-//        v.setCliente(c);
-//
-//        if (p.equals(p) && c.equals(c)) {
-//            VendasDao dao = new VendasDao();
-//            try {
-//                dao.inserirItem(v);
-//            } catch (SQLException ex) {
-//                Logger.getLogger(CarrinhoServlet.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
+        HttpSession sessao = request.getSession();
+        Funcionario f = (Funcionario) sessao.getAttribute("f");
+
         try {
-            List<Produto> Produtos = produto.listarProduto();
+            List<Produto> Produtos = produto.listarProdutoEstoque(f.getIdLoja());
             request.setAttribute("listarProdutos", Produtos);
             //Os dados contidos nos objetos do método listarProdutos
             //são passados a página jsp através do setAttribute
@@ -92,6 +59,59 @@ public class CarrinhoServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/carrinho.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        if (request.getParameter("comand").equals("add")) {
+            HttpSession sessao = request.getSession();
+
+            // Verifica se já existe atributo itensCarrinho na sessao
+            // Se nao existir cria um novo
+            if (sessao.getAttribute("itensCarrinho") == null) {
+                sessao.setAttribute("itensCarrinho", new ArrayList<Produto>());
+            }
+
+            if (sessao.getAttribute("cliente") == null) {
+                String idCliente = request.getParameter("idCliente");
+                String nomeCli = request.getParameter("nomeCli");
+                String cpfCli = request.getParameter("cpfCli");
+                Cliente c = new Cliente();
+                c.setIdCliente(Integer.parseInt(idCliente));
+                c.setNome(nomeCli);
+                c.setCpf(cpfCli);
+                sessao.setAttribute("cliente", c);
+
+            }
+
+            // Recupera a lista de itens selecionados da sessao
+            ArrayList<Produto> itensCarrinho = (ArrayList<Produto>) sessao.getAttribute("itensCarrinho");
+            Cliente c = (Cliente) sessao.getAttribute("cliente");
+
+            request.setCharacterEncoding("UTF-8");
+            String idProduto = request.getParameter("idProduto");
+            String nomeP = request.getParameter("nomeProd");
+            String qtdeP = request.getParameter("quantidadeProd");
+            String precoProd = request.getParameter("precoProd");
+
+            double total = Integer.parseInt(qtdeP) * Double.parseDouble(precoProd);
+            Produto prod = new Produto();
+            prod.setIdProduto(Integer.parseInt(idProduto));
+            prod.setNome(nomeP);
+            prod.setQuantidade(Integer.parseInt(qtdeP));
+            prod.setPreco(Double.parseDouble(precoProd));
+            prod.setTotal(total);
+            itensCarrinho.add(prod);
+
+            Venda carrinho = new Venda();
+            carrinho.setProduto(itensCarrinho);
+
+            System.out.println("ID: " + idProduto + " nome: " + nomeP + " qtde: " + qtdeP + " Preco: " + precoProd + " Total: " + total);
+
+            response.sendRedirect(request.getContextPath() + "/protegido/carrinho");
+        }
     }
 
 }

@@ -33,11 +33,13 @@ PRIMARY KEY (cli_id)
 
 CREATE TABLE PRODUTO(
 prod_id int not null auto_increment,
-prod_nome varchar(50) not null unique,
+prod_nome varchar(50) not null,
 prod_qtde int not null,
 prod_preco double(10,2) not null,
 prod_status boolean not null,
-PRIMARY KEY(prod_id)
+prod_loja_id int not null,
+PRIMARY KEY(prod_id),
+FOREIGN KEY (prod_loja_id) REFERENCES LOJA(loja_id)
 );
 
 CREATE TABLE VENDA(
@@ -75,7 +77,7 @@ VALUES ('1', 'Matheus Antonio da Silva', 'matheusantonio232@gmail.com', 'asd', '
 INSERT INTO `CLIENTE` (`cli_id`, `cli_nome`, `cli_cpf`, `cli_email`) 
 VALUES ('1', 'Jorge', '12345678910', 'jorge@teste.com');
 
-INSERT INTO `PRODUTO` (`prod_id`, `prod_nome`, `prod_qtde`, `prod_preco`, `prod_status`) 
-VALUES ('1', 'Skate Cruiser', '50', '540.00', '1'), 
-('2', 'Rolamento T5', '150', '29.90', '1'), 
-('3', 'Skate Street', '300', '450.00', '1');
+INSERT INTO `PRODUTO`(`prod_id`, `prod_nome`, `prod_qtde`, `prod_preco`, `prod_status`, `prod_loja_id`) 
+VALUES ('1', 'Skate Cruiser', '50', '540.00', '1', '1'), 
+('2', 'Rolamento T5', '150', '29.90', '1', '1'), 
+('3', 'Skate Street', '300', '450.00', '1', '1');

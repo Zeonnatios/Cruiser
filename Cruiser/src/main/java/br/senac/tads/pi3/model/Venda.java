@@ -1,5 +1,7 @@
 package br.senac.tads.pi3.model;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -10,11 +12,13 @@ public class Venda {
 
     private int idVenda;
     private int idFuncionario;
-    private Date dataVenda;
+    private LocalDate dataVenda;
     private int idCliente;
     private double valorTotal;
-    private Produto produto;
+    private Funcionario funcionario;
     private Cliente cliente;
+    private ArrayList<Produto> produto;
+    private int idLoja;
 
     public Cliente getCliente() {
         return cliente;
@@ -24,17 +28,24 @@ public class Venda {
         this.cliente = cliente;
     }
 
-    public Produto getProduto() {
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public ArrayList<Produto> getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduto(ArrayList<Produto> produto) {
         this.produto = produto;
     }
-    
 
     public Venda() {
-    
+
     }
 
     public int getIdVenda() {
@@ -53,11 +64,11 @@ public class Venda {
         this.idFuncionario = idFuncionario;
     }
 
-    public Date getDataVenda() {
+    public LocalDate getDataVenda() {
         return dataVenda;
     }
 
-    public void setDataVenda(Date dataVenda) {
+    public void setDataVenda(LocalDate dataVenda) {
         this.dataVenda = dataVenda;
     }
 
@@ -75,6 +86,14 @@ public class Venda {
 
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public int getIdLoja() {
+        return idLoja;
+    }
+
+    public void setIdLoja(int idLoja) {
+        this.idLoja = idLoja;
     }
 
 }

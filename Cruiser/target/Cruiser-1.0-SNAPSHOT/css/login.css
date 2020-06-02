@@ -40,3 +40,16 @@
 #form-login .btn:hover {
     color: #112b35;
 }
+
+.bg-erro {
+    background-image: url("../imagens/ERRO401.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    /*pacote de browsers*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+}

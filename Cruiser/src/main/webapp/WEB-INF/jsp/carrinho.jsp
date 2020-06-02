@@ -10,14 +10,14 @@
         <title>TADES - CARRINHO</title>
 
         <!-- Icon Logo-->
-        <link rel="icon" href="imagens/LOGO_CRUISER.png">
+        <link rel="icon" href="${pageContext.request.contextPath}/imagens/LOGO_CRUISER.png">
 
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome-->
-        <link rel="stylesheet" href="libs/fontawesome-free-5.13.0-web/css/all.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/fontawesome-free-5.13.0-web/css/all.min.css">
         <!-- CSS -->
-        <link rel="stylesheet" href="css/all.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css">
 
     </head>
 
@@ -29,7 +29,7 @@
             <sidebar id="sidebar">
 
                 <div class="sidebar-tittle">
-                    <img src="imagens/LOGO_CRUISER_02.png" alt="TADES_logo">
+                    <img src="${pageContext.request.contextPath}/imagens/LOGO_CRUISER_02.png" alt="TADES_logo">
                 </div>
 
                 <!-- MENU -->
@@ -40,7 +40,7 @@
                         <ul>
 
                             <li class="foto-user">
-                                <img src="imagens/AVATAR_CRUISER01.png" alt="">
+                                <img src="${pageContext.request.contextPath}/imagens/AVATAR_CRUISER01.png" alt="">
                                 <h4>${sessionScope.f.getNome()}</h4>
                                 <p>${sessionScope.f.getDepartamento()}</p>
                                 <p>${sessionScope.f.getCidade()}</p>
@@ -56,8 +56,8 @@
                                 <li class="drop-list">
                                     <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/listar_funcionarios"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
                                     </ul>
                                 </li>
 
@@ -68,8 +68,8 @@
                                     <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
                                     <ul>
                                         <li><a href="#"><i class="fas fa-circle"></i> Carrinho</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
                                     </ul>
                                 </li>
 
@@ -79,8 +79,8 @@
                                 <li class ="drop-list">
                                     <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
                                     </ul>
                                 </li>
 
@@ -90,8 +90,8 @@
                                 <li class ="drop-list">
                                     <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_cliente_novo"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/cliente_novo"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
                                     </ul>
                                 </li>
 
@@ -101,8 +101,8 @@
                                 <li class="drop-list">
                                     <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_diario"><i class="fas fa-circle"></i> Diário</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_mensal"><i class="fas fa-circle"></i> Mensal</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/diario"><i class="fas fa-circle"></i> Diário</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/mensal"><i class="fas fa-circle"></i> Mensal</a></li>
                                     </ul>
                                 </li>
 
@@ -112,8 +112,8 @@
                                 <li class ="drop-list">
                                     <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -133,7 +133,10 @@
 
                 <!-- HEADER -->
                 <header>
-                    <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                    <div class="menu-Cima">
+                        <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                        <a href="${pageContext.request.contextPath}/logout"><h2><i class="fas fa-sign-out-alt" alt="logout"></i></h2></a>
+                    </div>
                     <h2><i class="fas fa-cart-arrow-down"></i> CARRINHO</h2>
                 </header>
 
@@ -142,8 +145,22 @@
                     <!-- container-->
                     <div class="container">
 
+                        <c:if test="${sessionScope.msgSucesso != null}">
+                            <div class="alert alert-success" role="alert">
+                                <c:out value="${sessionScope.msgSucesso}" />
+                            </div>
+                            <c:remove scope="session" var="msgSucesso" />
+                        </c:if>
+                        <c:if test="${sessionScope.msgErro != null}">
+                            <div class="alert alert-danger" role="alert">
+                                <c:out value="${sessionScope.msgErro}" />
+                            </div>
+                            <c:remove scope="session" var="msgErro" />
+                        </c:if>
+
+
                         <!-- FORM PARA INSERIR PRODUTOS NO CARRINHO -->
-                        <form action="CarrinhoServlet" method="post">
+                        <form action="${pageContext.request.contextPath}/protegido/carrinho" method="post">
 
                             <!-- row-->
                             <div class="row">
@@ -164,7 +181,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">NOME: </label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="inputNomeProd"name="nome" placeholder="Nome" autofocus>
+                                            <input type="hidden" class="form-control" id="inputNomeProd1" name="nomeProd" placeholder="Nome" >
+                                            <input type="text" class="form-control" id="inputNomeProd2" name="nomep" placeholder="Nome" disabled>
                                         </div>
                                     </div>
 
@@ -172,8 +190,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">QUANTIDADE: </label>
                                         <div class="col-lg-8">
-                                            <input type="hidden"  class="form-control" min="0.01" name="preco" id="inputPrecoProd" maxlength="7" step="0.01">
-                                            <input type="number" class="form-control" id="inputQuantProd"name="quantidade" placeholder="Quantidade">
+                                            <input type="hidden" name="precoProd" id="inputPrecoProd" min="0.01" maxlength="7" step="0.01">
+                                            <input type="number" class="form-control" id="inputQuantProd"name="quantidadeProd" placeholder="Quantidade" autofocus="">
                                         </div>
                                     </div>
 
@@ -187,7 +205,8 @@
                                         <button class="botao" type="reset" value="Reset">Limpar</button>
 
                                         <!-- Botao Adicionar-->
-                                        <button class="botao" type="button" onclick="addHtmlTableRow()">Adicionar</button>
+                                        <input type="hidden" name="comand" value="add">
+                                        <button class="botao" type="submit">Adicionar</button>
                                     </div>
                                 </div>
 
@@ -200,8 +219,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">ID CLIENTE: </label>
                                         <div class="col-lg-8">
-                                            <input type="number" class="form-control" id="codigoCliente" name="codigo" placeholder="ID AUTOMÁTICO" disabled>
-                                            <input type="hidden"  class="form-control" id="inputIDCli" name="idCliente">
+                                            <input type="number" class="form-control" id="codigoCliente" name="codigo" placeholder="ID AUTOMÁTICO" value="${sessionScope.cliente.getIdCliente()}" disabled>
+                                            <input type="hidden" id="inputIDCli" name="idCliente" value="${sessionScope.cliente.getIdCliente()}">
                                         </div>
                                     </div>
 
@@ -209,7 +228,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">NOME: </label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="inputNomeCli"name="nomeCli" placeholder="Nome" autofocus>
+                                            <input type="text" class="form-control" id="inputNomeCli1" name="nome" placeholder="Nome" value="${sessionScope.cliente.getNome()}" disabled>
+                                            <input type="hidden"  id="inputNomeCli2" name="nomeCli"  value="${sessionScope.cliente.getNome()}">
                                         </div>
                                     </div>
 
@@ -217,7 +237,8 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">CPF: </label>
                                         <div class="col-lg-8">
-                                            <input type="text" class="form-control" id="inputCPFCli" maxlength="11" name="cpfCli" placeholder="CPF" disabled>
+                                            <input type="text" class="form-control" id="inputCPFCli1" maxlength="11" name="cpf" placeholder="CPF" value="${sessionScope.cliente.getCpf()}" disabled>
+                                            <input type="hidden"id="inputCPFCli2" maxlength="11" name="cpfCli" value="${sessionScope.cliente.getCpf()}">
                                         </div>
                                     </div>
 
@@ -235,12 +256,14 @@
                             </div>
                             <!-- fim row-->
 
+                        </form>
+                        <!-- Fim form -->
+
+                        <!-- TITULO TABELA -->
+                        <label class="titulotabelas">Carrinho de Compras</label>
 
 
-                            <!-- TITULO TABELA -->
-                            <label class="titulotabelas">Carrinho de Compras</label>
-
-
+                        <form action="${pageContext.request.contextPath}/protegido/finalizarVenda" method="post">
                             <!-- TABELA -->
                             <div class="tableScrow">
                                 <table class="table" id="tb_carrinho">
@@ -255,25 +278,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">01</th>
-                                            <td>Skate Cruiser</td>
-                                            <td>1</td>
-                                            <td>540,00</td>
-                                            <td>540,0</td>
-                                            <td>
-                                                <div class="botoesTabela">
-                                                    <button class="botaoBloquear" type="button"><i class="far fa-trash-alt"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <c:forEach items="${sessionScope.itensCarrinho}" var="produto">
+                                            <tr>
+                                                <th scope="row">${produto.getIdProduto()}</th>
+                                                <td>${produto.nome}</td>
+                                                <td>${produto.quantidade}</td>
+                                                <td>${produto.preco}</td>
+                                                <td>${produto.total}</td>
+                                                <td>
+                                                    <div class="botoesTabela">
+                                                        <a href="${pageContext.request.contextPath}/protegido/carrinho_excluir?id=${produto.getIdProduto()}" class="botaoBloquear" type="button"><i class="far fa-trash-alt"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </c:forEach>
+
                                     </tbody>
                                 </table>
                             </div>
                             <!-- Fim tableScrow-->
+                            <input type="hidden" name="sFuncionaioID" value="${sessionScope.f.getIdFuncionario()}">
+                            <input type="hidden" name="sFuncionarioLoja" value="${sessionScope.f.getIdLoja()}">
                             <button class="botao" type="submit">Fechar Compra</button>
                         </form>
-                        <!-- Fim form -->
+
                     </div>
                     <!-- fim container-->
 
@@ -408,11 +437,11 @@
 
     </body>
 
-    <script src="libs/jquery/jquery.min.js "></script>
-    <script src="libs/jquery/jquery.js "></script>
-    <script src="libs/fontawesome-free-5.13.0-web/js/all.min.js "></script>
-    <script src="libs/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <script src="js/menu.js"></script>
+    <script src="${pageContext.request.contextPath}/libs/jquery/jquery.min.js "></script>
+    <script src="${pageContext.request.contextPath}/libs/jquery/jquery.js "></script>
+    <script src="${pageContext.request.contextPath}/libs/fontawesome-free-5.13.0-web/js/all.min.js "></script>
+    <script src="${pageContext.request.contextPath}/libs/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <script src="${pageContext.request.contextPath}/js/menu.js"></script>
     <script>selectedRowProdutoToInput();selectedRowClienteToInput();</script>
 
 </html>

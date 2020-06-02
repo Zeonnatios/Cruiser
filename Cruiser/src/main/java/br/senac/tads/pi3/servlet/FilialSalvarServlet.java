@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebServlet(name = "FilialSalvarServlet", urlPatterns = {"/protegido_filial_salvar", "/protegido_filial_update"})
+@WebServlet(name = "FilialSalvarServlet", urlPatterns = {"/protegido/filial_salvar", "/protegido/filial_update"})
 public class FilialSalvarServlet extends HttpServlet {
 
     private FilialService service = new FilialService();
@@ -44,11 +44,11 @@ public class FilialSalvarServlet extends HttpServlet {
 
             try {
                 service.inserirFilial(f);
-                sessao.setAttribute("msgSucesso", "Filial cadastrado com sucesso");
+                sessao.setAttribute("msgSucesso", f.getTipo() + " " + f.getCidade() + " foi cadastrado com sucesso!");
             } catch (FiliaisException ex) {
-                sessao.setAttribute("msgErro", "Erro ao cadastrar Filial - " + ex.getMessage());
+                sessao.setAttribute("msgErro", "Erro ao cadastrar " + f.getTipo() + " " + f.getCidade() + " - " + ex.getMessage());
             }
-            response.sendRedirect(request.getContextPath() + "/listar_filiais");
+            response.sendRedirect(request.getContextPath() + "/protegido/listar_filiais");
 
         } else if (urlInformada.endsWith("_update")) {
             //ABRE FORM POPUALDO PARA EDITAR, FALTANTE SELECIONAR OS OPTIONS DOS SELECTS NO JSP
@@ -73,11 +73,11 @@ public class FilialSalvarServlet extends HttpServlet {
 
             try {
                 service.editarFilial(f);
-                sessao.setAttribute("msgSucesso", "Filial editado com sucesso");
+                sessao.setAttribute("msgSucesso", f.getTipo() + " " + f.getCidade() + " foi atualizado com sucesso!");
             } catch (FiliaisException ex) {
-                sessao.setAttribute("msgErro", "Erro ao salvar Filial - " + ex.getMessage());
+                sessao.setAttribute("msgErro", "Erro ao atualizar dados da " + f.getTipo() + " " + f.getCidade() + " - " + ex.getMessage());
             }
-            response.sendRedirect(request.getContextPath() + "/listar_filiais");
+            response.sendRedirect(request.getContextPath() + "/protegido/listar_filiais");
         }
 
     }

@@ -12,10 +12,10 @@ public class ConexaoFactory {
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String LOGIN = "root";
-    //private static final String SENHA = "password";
-    private static final String SENHA = "";
-    private static final String URL = "jdbc:mysql://localhost:3306/cruiserbd?"
-            //private static final String URL = "jdbc:mysql://cruiser.ctolv4k0fynh.sa-east-1.rds.amazonaws.com:3306/CRUISERBD?"
+    private static final String SENHA = "password";
+    //private static final String SENHA = "";
+    //private static final String URL = "jdbc:mysql://localhost:3306/cruiserbd?"
+    private static final String URL = "jdbc:mysql://cruiser.ctolv4k0fynh.sa-east-1.rds.amazonaws.com:3306/CRUISERBD?"
             + "useUnicode=yes&"
             + "characterEncoding=UTF-8&"
             + "useTimezone=true&"

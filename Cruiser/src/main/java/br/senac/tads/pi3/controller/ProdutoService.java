@@ -14,12 +14,21 @@ public class ProdutoService extends SQLException {
 
     private ProdutoDao produtoDAO = new ProdutoDao();
 
-    public List<Produto> listarProduto() throws ProdutoException {
+    public List<Produto> listarProduto(int id) throws ProdutoException {
         try {
             System.out.println("LSITAGEM DE FILIAIS");
-            return produtoDAO.listarProduto();
+            return produtoDAO.listarProduto(id);
         } catch (SQLException e) {
-            throw new ProdutoException("ERRO NA LSITAGEM DE FILIAIS", e);
+            throw new ProdutoException("ERRO NA LSITAGEM DE PRODUTOS", e);
+        }
+    }
+
+    public List<Produto> listarProdutoEstoque(int id) throws ProdutoException {
+        try {
+            System.out.println("LSITAGEM DE FILIAIS");
+            return produtoDAO.listarProdutoEstoque(id);
+        } catch (SQLException e) {
+            throw new ProdutoException("ERRO NA LSITAGEM DE PRODUTOS", e);
         }
     }
 
@@ -39,7 +48,7 @@ public class ProdutoService extends SQLException {
             throw new ProdutoException("ERRO NA INCLUSÃO DOS DADOS", e);
         }
     }
-    
+
     public Produto select(int id) throws ProdutoException {
 
         try {
@@ -50,7 +59,7 @@ public class ProdutoService extends SQLException {
         }
 
     }
-    
+
     public void editarProduto(Produto p) throws ProdutoException {
         try {
             if (isValid(p)) {

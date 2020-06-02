@@ -2,6 +2,7 @@ package br.senac.tads.pi3.servlet;
 
 import br.senac.tads.pi3.controller.ProdutoService;
 import br.senac.tads.pi3.exception.ProdutoException;
+import br.senac.tads.pi3.model.Funcionario;
 import br.senac.tads.pi3.model.Produto;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ProdutoSalvarServlet", urlPatterns = {"/protegido_produto_salvar", "/protegido_produto_update"})
+@WebServlet(name = "ProdutoSalvarServlet", urlPatterns = {"/protegido/produto_salvar", "/protegido/produto_update"})
 public class ProdutoSalvarServlet extends HttpServlet {
 
     private ProdutoService service = new ProdutoService();
@@ -27,41 +28,39 @@ public class ProdutoSalvarServlet extends HttpServlet {
         String urlInformada = request.getRequestURI();
 
         if (urlInformada.endsWith("_salvar")) {
+
+            HttpSession sessao = request.getSession();
+            Funcionario f = (Funcionario) sessao.getAttribute("f");
+
             request.setCharacterEncoding("UTF-8");
             String nome = request.getParameter("nome");
             String quantidade = request.getParameter("quantidade");
             String preco = request.getParameter("preco");
-            //String categoria[] = request.getParameterValues("categoria");
 
             Produto p = new Produto();
             p.setNome(nome);
             p.setQuantidade(Integer.parseInt(quantidade));
             p.setPreco(Double.parseDouble(preco));
             p.setDisponivel(true);
-//            for (int i = 0; i < categoria.length; i++) {
-//                if (categoria[i] != null) {
-//                    //p.setCategoria(categoria[i]);
-//                }
-//            }
-            
-            HttpSession sessao = request.getSession();
+            p.setIdLoja(f.getIdLoja());
 
             try {
                 service.inserirProduto(p);
-                sessao.setAttribute("msgSucesso", "Produto salvo com sucesso");
+                sessao.setAttribute("msgSucesso", "Produto - " + p.getNome() + " cadastrado com sucesso!");
             } catch (Exception ex) {
-                sessao.setAttribute("msgErro", "Erro ao salvar Produto - " + ex.getMessage());
+                sessao.setAttribute("msgErro", "Erro ao cadastrar Produto: " + p.getNome() + " - " + ex.getMessage());
             }
-            response.sendRedirect(request.getContextPath() + "/listar_produtos");
-            
+            response.sendRedirect(request.getContextPath() + "/protegido/listar_produtos");
+
         } else if (urlInformada.endsWith("_update")) {
+            HttpSession sessao = request.getSession();
+            Funcionario f = (Funcionario) sessao.getAttribute("f");
+
             request.setCharacterEncoding("UTF-8");
             String idProduto = request.getParameter("id");
             String nome = request.getParameter("nome");
             String quantidade = request.getParameter("quantidade");
             String preco = request.getParameter("preco");
-            //String categoria[] = request.getParameterValues("categoria");
-            
 
             Produto p = new Produto();
             p.setIdProduto(Integer.parseInt(idProduto));
@@ -69,21 +68,15 @@ public class ProdutoSalvarServlet extends HttpServlet {
             p.setQuantidade(Integer.parseInt(quantidade));
             p.setPreco(Double.parseDouble(preco));
             p.setDisponivel(true);
-//            for (int i = 0; i < categoria.length; i++) {
-//                if (categoria[i] != null) {
-//                    //p.setCategoria(categoria[i]);
-//                }
-//            }
-            
-            HttpSession sessao = request.getSession();
+            p.setIdLoja(f.getIdLoja());
 
             try {
                 service.editarProduto(p);
-                sessao.setAttribute("msgSucesso", "Produto editado com sucesso");
+                sessao.setAttribute("msgSucesso", "Produto - " + p.getNome() + " atualizado com sucesso!");
             } catch (ProdutoException ex) {
-                sessao.setAttribute("msgErro", "Erro ao salvar Produto - " + ex.getMessage());
+                sessao.setAttribute("msgErro", "Erro ao atualizar dados do Produto " + p.getNome() + " - " + ex.getMessage());
             }
-            response.sendRedirect(request.getContextPath() + "/listar_produtos");
+            response.sendRedirect(request.getContextPath() + "/protegido/listar_produtos");
         }
     }
 }

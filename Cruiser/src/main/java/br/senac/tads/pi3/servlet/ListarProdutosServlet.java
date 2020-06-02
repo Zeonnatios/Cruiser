@@ -2,6 +2,7 @@ package br.senac.tads.pi3.servlet;
 
 import br.senac.tads.pi3.controller.ProdutoService;
 import br.senac.tads.pi3.exception.ProdutoException;
+import br.senac.tads.pi3.model.Funcionario;
 import br.senac.tads.pi3.model.Produto;
 import java.io.IOException;
 import java.util.List;
@@ -11,12 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Cruiser
  */
-@WebServlet(name = "ListarProdutosServlet", urlPatterns = {"/protegido_listar_produtos"})
+@WebServlet(name = "ListarProdutosServlet", urlPatterns = {"/protegido/listar_produtos"})
 public class ListarProdutosServlet extends HttpServlet {
 
     private ProdutoService produto = new ProdutoService();
@@ -25,8 +27,11 @@ public class ListarProdutosServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession sessao = request.getSession();
+        Funcionario f = (Funcionario) sessao.getAttribute("f");
+
         try {
-            List<Produto> Produtos = produto.listarProduto();
+            List<Produto> Produtos = produto.listarProduto(f.getIdLoja());
             request.setAttribute("listarProdutos", Produtos);
             //Os dados contidos nos objetos do método listarProdutos
             //são passados a página jsp através do setAttribute

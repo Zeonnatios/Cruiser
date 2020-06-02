@@ -21,10 +21,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ClienteSalvarSevlet", urlPatterns = {"/protegido_cliente_salvar", "/protegido_cliente_update"})
+@WebServlet(name = "ClienteSalvarSevlet", urlPatterns = {"/protegido/cliente_salvar", "/protegido/cliente_update"})
 public class ClienteSalvarSevlet extends HttpServlet {
 
-      private ClienteService service = new ClienteService();
+    private ClienteService service = new ClienteService();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -38,26 +38,22 @@ public class ClienteSalvarSevlet extends HttpServlet {
             String nome = request.getParameter("nome");
             String cpf = request.getParameter("cpf");
             String email = request.getParameter("email");
-            
 
-            
             Cliente c = new Cliente();
             c.setNome(nome);
             c.setCpf(cpf);
             c.setEmail(email);
-            
-            
 
             HttpSession sessao = request.getSession();
 
             try {
                 service.inserirCliente(c);
-                
-                sessao.setAttribute("msgSucesso", "Cliente salvo com sucesso");
+
+                sessao.setAttribute("msgSucesso", "Cliente " + c.getNome() + " cadastrado com sucesso!");
             } catch (ClienteException ex) {
-                sessao.setAttribute("msgErro", "Erro ao salvar Cliente - " + ex.getMessage());
+                sessao.setAttribute("msgErro", "Erro ao cadastrar cliente " + c.getNome() + " - " + ex.getMessage());
             }
-            response.sendRedirect(request.getContextPath() + "/listar_clientes");
+            response.sendRedirect(request.getContextPath() + "/protegido/listar_clientes");
 
         } else if (urlInformada.endsWith("_update")) {
             //ABRE FORM POPULADO PARA EDITAR, FALTANTE SELECIONAR OS OPTIONS DOS SELECTS NO JSP
@@ -70,7 +66,6 @@ public class ClienteSalvarSevlet extends HttpServlet {
             String nome = request.getParameter("nome");
             String cpf = request.getParameter("cpf");
             String email = request.getParameter("email");
-            
 
             System.out.println(id + "\n" + nome + "\n" + cpf + "\n" + email + "\n");
 
@@ -79,17 +74,16 @@ public class ClienteSalvarSevlet extends HttpServlet {
             cli.setNome(nome);
             cli.setCpf(cpf);
             cli.setEmail(email);
-            
 
             HttpSession sessao = request.getSession();
 
             try {
                 service.editarCliente(cli);
-                sessao.setAttribute("msgSucesso", "Cliente editado com sucesso");
+                sessao.setAttribute("msgSucesso", "Dados do Cliente " + cli.getNome() + " atualizados com sucesso!");
             } catch (ClienteException ex) {
-                sessao.setAttribute("msgErro", "Erro ao salvar Cliente - " + ex.getMessage());
+                sessao.setAttribute("msgErro", "Erro ao atualizar dados do cliente " + cli.getNome() + " - " + ex.getMessage());
             }
-            response.sendRedirect(request.getContextPath() + "/listar_clientes");
+            response.sendRedirect(request.getContextPath() + "/protegido/listar_clientes");
         }
 
     }

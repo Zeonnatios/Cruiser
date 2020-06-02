@@ -17,21 +17,21 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author lukas
  */
-@WebServlet(name = "OrdemVendaDetalhadaServlet", urlPatterns = {"/protegido_vendaDetalhada"})
+@WebServlet(name = "OrdemVendaDetalhadaServlet", urlPatterns = {"/protegido/vendaDetalhada"})
 public class OrdemVendaDetalhadaServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ordem_venda_detalhada.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ordem_venda_detalhada.jsp");
         dispatcher.forward(request, response);
-        
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-    }
 
+    }
 
 }

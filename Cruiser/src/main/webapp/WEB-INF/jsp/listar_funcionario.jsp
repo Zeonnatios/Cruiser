@@ -10,14 +10,14 @@
         <title>TADES - FUNCIONARIOS</title>
 
         <!-- Icon Logo-->
-        <link rel="icon" href="imagens/LOGO_CRUISER.png">
+        <link rel="icon" href="${pageContext.request.contextPath}/imagens/LOGO_CRUISER.png">
 
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/bootstrap/css/bootstrap.min.css">
         <!-- Font Awesome-->
-        <link rel="stylesheet" href="libs/fontawesome-free-5.13.0-web/css/all.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/libs/fontawesome-free-5.13.0-web/css/all.min.css">
         <!-- CSS -->
-        <link rel="stylesheet" href="css/all.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.css">
 
 
     </head>
@@ -30,7 +30,7 @@
             <sidebar id="sidebar">
 
                 <div class="sidebar-tittle">
-                    <img src="imagens/LOGO_CRUISER_02.png" alt="TADES_logo">
+                    <img src="${pageContext.request.contextPath}/imagens/LOGO_CRUISER_02.png" alt="TADES_logo">
                 </div>
 
                 <!-- MENU -->
@@ -42,7 +42,7 @@
                         <ul>
 
                             <li class="foto-user">
-                                <img src="imagens/AVATAR_CRUISER01.png" alt="">
+                                <img src="${pageContext.request.contextPath}/imagens/AVATAR_CRUISER01.png" alt="">
                                 <h4>${sessionScope.f.getNome()}</h4>
                                 <p>${sessionScope.f.getDepartamento()}</p>
                                 <p>${sessionScope.f.getCidade()}</p>
@@ -59,7 +59,7 @@
                                     <a href="#"><i class="fas fa-user-friends "></i> FUNCIONARIOS <i class="fas fa-caret-down"></i></a>
                                     <ul>
                                         <li><a href="#"><i class="fas fa-circle"></i> Listar Funcionários</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/funcionario_novo"><i class="fas fa-circle"></i> Gerenciar Funcionários</a></li>
                                     </ul>
                                 </li>
 
@@ -69,9 +69,9 @@
                                 <li class="drop-list">
                                     <a href="#"><i class="fas fa-cart-arrow-down"></i> ORDEM DE VENDA  <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/carrinho"><i class="fas fa-circle"></i> Carrinho</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/vendaPeriodo"><i class="fas fa-circle"></i> Pesquisa venda período</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/vendaDetalhada"><i class="fas fa-circle"></i> Pesquisa venda detalhada</a></li>
                                     </ul>
                                 </li>
 
@@ -81,8 +81,8 @@
                                 <li class ="drop-list">
                                     <a href="#"><i class="fas fa-suitcase "></i> PRODUTOS <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/listar_produtos"><i class="fas fa-circle"></i> Listar Produtos</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/produto_novo"><i class="fas fa-circle"></i> Gerenciar Produtos</a></li>
                                     </ul>
                                 </li>
 
@@ -92,8 +92,8 @@
                                 <li class ="drop-list">
                                     <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_cliente_novo"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/listar_clientes"><i class="fas fa-circle"></i> Listar Clientes</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/cliente_novo"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
                                     </ul>
                                 </li>
 
@@ -103,8 +103,8 @@
                                 <li class="drop-list">
                                     <a href="# "><i class="fas fa-poll "></i> RELATÓRIOS  <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_diario"><i class="fas fa-circle"></i> Diário</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_mensal"><i class="fas fa-circle"></i> Mensal</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/diario"><i class="fas fa-circle"></i> Diário</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/mensal"><i class="fas fa-circle"></i> Mensal</a></li>
                                     </ul>
                                 </li>
 
@@ -114,17 +114,17 @@
                                 <li class ="drop-list">
                                     <a href="# "><i class="fas fa-globe-americas  "></i> FILIAIS  <i class="fas fa-caret-down"></i></a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
-                                        <li><a href="<%= request.getContextPath()%>/protegido_filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/listar_filiais"><i class="fas fa-circle"></i> Listar Filiais</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/protegido/filial_novo"><i class="fas fa-circle"></i> Gerenciar Filiais</a></li>
                                     </ul>
                                 </li>
-                            </ul>
+
+                            </c:if>
+
                         </c:if>
-
-                    </c:if>
-
+                    </ul>
                 </div>
-                
+
             </sidebar>
             <!-- Fim sidebar-->
 
@@ -134,7 +134,10 @@
 
                 <!-- HEADER -->
                 <header>
-                    <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                    <div class="menu-Cima">
+                        <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                        <a href="${pageContext.request.contextPath}/logout"><h2><i class="fas fa-sign-out-alt" alt="logout"></i></h2></a>
+                    </div>
                     <h2><i class="fas fa-users"></i> FUNCIONARIOS</h2>
                 </header>
 
@@ -184,7 +187,7 @@
                                             <td>${fun.status}</td>
                                             <td>
                                                 <div class="botoesTabela">
-                                                    <a href="${pageContext.request.contextPath}/funcionario_editar?id=${fun.getIdFuncionario()}" class="botaoEditar"><i class="fas fa-edit"></i></a>
+                                                    <a href="${pageContext.request.contextPath}/protegido/funcionario_editar?id=${fun.getIdFuncionario()}" class="botaoEditar"><i class="fas fa-edit"></i></a>
 
                                                 </div>
                                             </td>
@@ -194,7 +197,7 @@
                             </table>
                         </div>
                         <!-- Fim tableScrow-->
-                        <a href="${pageContext.request.contextPath}/funcionario_novo" class="botao">Incluir novo</a>
+                        <a href="${pageContext.request.contextPath}/protegido/funcionario_novo" class="botao">Incluir novo</a>
                     </div>
                     <!-- Fim Container-->
 
@@ -207,10 +210,10 @@
         </div>
     </body>
 
-    <script src="libs/jquery/jquery.min.js "></script>
-    <script src="libs/jquery/jquery.js "></script>
-    <script src="libs/fontawesome-free-5.13.0-web/js/all.min.js "></script>
-    <script src="libs/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <script src="js/menu.js"></script>
+    <script src="${pageContext.request.contextPath}/libs/jquery/jquery.min.js "></script>
+    <script src="${pageContext.request.contextPath}/libs/jquery/jquery.js "></script>
+    <script src="${pageContext.request.contextPath}/libs/fontawesome-free-5.13.0-web/js/all.min.js "></script>
+    <script src="${pageContext.request.contextPath}/libs/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <script src="${pageContext.request.contextPath}/js/menu.js"></script>
 
 </html>

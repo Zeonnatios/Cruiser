@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Cruiser
  */
-@WebServlet(name = "ProdutoForm", urlPatterns = {"/protegido_produto_novo", "/protegido_produto_editar"})
+@WebServlet(name = "ProdutoForm", urlPatterns = {"/protegido/produto_novo", "/protegido/produto_editar"})
 public class ProdutoFormServlet extends HttpServlet {
 
     private ProdutoService service = new ProdutoService();

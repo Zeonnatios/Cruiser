@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author mathe
  */
-@WebServlet(name = "FuncionarioSalvarServlet", urlPatterns = {"/protegido_funcionario_salvar", "/protegido_funcionario_update"})
+@WebServlet(name = "FuncionarioSalvarServlet", urlPatterns = {"/protegido/funcionario_salvar", "/protegido/funcionario_update"})
 public class FuncionarioSalvarServlet extends HttpServlet {
 
     private FuncionarioService service = new FuncionarioService();
@@ -58,11 +58,11 @@ public class FuncionarioSalvarServlet extends HttpServlet {
 
             try {
                 service.inserirFuncionario(f);
-                sessao.setAttribute("msgSucesso", "Funcionário salvo com sucesso");
+                sessao.setAttribute("msgSucesso", "Funcionário " + f.getNome() + " cadastrado com sucesso!");
             } catch (FuncionarioException ex) {
-                sessao.setAttribute("msgErro", "Erro ao salvar Funcionário - " + ex.getMessage());
+                sessao.setAttribute("msgErro", "Erro ao cadastrar Funcionário " + f.getNome() + " - " + ex.getMessage());
             }
-            response.sendRedirect(request.getContextPath() + "/listar_funcionarios");
+            response.sendRedirect(request.getContextPath() + "/protegido/listar_funcionarios");
 
         } else if (urlInformada.endsWith("_update")) {
             //ABRE FORM POPULADO PARA EDITAR, FALTANTE SELECIONAR OS OPTIONS DOS SELECTS NO JSP
@@ -100,11 +100,11 @@ public class FuncionarioSalvarServlet extends HttpServlet {
 
             try {
                 service.editarFuncionario(fun);
-                sessao.setAttribute("msgSucesso", "Funcionário editado com sucesso");
+                sessao.setAttribute("msgSucesso", "Dados do Funcionário " + fun.getNome() + " atualizados com sucesso!");
             } catch (FuncionarioException ex) {
-                sessao.setAttribute("msgErro", "Erro ao salvar Funcionário - " + ex.getMessage());
+                sessao.setAttribute("msgErro", "Erro ao atualizar dados do Funcionário " + fun.getNome() + " - " + ex.getMessage());
             }
-            response.sendRedirect(request.getContextPath() + "/listar_funcionarios");
+            response.sendRedirect(request.getContextPath() + "/protegido/listar_funcionarios");
         }
 
     }
