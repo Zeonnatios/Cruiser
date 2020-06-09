@@ -59,7 +59,7 @@ public class FuncionarioFormServlet extends HttpServlet {
         }
 
         try {
-            List<Filial> Filiais = filial.lsitarCidades();
+            List<Filial> Filiais = filial.listarCidades();
             request.setAttribute("listaCidades", Filiais);
             //Os dados contidos nos objetos do método listarFiliais
             //são passados a página jsp através do setAttribute

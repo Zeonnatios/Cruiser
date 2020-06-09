@@ -32,6 +32,7 @@ public class CarrinhoFinalizarServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
 
         request.setCharacterEncoding("UTF-8");
+
         // Recupera a lista de itens selecionados da sessao
         ArrayList<Produto> itensCarrinho = (ArrayList<Produto>) sessao.getAttribute("itensCarrinho");
         Cliente c = (Cliente) sessao.getAttribute("cliente");
@@ -71,6 +72,11 @@ public class CarrinhoFinalizarServlet extends HttpServlet {
         } catch (VendaException ex) {
             sessao.setAttribute("msgErro", "Erro ao finalizar venda - " + ex.getMessage());
         }
+        c.setCpf(null);
+        c.setEmail(null);
+        c.setIdCliente(0);
+        c.setNome(null);
+
         itensCarrinho.clear();
         response.sendRedirect(request.getContextPath() + "/protegido/carrinho");
 

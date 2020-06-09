@@ -23,7 +23,7 @@ public class FilialService {
         }
     }
 
-    public List<Filial> lsitarCidades() throws FiliaisException {
+    public List<Filial> listarCidades() throws FiliaisException {
 
         try {
             System.out.println("LISTAGEM DE CIDADES");
@@ -41,7 +41,7 @@ public class FilialService {
     public void inserirFilial(Filial f) throws FiliaisException {
         try {
             if (isValid(f)) {
-                System.out.println("CADASTRANDO UMA FILIAL");
+                System.out.println("CADASTRANDO UMA LOJA");
                 filialDAO.inserirFilial(f);
             } else {
                 throw new FiliaisException("DADOS INVALIDOS", null);

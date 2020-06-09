@@ -16,7 +16,7 @@ public class ProdutoService extends SQLException {
 
     public List<Produto> listarProduto(int id) throws ProdutoException {
         try {
-            System.out.println("LSITAGEM DE FILIAIS");
+            System.out.println("LSITAGEM DE PRODUTOS");
             return produtoDAO.listarProduto(id);
         } catch (SQLException e) {
             throw new ProdutoException("ERRO NA LSITAGEM DE PRODUTOS", e);
@@ -25,7 +25,7 @@ public class ProdutoService extends SQLException {
 
     public List<Produto> listarProdutoEstoque(int id) throws ProdutoException {
         try {
-            System.out.println("LSITAGEM DE FILIAIS");
+            System.out.println("LSITAGEM DE PRODUTOS");
             return produtoDAO.listarProdutoEstoque(id);
         } catch (SQLException e) {
             throw new ProdutoException("ERRO NA LSITAGEM DE PRODUTOS", e);

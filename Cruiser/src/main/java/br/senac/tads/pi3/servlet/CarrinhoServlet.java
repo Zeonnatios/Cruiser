@@ -36,6 +36,7 @@ public class CarrinhoServlet extends HttpServlet {
         HttpSession sessao = request.getSession();
         Funcionario f = (Funcionario) sessao.getAttribute("f");
 
+        //Listagem de produtos na Model
         try {
             List<Produto> Produtos = produto.listarProdutoEstoque(f.getIdLoja());
             request.setAttribute("listarProdutos", Produtos);
@@ -46,6 +47,7 @@ public class CarrinhoServlet extends HttpServlet {
             String msg = e.getMessage();
             request.setAttribute("msgErro", msg);
         }
+        //Listagem de clientes na Model
         try {
             List<Cliente> clientes = cliente.listarCliente();
             request.setAttribute("listarClientes", clientes);
@@ -75,14 +77,7 @@ public class CarrinhoServlet extends HttpServlet {
             }
 
             if (sessao.getAttribute("cliente") == null) {
-                String idCliente = request.getParameter("idCliente");
-                String nomeCli = request.getParameter("nomeCli");
-                String cpfCli = request.getParameter("cpfCli");
-                Cliente c = new Cliente();
-                c.setIdCliente(Integer.parseInt(idCliente));
-                c.setNome(nomeCli);
-                c.setCpf(cpfCli);
-                sessao.setAttribute("cliente", c);
+                sessao.setAttribute("cliente", new Cliente());
 
             }
 
@@ -95,6 +90,13 @@ public class CarrinhoServlet extends HttpServlet {
             String nomeP = request.getParameter("nomeProd");
             String qtdeP = request.getParameter("quantidadeProd");
             String precoProd = request.getParameter("precoProd");
+
+            String idCliente = request.getParameter("idCliente");
+            String nomeCli = request.getParameter("nomeCli");
+            String cpfCli = request.getParameter("cpfCli");
+            c.setIdCliente(Integer.parseInt(idCliente));
+            c.setNome(nomeCli);
+            c.setCpf(cpfCli);
 
             double total = Integer.parseInt(qtdeP) * Double.parseDouble(precoProd);
             Produto prod = new Produto();

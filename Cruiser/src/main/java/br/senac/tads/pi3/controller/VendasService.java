@@ -15,6 +15,7 @@ public class VendasService {
 
     public int consultarEstoque(int id) throws VendaException {
         try {
+            System.out.println("CONFERINDO SE HÁ ESTOQUE NO BANCO");
             return vendasDAO.consultarEstoque(id);
         } catch (SQLException e) {
             e.printStackTrace();

@@ -25,7 +25,7 @@ public class CarrinhoEditarServlet extends HttpServlet {
         String urlInformada = request.getRequestURI();
         if (urlInformada.endsWith("_excluir")) {
 
-            // Recupera a lista de itens selecionados da sessao
+            // Recupera a lista de itens selecionados da sessao para remover do carrinho de compras
             List<Produto> itensCarrinho = (List<Produto>) sessao.getAttribute("itensCarrinho");
             int id = Integer.parseInt(request.getParameter("id"));
 
