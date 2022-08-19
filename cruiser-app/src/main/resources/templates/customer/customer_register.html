@@ -29,8 +29,8 @@
                         <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
                         <a th:href="@{/logout}"><h2><i class="fas fa-sign-out-alt" alt="logout"></i></h2></a>
                     </div>
-                    <h2 th:if="${customer_action == 'create'}"><i class="fas fa-users"></i>CADASTRAR NOVO CLIENTE</h2>
-                    <h2 th:if="${customer_action == 'edit'}"><i class="fas fa-users"></i>EDITAR CLIENTE</h2>
+                    <h2 th:if="${customer_action == 'create'}"><i class="fas fa-user"></i>CADASTRAR NOVO CLIENTE</h2>
+                    <h2 th:if="${customer_action == 'edit'}"><i class="fas fa-user"></i>EDITAR CLIENTE</h2>
                 </header>
 
                 <div class="main-content">
@@ -79,7 +79,7 @@
                             	<label class="col-sm-2 col-form-label">ID CLIENTE: </label>
                                 <div class="col-lg-10">
                                 	<input type="number" class="form-control" id="id" name="id" placeholder="ID AUTOMÁTICO" value="123" disabled>
-                                    <input type="hidden" class="form-control" id="customerIdHidden" name="userIdHidden" value="123">
+                                    <input type="hidden" class="form-control" id="customerIdHidden" name="customerIdHidden" value="123">
                                 </div>
                             </div>
                             

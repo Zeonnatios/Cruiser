@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TADES - CLIENTES</title>
+        <title>TADES - FILIAIS</title>
 
         <!-- Icon Logo-->
         <link rel="icon" th:href="@{/static/images/LOGO_CRUISER.png}">
@@ -29,30 +29,30 @@
                         <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
                         <a th:href="@{/logout}"><h2><i class="fas fa-sign-out-alt" alt="logout"></i></h2></a>
                     </div>
-					<h2><i class="fas fa-user"></i> CLIENTES</h2>
+                    <h2><i class="fas fa-store"></i>LOJAS</h2>
                 </header>
 
                 <div class="main-content">
                 	<div class="container">
-                        <label class="titulotabelas">TABELA DE CLIENTES</label>
+                        <label class="titulotabelas">TABELA DE FILIAIS</label>
 
                         <div class="tableScrow">
                         	<table class="table">
                                 <thead class="thead-dark">
                                     <tr>
                                     	<th class="table-column" scope="col">ID</th>
-                                        <th class="table-column" scope="col">Nome</th>
-                                        <th class="table-column" scope="col">CPF</th>
-                                        <th class="table-column" scope="col">Email</th>
+                                    	<th class="table-column" scope="col">Cidade</th>
+                                    	<th class="table-column" scope="col">Tipo</th>
+                                    	<th class="table-column" scope="col">Telefone</th>
                                         <th class="table-column" scope="col">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 	<tr>
                                     	<th scope="row">0</th>
-                                        <td>Name</td>
-                                        <td>CPF</td>
-                                        <td>EMAIL</td>
+                                        <td>SP</td>
+                                        <td>Filial</td>
+                                        <td>(11) 0123-4567</td>
                                         <td>
                                         	<div>
                                         		<a href="#" class="botaoEditar">
@@ -64,7 +64,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="/customer/register" class="botao">Incluir novo</a>
+                        <a href="/store/register" class="botao">Incluir novo</a>
                     </div>
                 </div>
             </main>
