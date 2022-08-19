@@ -31,13 +31,206 @@
                         <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
                         <a th:href="@{/logout}"><h2><i class="fas fa-sign-out-alt" alt="logout"></i></h2></a>
                     </div>
-                    <h2><i class="fas fa-cart-arrow-down"></i> CARRINHO</h2>
+                    <h2><i class="fas fa-cart-arrow-down"></i> CARRINHO DE COMPRAS</h2>
                 </header>
-
-
                 
+               		<div class="main-content">
+                    	<div class="container">
+                    	
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row  py-2">
+                                        <label class="col-sm-4 col-form-label">ID PRODUTO: </label>
+                                        <div class="col-lg-8">
+                                            <input type="number" class="form-control" id="codigoProduto" name="codigo" placeholder="ID AUTOMÁTICO" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row py-2">
+                                        <label class="col-sm-4 col-form-label">NOME: </label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="inputNomeProd2" name="nomep" placeholder="Nome" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row py-2">
+                                        <label class="col-sm-4 col-form-label">QUANTIDADE: </label>
+                                        <div class="col-lg-8">                                       
+                                            <input type="number" class="form-control" id="inputQuantProd"name="quantidadeProd" placeholder="Quantidade" autofocus="">
+                                        </div>
+                                    </div>
+                                    <div class="campoBotoes py-3">
+                                        <button class="botao" data-toggle="modal" data-target="#modalProduto" type="button">Pesquisar</button>
+                                        <button class="botao" type="reset" value="Reset">Limpar</button>
+                                        <button class="botao" type="submit">Adicionar</button>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group row  py-2">
+                                        <label class="col-sm-4 col-form-label">ID CLIENTE: </label>
+                                        <div class="col-lg-8">
+                                            <input type="number" class="form-control" id="codigoCliente" name="codigo" placeholder="ID AUTOMÁTICO" value="" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row  py-2">
+                                        <label class="col-sm-4 col-form-label">NOME: </label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="inputNomeCli1" name="nome" placeholder="Nome" value="" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row  py-2">
+                                        <label class="col-sm-4 col-form-label">CPF: </label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" id="inputCPFCli1" maxlength="11" name="cpf" placeholder="CPF" value="" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="campoBotoes py-3">
+                                        <button class="botao" data-toggle="modal" data-target="#modalCliente" type="button">Pesquisar</button>
+                                        <button class="botao" type="reset" value="Reset">Limpar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <label class="titulotabelas">Carrinho de Compras</label>
+
+                        <form action="#" method="post">
+                            <div class="tableScrow">
+                                <table class="table" id="tb_carrinho">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th class="table-column" scope="col">ID</th>
+                                            <th class="table-column" scope="col">Produto</th>
+                                            <th class="table-column" scope="col">Quantidade</th>
+                                            <th class="table-column" scope="col">Preço Uni.</th>
+                                            <th class="table-column" scope="col">Total</th>
+                                            <th class="table-column" scope="col">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    	<tr>
+                                        	<th scope="row">Produto Id</th>
+                                            <td>Nome</td>
+                                            <td>Quantidade</td>
+                                            <td>Preco</td>
+                                            <td>Total</td>
+                                            <td><a href="#" type="button"><i class="far fa-trash-alt"></i></a></td>
+                                       </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="botao" type="submit">Fechar Compra</button>
+                        </form>
+                    </div>
+                </div>
             </main>
         </div>
+        
+        
+        <!-- Modal: modalProduto -->
+        <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="modalProdutos" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Tabela de Produtos</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="tableScrow">
+                            <table class="table" id="tb_produto">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="table-column" scope="col">ID</th>
+                                        <th class="table-column" scope="col">Nome</th>
+                                        <th class="table-column" scope="col">Quantidade</th>
+                                        <th class="table-column" scope="col">Preço Final</th>
+                                        <th class="table-column" scope="col">Status</th>
+                                        <th class="table-column" scope="col">Ações</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                	<tr>
+                                    	<th scope="row"><c:out value="${produto.getIdProduto()}" /></th>
+                                        <td>nome</td>
+                                        <td>quantidade</td>
+                                        <td>preco</td>
+                                        <td>disponivel?</td>
+                                        <td>
+                                        	<div class="botoesTabela">
+                                            	<a href="#" class="botaoEditar"><i class="fas fa-plus"></i></a>
+                                            </div>
+                                        </td>
+                                 	</tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal: modalProduto -->
+
+        <!-- Modal: modalCliente -->
+        <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog" aria-labelledby="modalClientes" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Tabela de Clientes</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="tableScrow">
+                            <table class="table" id="tb_cliente">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="table-column" scope="col">ID</th>
+                                        <th class="table-column" scope="col">Nome</th>
+                                        <th class="table-column" scope="col">CPF</th>
+                                        <th class="table-column" scope="col">Email</th>
+                                        <th class="table-column" scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<tr>
+                                    	<th scope="row">ID</th>
+                                        <td>nome</td>
+                                        <td>cpf</td>
+                                        <td>email</td>
+                                        <td>
+                                        	<div class="botoesTabela">
+                                            	<a href="#" class="botaoEditar"><i class="fas fa-plus"></i></a>
+                                          	</div>
+                                            </td>
+                                  	</tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </body>
     
     
