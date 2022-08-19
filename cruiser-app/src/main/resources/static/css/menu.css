@@ -8,7 +8,7 @@ div.flex-dashboard {
 #sidebar {
     display: block;
     height: 100%;
-    width: 300px;
+    width: 30%;
     background-color: #112b35;
     overflow-x: hidden;
 }
@@ -117,6 +117,10 @@ div.menu ul li {
     width: 100%;
 }
 
+div.menu li:hover {
+	border: 1px solid yellow;
+}
+
 div.menu ul li a {
     color: #BCBCB8;
     text-decoration: none;
@@ -180,11 +184,7 @@ div.menu .foto-user img {
 }
 
 
-/*
-div.menu ul li:hover ul {
-    width: 300px;
-    display: block;
-} */
+
 
 div.menu ul ul svg {
     font-size: 8px;
