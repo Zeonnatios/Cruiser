@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TADES - ORDEM DE VENDAS DETALHADAS</title>
+
+        <!-- Icon Logo-->
+        <link rel="icon" th:href="@{/static/images/LOGO_CRUISER.png}">
+
+        <!-- Bootstrap -->
+  		<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+        <!-- Font Awesome-->
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}">
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/static/css/all.css}">
+
+    </head>
+
+    <body>
+
+        <div class="flex-dashboard">
+        
+        	<div th:replace="fragments/sidebar :: sidebar"></div>
+        
+            <main id="mainContent">
+
+                <header>
+                    <div class="menu-Cima">
+                        <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                        <a th:href="@{/logout}"><h2><i class="fas fa-sign-out-alt" alt="logout"></i></h2></a>
+                    </div>
+                    <h2><i class="fas fa-home "></i>PRINCIPAL</h2>
+                </header>
+
+                <div class="main-content">
+                    <div class="container">
+                        <form action="" method="POST" class="pb-5 pt-2">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">DIGITE O CÓDIGO DE VENDA: </label>
+                                <div class="col-sm-3">
+                                    <input type="number" class="form-control" id="inputCodigoPesquisa" placeholder="DIGITE O CÓDIGO">
+                                </div>
+                            </div>
+                            <div class="campoBotoes py-2">
+                                <button class="botao" type="button">Limpar</button>
+                                <button class="botao" type="button">Pesquisar</button>
+                            </div>
+                        </form>
+
+                        <label class="titulotabelas">PRODUTOS MAIS VENDIDOS</label>
+
+                        <div class="tableScrow_vendas">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th class="table-column" scope="col">VENDEDOR</th>
+                                        <th class="table-column" scope="col">CLIENTE</th>
+                                        <th class="table-column" scope="col">PRODUTO</th>
+                                        <th class="table-column" scope="col">QUANTIDADE</th>
+                                        <th class="table-column" scope="col">VALOR UNITÁRIO</th>
+                                        <th class="table-column" scope="col">DATA</th>
+                                        <th class="table-column" scope="col">FILIAL</th>
+                                        <th class="table-column" scope="col">TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>JORGE RIBEIRO</td>
+                                        <td>FLÁVIA MAGALHAES</td>
+                                        <td>EIXO T86</td>
+                                        <td>03</td>
+                                        <td>42.16</td>
+                                        <td>24/01/2020</td>
+                                        <td>RECIFE</td>
+                                        <td>126.50</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+    
+    
+	<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/font-awesome/5.13.0/js/all.min.js}"></script>
+	<script type="text/javascript" th:src="@{/static/js/main.js}"></script>
+
+</html>
