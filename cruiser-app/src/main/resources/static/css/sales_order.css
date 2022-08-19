@@ -1,0 +1,31 @@
+.tableScrow_vendas{
+    overflow-y: auto;
+    max-height: 480px;
+}
+
+.tableScrow_vendas .table {
+    padding-top: 10px;
+}
+
+/* Overflow bar css width */
+
+.tableScrow_vendas::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f5f5f5;
+}
+
+
+/* Overflow bar css Track */
+
+.tableScrow_vendas::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+}
+
+
+/* Overflow bar css Handle */
+
+.tableScrow_vendas::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #112b35;
+}
