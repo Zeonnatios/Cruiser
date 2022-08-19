@@ -117,10 +117,6 @@ div.menu ul li {
     width: 100%;
 }
 
-div.menu li:hover {
-	border: 1px solid yellow;
-}
-
 div.menu ul li a {
     color: #BCBCB8;
     text-decoration: none;
