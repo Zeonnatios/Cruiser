@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TADES - CLIENTES</title>
+
+        <!-- Icon Logo-->
+        <link rel="icon" th:href="@{/static/images/LOGO_CRUISER.png}">
+
+        <!-- Bootstrap -->
+  		<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+        <!-- Font Awesome-->
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/5.13.0/css/all.min.css}">
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/static/css/all.css}">
+
+    </head>
+
+    <body>
+        <div class="flex-dashboard">
+        
+        	<div th:replace="fragments/sidebar :: sidebar"></div>
+        
+            <main id="mainContent">
+                <header>
+                    <div class="menu-Cima">
+                        <h2><i id="iconMenu" onclick="responsiveSidebar()" class="fas fa-bars"></i></h2>
+                        <a th:href="@{/logout}"><h2><i class="fas fa-sign-out-alt" alt="logout"></i></h2></a>
+                    </div>
+                        <h2 th:if="${customer_action == 'create'}"><i class="fas fa-users"></i>CADASTRAR NOVO CLIENTE</h2>
+                        <h2 th:if="${customer_action == 'edit'}"><i class="fas fa-users"></i>EDITAR CLIENTE</h2>
+                </header>
+
+                <div class="main-content">
+                    <div class="container">
+
+                    	<form method="post" action="#" th:if="${customer_action == 'create'}">
+                        	
+                        	<div class="form-group row py-3">
+                            	<label class="col-sm-2 col-form-label">ID CLIENTE: </label>
+                                <div class="col-lg-10">
+                                	<input type="number" class="form-control" id="id" name="id" placeholder="ID AUTOMÁTICO" disabled>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row py-3">
+                            	<label class="col-sm-2 col-form-label">NOME: </label>
+                                <div class="col-lg-10">
+                                	<input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Nome" autofocus required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row py-3">
+                            	<label class="col-sm-2 col-form-label">CPF: </label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" name="cpf" id="cpf" maxlength="11" placeholder="CPF" required>
+                                </div>
+                          	</div>
+                          	
+							<div class="form-group row py-3">
+                            	<label class="col-sm-2 col-form-label">EMAIL: </label>
+                                <div class="col-lg-10">
+                                	<input type="email" class="form-control" name="email" id="email" maxlength="50" placeholder="Email" required>
+                                </div>
+                            </div>
+
+                            <div class="campoBotoes py-3">
+                            	<button class="botao" type="reset" value="Reset">Limpar</button>
+                                <button class="botao" type="submit">Salvar</button>
+                            </div>
+
+                 		</form>
+                 		
+                    	<form method="post" action="#" th:if="${customer_action == 'edit'}">
+                        	
+                        	<div class="form-group row py-3">
+                            	<label class="col-sm-2 col-form-label">ID CLIENTE: </label>
+                                <div class="col-lg-10">
+                                	<input type="number" class="form-control" id="id" name="id" placeholder="ID AUTOMÁTICO" value="123" disabled>
+                                    <input type="hidden" class="form-control" id="userIdHidden" name="userIdHidden" value="123">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row py-3">
+                            	<label class="col-sm-2 col-form-label">NOME: </label>
+                                <div class="col-lg-10">
+                                	<input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Nome" autofocus required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row py-3">
+                            	<label class="col-sm-2 col-form-label">CPF: </label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" name="cpf" id="cpf" maxlength="11" placeholder="CPF" required>
+                                </div>
+                          	</div>
+                          	
+							<div class="form-group row py-3">
+                            	<label class="col-sm-2 col-form-label">EMAIL: </label>
+                                <div class="col-lg-10">
+                                	<input type="email" class="form-control" name="email" id="email" maxlength="50" placeholder="Email" required>
+                                </div>
+                            </div>
+
+                            <div class="campoBotoes py-3">
+                            	<button class="botao" type="reset" value="Reset">Limpar</button>
+                                <button class="botao" type="submit">Salvar</button>
+                            </div>
+
+                 		</form>
+                            		
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+    
+    
+	<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/webjars/font-awesome/5.13.0/js/all.min.js}"></script>
+	<script type="text/javascript" th:src="@{/static/js/main.js}"></script>
+
+</html>

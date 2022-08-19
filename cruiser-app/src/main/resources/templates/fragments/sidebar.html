@@ -13,14 +13,14 @@
 
 		<ul>
         	<li class="foto-user">
-            	<img th:src="@{static/images/AVATAR_CRUISER01.png}" alt="User Icon">
+            	<img th:src="@{/static/images/AVATAR_CRUISER01.png}" alt="User Icon">
                 <h4>Nome</h4>
                 <p>Departamento</p>
                 <p>Cidade</p>
 			</li>
 
             <li>
-            	<a href="#" class="active"> <i class="fas fa-home "></i>PRINCIPAL</a>
+            	<a href="/home" class="active"> <i class="fas fa-home "></i>PRINCIPAL</a>
             </li>
 
             <li class="inside">
@@ -51,8 +51,8 @@
             <li class ="inside">
                 <a href="#"><i class="fas fa-user "></i> CLIENTES <i class="fas fa-caret-down"></i></a>
                 <ul>
-                	<li><a href="#"><i class="fas fa-circle"></i> Listar Clientes</a></li>
-                    <li><a href="#"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
+                	<li><a href="/customer/list"><i class="fas fa-circle"></i> Listar Clientes</a></li>
+                    <li><a href="/customer/register"><i class="fas fa-circle"></i> Gerenciar Clientes</a></li>
                 </ul>
             </li>
 
